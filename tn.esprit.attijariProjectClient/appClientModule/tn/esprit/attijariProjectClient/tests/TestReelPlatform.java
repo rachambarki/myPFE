@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import tn.esprit.attijariProject.entities.Operateur;
-import tn.esprit.attijariProject.entities.User;
 import tn.esprit.attijatiProject.services.interfaces.ManagementServicesRemote;
 
 public class TestReelPlatform {
@@ -24,7 +23,7 @@ public class TestReelPlatform {
 
 	@Test
 	public void testAddUser() {
-		Operateur operateur=new Operateur();
+		Operateur operateur = new Operateur();
 		Assert.assertTrue(proxy.addUser(operateur));
 	}
 
