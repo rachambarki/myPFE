@@ -23,8 +23,8 @@ public class TestReelPlatform {
 
 	@Test
 	public void testAddUser() {
-		Operateur operateur = new Operateur();
-		Assert.assertTrue(proxy.addUser(operateur));
+//		Operateur operateur = new Operateur();
+//		Assert.assertTrue(proxy.addUser(operateur));
 		// Administrateur administrateur = new Administrateur();
 		// Assert.assertTrue(proxy.addUser(administrateur));
 
