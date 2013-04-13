@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<title>	<ui:insert name="title"></ui:insert></title>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'/>
+<h:outputStylesheet  library="css" name="style.css"/>
+</h:head>
+<body>
+	<div id="header">
+	<ui:include src="/header.xhtml" />
+	</div>
+	<br></br>
+	<div id="content">
+		<ui:insert name="page">...</ui:insert>
+	</div>
+	<br></br>
+	<div id="footer">
+	<ui:include src="/footer.xhtml" />
+	</div>
+
+</body>
+</html>
