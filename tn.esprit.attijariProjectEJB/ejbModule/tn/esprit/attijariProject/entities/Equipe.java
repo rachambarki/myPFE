@@ -6,9 +6,15 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="T_EQUIPE")
 public class Equipe implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idEquipe;
 	private String nomEquipe;
 	private String descEquipe;

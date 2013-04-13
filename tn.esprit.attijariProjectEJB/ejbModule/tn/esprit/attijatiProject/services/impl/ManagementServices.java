@@ -8,6 +8,8 @@ import tn.esprit.attijariProject.entities.User;
 import tn.esprit.attijatiProject.services.interfaces.ManagementServicesLocal;
 import tn.esprit.attijatiProject.services.interfaces.ManagementServicesRemote;
 
+import com.sun.corba.se.spi.orbutil.fsm.Action;
+
 /**
  * Session Bean implementation class ManagementServices
  */
@@ -21,7 +23,7 @@ public class ManagementServices implements ManagementServicesRemote,
 	 * Default constructor.
 	 */
 	public ManagementServices() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
@@ -29,9 +31,21 @@ public class ManagementServices implements ManagementServicesRemote,
 		boolean b = false;
 		try {
 			entityManager.persist(user);
-			b=true;
+			b = true;
 		} catch (Exception e) {
-			System.out.println("pb d'ajout");
+			System.out.println("pb d'ajout user");
+		}
+		return b;
+	}
+
+	@Override
+	public boolean addAction(Action action) {
+		boolean b = false;
+		try {
+			entityManager.persist(action);
+			b = true;
+		} catch (Exception e) {
+			System.out.println("pb d'ajout d'action");
 		}
 		return b;
 	}

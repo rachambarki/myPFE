@@ -14,6 +14,10 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * @param args
 	 */
 	private int idUser;
@@ -27,7 +31,7 @@ public class User implements Serializable {
 	private Equipe equipe;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getIdUser() {
 		return idUser;
 	}
