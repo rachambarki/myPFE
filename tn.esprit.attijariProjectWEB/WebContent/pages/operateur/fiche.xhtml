@@ -1,0 +1,91 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:p="http://primefaces.org/ui"
+				template="/template/template.xhtml">
+	<ui:define name="title">fiche</ui:define>
+	<ui:define name="page">
+		<h:form id="form1">
+		<p:menubar> 
+<p:menuitem value="Acceuil" url="http://www.attijaribank.com.tn/Fr/Accueil_46_3" icon="ui-icon-extlink" /> 
+
+<p:submenu label="Fiche de lacement" icon="ui-icon-search"> 
+<p:menuitem value="Gerer fiches existantes" url="#" />
+<p:menuitem value="Ajouter fiche" url="AjoutFiche.xhtml" /> 
+<p:menuitem value="xxxxxxxx" url="#" /> 
+
+</p:submenu> 
+<p:menuitem value="Traitement" url="traitement.xhtml" icon="ui-icon-search" /> 
+<p:menuitem value="Planning" url="http://www.primefaces.org" icon="ui-icon-search" /> 
+<p:menuitem value="Consulter la boite Mail" url="http://www.gmail.com" icon="ui-icon-extlink" /> 
+
+
+
+<p:menuitem value="Deconnecter" url="http://www.primefaces.org" icon="ui-icon-close" /> 
+
+<f:facet name="options" > 
+<p:inputText style="margin-right:10px"/> 
+<p:commandButton type="button" value="Logout" icon="ui-icon-extlink" /> 
+</f:facet> 
+</p:menubar>
+<P>
+		
+	
+		  <p:fieldset legend=" Gerer fiche de lancement">  </p:fieldset> 
+     
+    
+</P>
+
+<p:dataTable var="Utilisateur" value=""> 
+<p:growl id="msg" /> 
+<p:column icon="ui-icon-check"> 
+<p:selectBooleanCheckbox value=""> 
+<p:ajax update="msg" listener="#{formBean.addMessage}"/> 
+</p:selectBooleanCheckbox> 
+<h:outputText value="" /> 
+</p:column> 
+
+<p:column headerText="Matricule"> 
+<h:outputText value="xxxx" /> 
+<h:outputText value="xxxx" /> 
+<h:outputText value="yyyy" /> 
+</p:column> 
+
+<p:column headerText="Action"> 
+<h:outputText value="xxxx" /> 
+<h:outputText value="xxxx" /> 
+</p:column> 
+
+<p:column headerText="Mode Operatoire"> 
+<h:outputText value="" /> 
+</p:column> 
+
+<p:column headerText="Heure Debut"> 
+<h:outputText value="" /> 
+</p:column>
+
+<p:column headerText="Heure Fin"> 
+<h:outputText value="" /> 
+</p:column> 
+
+<p:column headerText="Verification"> 
+<h:outputText value="" /> 
+</p:column> 
+
+
+
+
+
+</p:dataTable> 
+<p align="center">
+<a href="InterfaceSuperUser.xhtml" class="button round blue image-right ic-right-arrow">Enregistrer</a>
+<a href="InterfaceSuperUser.xhtml" class="button round blue image-right ic-right-arrow">Supprimer</a> 
+</p>
+</h:form>
+  
+
+	
+	</ui:define>
+</ui:composition>

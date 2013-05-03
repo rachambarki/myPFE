@@ -1,0 +1,108 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">AjouterTraitement</ui:define>
+	<ui:define name="page">
+		<h:form id="form1">
+
+			<p:menubar>
+				<p:menuitem value="Acceuil"
+					url="http://www.attijaribank.com.tn/Fr/Accueil_46_3" />
+
+				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+					<p:menuitem value="Gerer fiches existantes" url="fiche.xhtml" />
+					<p:menuitem value="Ajouter Fiche" url="#" />
+					<p:menuitem value="xxxxxxx" url="#" />
+
+				</p:submenu>
+
+				<p:submenu label="Traitement" icon="ui-icon-search">
+					<p:menuitem value="Gerer les traitements existants"
+						url="traitement.xhtml" />
+					<p:menuitem value="Ajouter traitement"
+						url="AjouterTraitement.xhtml" />
+					<p:menuitem value="xxxxxxxx" url="#" />
+
+				</p:submenu>
+				<p:menuitem value="Planning" url="planning.xhtml"
+					icon="ui-icon-search" />
+				<p:menuitem value="Consulter la boite Mail"
+					url="http://www.gmail.com" icon="ui-icon-extlink" />
+
+
+
+				<p:menuitem value="Deconnecter" url="login.xhtml"
+					icon="ui-icon-close" />
+
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" />
+					<p:commandButton type="button" value="Logout"
+						icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+			<P>
+
+
+				<p:fieldset legend=" Nouveau Traitement">
+
+
+
+
+					<h:panelGrid columns="6">
+						<h:outputLabel for="fiche " value="Fiche N: *" />
+						<p:inputText id="fiche" required="true" label="Fiche" value="">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="fiche" />
+
+						<h:outputLabel for="name" value="Name: *" />
+						<p:inputText id="name" required="true" label="Name" value="">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<p:message for="name" />
+
+
+					</h:panelGrid>
+
+
+
+
+
+
+					<h3>Description Fiche</h3>
+					<p:inputTextarea rows="6" cols="150" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</p:fieldset>
+
+
+			</P>
+
+
+			<p align="center">
+				<a href="InterfaceSuperUser.xhtml"
+					class="button round blue image-right ic-right-arrow">Enregistrer</a>
+				<a href="InterfaceSuperUser.xhtml"
+					class="button round blue image-right ic-right-arrow">Supprimer</a>
+			</p>
+
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
