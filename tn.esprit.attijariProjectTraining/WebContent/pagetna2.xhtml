@@ -1,0 +1,92 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:p="http://primefaces.org/ui"
+				template="/template.xhtml">
+	<ui:define name="title">hethi pagetna</ui:define>
+	<ui:define name="page">
+		<h:form id="form1">
+
+			<p:dataTable value="#{userCtr.users}" var="u">
+			
+				<p:column id="column1" headerText="Model">
+					<f:facet name="header">
+						<h:outputText value="login"/>
+					</f:facet>
+					<h:outputText value="#{u.login}"/>
+				</p:column>
+				
+				<p:column id="column2" headerText="Model">
+					<f:facet name="header">
+						<h:outputText value="matricule"/>
+					</f:facet>
+					<h:outputText value="#{u.matricule}"/>
+				</p:column>
+
+			</p:dataTable>
+			<p:dataTable value="#{userCtr.users}" var="u">
+			<f:facet name="header">  
+           ACTIONS
+        </f:facet> 
+         <p:column>  
+            <f:facet name="header">  
+                Mode Operatoire
+            </f:facet>  
+  
+            <h:outputText value="#{car.model}"/>  
+  
+            <f:facet name="footer">  
+                8 digit code  
+            </f:facet>  
+        </p:column>  
+         <p:column>  
+            <f:facet name="header">  
+                Heure_Debut  
+            </f:facet>  
+  
+            <h:outputText value="#{car.model}"/>  
+  
+            <f:facet name="footer">  
+                8 digit code  
+            </f:facet>  
+        </p:column>  
+         <p:column>  
+            <f:facet name="header">  
+                Heure_fin  
+            </f:facet>  
+  
+            <h:outputText value="#{car.model}"/>  
+  
+            <f:facet name="footer">  
+                8 digit code  
+            </f:facet>  
+        </p:column>
+         <p:column>  
+            <f:facet name="header">  
+                Model  
+            </f:facet>  
+  
+            <h:outputText value="#{car.model}"/>  
+  
+            <f:facet name="footer">  
+                8 digit code  
+            </f:facet>  
+        </p:column>    
+			
+				</p:dataTable>
+				
+				
+				<br/>
+				<h3>Commentaire:</h3>  
+  
+<p:inputTextarea rows="10" cols="50" completeMethod="#{autoCompleteBean.completeArea}" queryDelay="750" minQueryLength="4"/>  
+                 
+
+		</h:form>
+
+
+	
+	</ui:define>
+</ui:composition>

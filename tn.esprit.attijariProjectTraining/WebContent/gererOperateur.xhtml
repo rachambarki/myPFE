@@ -1,0 +1,77 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:p="http://primefaces.org/ui"
+				template="/template.xhtml">
+	<ui:define name="title">menuAdmin</ui:define>
+	<ui:define name="page">
+		<h:form id="form1">
+	
+ <p:panel id="panel" header="Nouvel Operateur" style="margin-bottom:10px;">  
+        <p:messages id="messages" />  
+  
+        <h:panelGrid columns="4">  
+            <h:outputLabel for="firstname" value="Firstname: *" />  
+            <p:inputText id="firstname" value="#{userCtr.user.firstName}" required="true" label="Firstname">  
+                <f:validateLength minimum="2" />  
+            </p:inputText>  
+            <p:message for="firstname" />  
+            <h:outputText value="#{pprBean.firstname}" />  
+  
+            <h:outputLabel for="lastname" value="Lastname: *" />  
+            <p:inputText id="surname" value="#{userCtr.user.lastName}" required="true" label="Surname"/>  
+            <p:message for="surname" />  
+            <h:outputText value="#{pprBean.surname}" />  
+            
+            <h:outputLabel for="matricule" value="Matricule: *" />  
+            <p:inputText id="matricule" value="#{userCtr.user.matricule}" required="true" label="Matricule"/>  
+            <p:message for="matricule" />  
+            <h:outputText value="#{pprBean.surname}" />  
+            
+              <h:outputText value="Mot de passe: " />  
+            <p:password id="feedback" value="#{userCtr.user.password}" feedback="true"/> 
+   
+  
+        <h:outputText value="EQUIPE: "  />  
+        <p:selectOneMenu position="left"   value="#{buttonBean.number}" >  
+            <f:selectItem itemLabel="Select One" itemValue="" />  
+            <f:selectItem itemLabel="Matin" itemValue="1" />  
+            <f:selectItem itemLabel="Soir" itemValue="2" />  
+            <f:selectItem itemLabel="Delta" itemValue="3" />  
+        </p:selectOneMenu>  
+   
+           
+  
+        </h:panelGrid>  
+      
+			 <p:growl id="mess"/>  
+  
+    <p:splitButton value="Save" actionListener="#{userCtr.doAddUser()}" update="messages" icon="ui-icon-disk">  
+        <p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>  
+        <p:menuitem value="Delete" actionListener="#{buttonBean.delete}" ajax="false" icon="ui-icon-close"/>  
+        <p:separator />  
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>  
+    </p:splitButton> 
+    
+			
+    </p:panel>  
+   
+  
+ 
+    
+   
+    
+    
+        
+    
+    
+    
+  
+				</h:form>
+
+
+	
+	</ui:define>
+</ui:composition>

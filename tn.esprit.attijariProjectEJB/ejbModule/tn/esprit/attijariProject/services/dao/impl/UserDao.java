@@ -42,8 +42,15 @@ public class UserDao implements UserDaoRemote, UserDaoLocal {
 
 	@Override
 	public List<User> findAllUsers() {
+
 		return entityManager.createQuery("select u from User u")
 				.getResultList();
+	}
+
+	@Override
+	public User finfUserByMatricule(String matricule) {
+
+		return entityManager.find(User.class, matricule);
 	}
 
 }

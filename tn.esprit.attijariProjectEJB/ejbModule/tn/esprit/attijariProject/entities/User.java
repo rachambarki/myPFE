@@ -21,9 +21,9 @@ public class User implements Serializable {
 	 * @param args
 	 */
 	private int idUser;
-	private int matricule;
+	
 	private String password;
-	private String login;
+	private String matricule;
 	private String firstName;
 	private String lastName;
 	private String mailAdress;
@@ -40,13 +40,7 @@ public class User implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public int getMatricule() {
-		return matricule;
-	}
-
-	public void setMatricule(int matricule) {
-		this.matricule = matricule;
-	}
+	
 
 	public String getPassword() {
 		return password;
@@ -56,13 +50,8 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getLogin() {
-		return login;
-	}
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -95,6 +84,14 @@ public class User implements Serializable {
 
 	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
+	}
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
 	}
 
 }

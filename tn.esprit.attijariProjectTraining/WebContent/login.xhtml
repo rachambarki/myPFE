@@ -1,0 +1,46 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+	<ui:define name="title">login</ui:define>
+	<ui:define name="page">
+
+
+
+		<form action="#" method="POST" id="login-form">
+
+
+			<fieldset>
+
+				<p>
+					<label for="login-username">username</label> <input type="text"
+						id="login-username" class="round full-width-input" />
+				</p>
+
+				<p>
+					<label for="login-password">password</label> <input type="password"
+						id="login-password" class="round full-width-input" />
+				</p>
+
+				<p>
+					I've <a href="#">forgotten my password</a>.
+				</p>
+
+				<a href="admin.xhtml"
+					class="button round blue image-right ic-right-arrow">LOG IN</a>
+
+			</fieldset>
+
+			<br />
+			<div class="information-box round">Just click on the "LOG IN"
+				button to continue, no login information required.</div>
+
+		</form>
+
+
+
+
+	</ui:define>
+</ui:composition>

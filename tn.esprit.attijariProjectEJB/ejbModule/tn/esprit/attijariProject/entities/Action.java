@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_ACTION")
+@Table(name = "T_ACTION")
 public class Action implements Serializable {
 
 	/**
@@ -84,7 +84,5 @@ public class Action implements Serializable {
 	public void setFiche(Fiche fiche) {
 		this.fiche = fiche;
 	}
-
-
 
 }
