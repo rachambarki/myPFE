@@ -6,41 +6,16 @@
 	xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
 	<ui:define name="title">login</ui:define>
 	<ui:define name="page">
+		<h:form id="f">
+			<h:panelGrid columns="2" id="p">
+				<h:outputText value="login" />
+				<h:inputText value="#{authenticationBean.user.matricule}" />
+				<h:outputText value="password" />
+				<h:inputSecret value="#{authenticationBean.user.password}" />
+			</h:panelGrid>
+			
+			<h:commandButton value="login" action="#{authenticationBean.login}" />
 
-
-
-		<form action="#" method="POST" id="login-form">
-
-
-			<fieldset>
-
-				<p>
-					<label for="login-username">username</label> <input type="text"
-						id="login-username" class="round full-width-input" />
-				</p>
-
-				<p>
-					<label for="login-password">password</label> <input type="password"
-						id="login-password" class="round full-width-input" />
-				</p>
-
-				<p>
-					I've <a href="#">forgotten my password</a>.
-				</p>
-
-				<a href="admin.xhtml"
-					class="button round blue image-right ic-right-arrow">LOG IN</a>
-
-			</fieldset>
-
-			<br />
-			<div class="information-box round">Just click on the "LOG IN"
-				button to continue, no login information required.</div>
-
-		</form>
-
-
-
-
+		</h:form>
 	</ui:define>
 </ui:composition>
