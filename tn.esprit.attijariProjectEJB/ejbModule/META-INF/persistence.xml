@@ -12,6 +12,7 @@
 		<class>tn.esprit.attijariProject.entities.Administrateur</class>
 		<class>tn.esprit.attijariProject.entities.Action</class>
 		<class>tn.esprit.attijariProject.entities.User</class>
+		<class>tn.esprit.attijariProject.entities.Planning</class>
 		
 
 

@@ -3,19 +3,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
 	<ui:define name="title">login</ui:define>
 	<ui:define name="page">
 		<h:form id="f">
-			<h:panelGrid columns="2" id="p">
+			<p:fieldset legend="S'authentifier">
+
 				<h:outputText value="login" />
 				<h:inputText value="#{authenticationBean.user.matricule}" />
 				<h:outputText value="password" />
 				<h:inputSecret value="#{authenticationBean.user.password}" />
-			</h:panelGrid>
-			
-			<h:commandButton value="login" action="#{authenticationBean.login}" />
 
+
+				<h:commandButton value="login" action="#{authenticationBean.login}" />
+
+			</p:fieldset>
 		</h:form>
 	</ui:define>
 </ui:composition>

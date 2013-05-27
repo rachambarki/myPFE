@@ -9,21 +9,46 @@
 	<ui:define name="page">
 		<h:form id="form1">
 		<p:menubar> 
-<p:menuitem value="Acceuil" url="http://www.attijaribank.com.tn/Fr/Accueil_46_3" icon="ui-icon-extlink" /> 
+<p:menuitem value="Acceuil" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/home1.jsf" icon="ui-icon-extlink" /> 
+
+<p:menuitem value="Gerer operateur" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
 
 <p:submenu label="Fiche de lacement" icon="ui-icon-search"> 
 <p:menuitem value="Gerer fiches existantes" url="#" />
-<p:menuitem value="Ajouter fiche" url="AjoutFiche.xhtml" /> 
+<p:menuitem value="Ajouter fiche" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" /> 
 <p:menuitem value="xxxxxxxx" url="#" /> 
 
 </p:submenu> 
-<p:menuitem value="Traitement" url="traitement.xhtml" icon="ui-icon-search" /> 
-<p:menuitem value="Planning" url="http://www.primefaces.org" icon="ui-icon-search" /> 
+<p:submenu label="Traitement" icon="ui-icon-search">
+					<p:menuitem value="Gerer les traitements existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/traitement.jsf" />
+					<p:menuitem value="Ajouter traitement"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf" />
+					<p:menuitem value="xxxxxxxx" url="#" />
+
+				</p:submenu>
+
+				<p:submenu label="Planning" icon="ui-icon-search">
+					<p:menuitem value="Ajouter Planning" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf" />
+					<p:menuitem value="Gerer les planning existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/Planning.jsf" />
+					
+					<p:menuitem value="xxxxxxxx" url="#" />
+
+				</p:submenu>
+
+				
+
+
+
+					
+
+
+
+
 <p:menuitem value="Consulter la boite Mail" url="http://www.gmail.com" icon="ui-icon-extlink" /> 
 
 
 
-<p:menuitem value="Deconnecter" url="http://www.primefaces.org" icon="ui-icon-close" /> 
+<p:menuitem value="Deconnecter" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" /> 
 
 <f:facet name="options" > 
 <p:inputText style="margin-right:10px"/> 

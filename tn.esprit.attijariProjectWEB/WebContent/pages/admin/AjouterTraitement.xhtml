@@ -10,72 +10,128 @@
 
 			<p:menubar>
 				<p:menuitem value="Acceuil"
-					url="http://www.attijaribank.com.tn/Fr/Accueil_46_3" />
+					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
+					icon="ui-icon-extlink" />
+
+				<p:menuitem value="Gerer operateur"
+					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
 
 				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
-					<p:menuitem value="Gerer fiches existantes" url="fiche.xhtml" />
-					<p:menuitem value="Ajouter Fiche" url="#" />
-					<p:menuitem value="xxxxxxx" url="#" />
-
-				</p:submenu>
-
-				<p:submenu label="Traitement" icon="ui-icon-search">
-					<p:menuitem value="Gerer les traitements existants"
-						url="traitement.xhtml" />
-					<p:menuitem value="Ajouter traitement"
-						url="AjouterTraitement.xhtml" />
+					<p:menuitem value="Gerer fiches existantes" url="#" />
+					<p:menuitem value="Ajouter fiche"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
 					<p:menuitem value="xxxxxxxx" url="#" />
 
 				</p:submenu>
-				<p:menuitem value="Planning" url="planning.xhtml"
-					icon="ui-icon-search" />
+				<p:submenu label="Traitement" icon="ui-icon-search">
+					<p:menuitem value="Gerer les traitements existants"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/traitement.jsf" />
+					<p:menuitem value="Ajouter traitement"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf" />
+					<p:menuitem value="xxxxxxxx" url="#" />
+
+				</p:submenu>
+
+				<p:submenu label="Planning" icon="ui-icon-search">
+					<p:menuitem value="Ajouter Planning"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf" />
+					<p:menuitem value="Gerer les planning existants"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/Planning.jsf" />
+
+					<p:menuitem value="xxxxxxxx" url="#" />
+
+				</p:submenu>
+
+
+
+
+
+
+
+
+
+
 				<p:menuitem value="Consulter la boite Mail"
 					url="http://www.gmail.com" icon="ui-icon-extlink" />
 
 
 
-				<p:menuitem value="Deconnecter" url="login.xhtml"
-					icon="ui-icon-close" />
-
-				<f:facet name="options">
-					<p:inputText style="margin-right:10px" />
-					<p:commandButton type="button" value="Logout"
-						icon="ui-icon-extlink" />
-				</f:facet>
+				<p:menuitem value="Deconnecter"
+					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 			</p:menubar>
 			<P>
 
 
 				<p:fieldset legend=" Nouveau Traitement">
+				
 
 
+					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-
-					<h:panelGrid columns="6">
-						<h:outputLabel for="fiche " value="Fiche N: *" />
-						<p:inputText id="fiche" required="true" label="Fiche" value="">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<p:message for="fiche" />
-
-						<h:outputLabel for="name" value="Name: *" />
-						<p:inputText id="name" required="true" label="Name" value="">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<p:message for="name" />
-
+						<h:outputText value="Type de traitement: " />
+						<p:selectOneButton value="#{buttonBean.number}">
+							<f:selectItem itemLabel="Quotidien" itemValue="1" />
+							<f:selectItem itemLabel="Hebr" itemValue="2" />
+							<f:selectItem itemLabel="Mensuel" itemValue="3" />
+							<f:selectItem itemLabel="A la demande" itemValue="4" />
+						</p:selectOneButton>
 
 					</h:panelGrid>
+					<!--   <p:panel header="Ajaxify">   -->
+					<p:panel>
+						<h:panelGrid columns="3" cellpadding="5">
+							<h:outputText value="Nom Traitement : " />
+							<p:inputText id="surname" value="#{pprBean.surname}">
+								<p:ajax event="blur" update="out2" />
+							</p:inputText>
+							<h:outputText id="out2" value="#{pprBean.surname}" />
+						</h:panelGrid>
+					</p:panel>
+
+
+					<p:separator />
+
+
+
+
+
+					<p:fieldset legend=" Importer fiches">
+
+						<p:dataTable var="
+					Traitement" value="">
+							<p:growl id="msg" />
+							<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+
+							<p:column headerText="Identifient traitement:">
+								<h:outputText value="xxxx" />
+								<h:outputText value="xxxx" />
+								<h:outputText value="yyyy" />
+							</p:column>
+
+							<p:column headerText="Traitement">
+								<h:outputText value="xxxx" />
+								<h:outputText value="xxxx" />
+							</p:column>
+							<p:column headerText="xxxxxxxx">
+								<h:outputText value="xxxx" />
+								<h:outputText value="xxxx" />
+							</p:column>
 
 
 
 
 
 
-					<h3>Description Fiche</h3>
-					<p:inputTextarea rows="6" cols="150" />
+
+						</p:dataTable>
 
 
+					</p:fieldset>
 
 
 

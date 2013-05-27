@@ -4,20 +4,17 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">menuAdmin</ui:define>
+	<ui:define name="title">menuOperateur</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
-				<p:fieldset legend="Menu administrateur">  
+				<p:fieldset legend="Menu operateur">  
 		 <h:panelGrid columns="10" cellpadding="100">  
 			<p:menubar>
 				<p:menuitem value="Acceuil"
-					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/home.jsf"
+					url="http://www.attijaribank.com.tn/Fr/Accueil_46_3"
 					icon="ui-icon-extlink" />
 
-				<p:menuitem value="Gerer operateur"
-					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
-
-				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+							<p:submenu label="Fiche de lacement" icon="ui-icon-search">
 					<p:menuitem value="Gerer fiches existantes" url="#" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />

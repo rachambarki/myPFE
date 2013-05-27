@@ -5,22 +5,79 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-<h:head></h:head> 
-<body> 
-<p:panelGrid columns="2">
-    <f:facet name="header">
-        Basic PanelGrid
-    </f:facet>
-
-    <h:outputLabel for="firstname" value="Firstname: *" />
-    <p:inputText id="firstname" value="" label="Firstname" />
-
-    <h:outputLabel for="surname" value="Surname: *" />
-    <p:inputText id="surname" value="" required="true" label="Surname"/>
-
-    <f:facet name="footer">
-        <p:commandButton type="button" value="Save" icon="ui-icon-check" style="margin:0"/>
-    </f:facet>
-</p:panelGrid>
-</body> 
+<h:form id="form">  
+  
+    <p:growl id="messages" showDetail="true"/>  
+  
+    <p:dataTable var="car" value="#{tableBean.carsSmall}" id="carList" editable="true">  
+  
+        <f:facet name="header">  
+            In-Cell Editing  
+        </f:facet>  
+  
+        <p:ajax event="rowEdit" listener="#{tableBean.onEdit}" update=":form:messages" />  
+        <p:ajax event="rowEditCancel" listener="#{tableBean.onCancel}" update=":form:messages" />  
+  
+        <p:column headerText="Model" style="width:30%">  
+            <p:cellEditor>  
+                <f:facet name="output">  
+                    <h:outputText value="#{car.model}" />  
+                </f:facet>  
+                <f:facet name="input">  
+                    <p:inputText value="#{car.model}" style="width:100%"/>  
+                </f:facet>  
+            </p:cellEditor>  
+        </p:column>  
+  
+        <p:column headerText="Year" style="width:20%">  
+            <p:cellEditor>  
+                <f:facet name="output">  
+                    <h:outputText value="#{car.year}" />  
+                </f:facet>  
+                <f:facet name="input">  
+                    <p:inputText value="#{car.year}" style="width:100%" label="Year"/>  
+                </f:facet>  
+            </p:cellEditor>  
+        </p:column>  
+  
+        <p:column headerText="Manufacturer" style="width:24%">  
+            <p:cellEditor>  
+                <f:facet name="output">  
+                    <h:outputText value="#{car.manufacturer}" />  
+                </f:facet>  
+                <f:facet name="input">  
+                    <h:selectOneMenu value="#{car.manufacturer}" >  
+                        <f:selectItems value="#{tableBean.manufacturers}"  
+                            var="man"   
+                            itemLabel="#{man}"  
+                            itemValue="#{man}" />  
+                    </h:selectOneMenu>  
+                </f:facet>  
+            </p:cellEditor>  
+        </p:column>  
+  
+        <p:column headerText="Color" style="width:20%">  
+            <p:cellEditor>  
+                <f:facet name="output">  
+                    <h:outputText value="#{car.color}" />  
+                </f:facet>  
+                <f:facet name="input">  
+                    <h:selectOneMenu value="#{car.color}" >  
+                        <f:selectItems value="#{tableBean.colors}"  
+                            var="color"   
+                            itemLabel="#{color}"  
+                            itemValue="#{color}" />  
+                    </h:selectOneMenu>  
+                </f:facet>  
+            </p:cellEditor>  
+        </p:column>  
+  
+        <p:column style="width:6%">  
+            <p:rowEditor />  
+        </p:column>  
+  
+    </p:dataTable>  
+  
+</h:form>  
+              
 </html>

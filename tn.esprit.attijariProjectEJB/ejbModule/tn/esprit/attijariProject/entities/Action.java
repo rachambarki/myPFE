@@ -19,7 +19,7 @@ public class Action implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int idAction;
-	private String idNameAction;
+	private String NameAction;
 	private String modeOperatoire;
 	private Date heureDebut;
 	private Date heureFin;
@@ -36,14 +36,7 @@ public class Action implements Serializable {
 		this.idAction = idAction;
 	}
 
-	public String getIdNameAction() {
-		return idNameAction;
-	}
-
-	public void setIdNameAction(String idNameAction) {
-		this.idNameAction = idNameAction;
-	}
-
+	
 	public String getModeOperatoire() {
 		return modeOperatoire;
 	}
@@ -83,6 +76,14 @@ public class Action implements Serializable {
 
 	public void setFiche(Fiche fiche) {
 		this.fiche = fiche;
+	}
+
+	public String getNameAction() {
+		return NameAction;
+	}
+
+	public void setNameAction(String nameAction) {
+		NameAction = nameAction;
 	}
 
 }
