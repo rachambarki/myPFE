@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">login1</ui:define>
+	<ui:define name="page">
+		<h:form id="form1">
+		<center>
+		<p:fieldset legend="Authentification">
+		
+<h:panelGrid border="1" columns="2" bgcolor="#BBFFFF" style="height: 90px; width : 551px;">
+<h:outputText value="Matricule" style="FONT-SIZE: large; FONT-FAMILY: 'Times New Roman';"/>
+<h:inputText value="#{authenticationBean.user.matricule}"/>
+<h:outputText value="Mot de passe " style="FONT-SIZE: large; FONT-FAMILY: 'Times New Roman';" />
+<h:inputSecret value="#{authenticationBean.user.password}" />
+
+</h:panelGrid>
+<p>
+</p>
+<h:commandButton value="Log In" action="#{authenticationBean.login}" style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';"/>
+<br/>
+					  <h:commandLink  actionListener="#{authenticationBean.login}" >  
+            <p:graphicImage library="images" name="log.png"  />  
+         
+        </h:commandLink>  
+				
+<br/>
+
+
+<font color="red" style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+Just click on the "LOGIN NOW"
+button to continue.
+<p>
+ ATTIJARIBANK&copy; 2013. Tous les droits sont r&eacute;serv&eacute;s....
+ </p>
+</font> 
+
+</p:fieldset>
+</center>
+
+</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>

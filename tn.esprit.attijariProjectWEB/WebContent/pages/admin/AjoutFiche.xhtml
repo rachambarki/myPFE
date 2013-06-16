@@ -13,11 +13,23 @@
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
 					icon="ui-icon-extlink" />
 
-				<p:menuitem value="Gerer operateur"
-					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
-
-				!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
-					<p:menuitem value="Gerer fiches existantes" url="#" />
+					<p:submenu label="Utilisateurs" icon="ui-icon-search">
+					<p:menuitem value="Gerer utilisateurs existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+					<p:menuitem value="Ajouter utilisateurs"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
+					
+					</p:submenu>
+					
+					
+<p:submenu label="Actions" icon="ui-icon-search">
+					
+					<p:menuitem value="Ajouter Action"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+					
+<p:menuitem value="Gerer actions existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+</p:submenu>
+	!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+					<p:menuitem value="Gerer fiches existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/gererFiche.jsf" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
 					<p:menuitem value="xxxxxxxx" url="#" />
@@ -62,98 +74,110 @@
 
 			<p:fieldset legend=" Nouvelle Fiche">
 
-
-
-
-				<h:panelGrid columns="8">
-					<h:outputLabel for="fiche " value="Fiche N: *" />
-					<p:inputText id="fiche" required="true" label="Fiche"
-						value="#{FicheCtr.fiche.ficheId}">
+			<h:panelGrid columns="8" cellpadding="25"> 
+			 <p><h:graphicImage library="images" name="fiche.png"  style=" width : 200px;"/></p>
+		
+			
+						<h:panelGrid columns="2"  bgcolor="#BBFFFF">
+						
+					<h:outputLabel for="fiche" value="Fiche N : *" />
+					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheId}"
+						required="true" label="Fiche">
 						<f:validateLength minimum="2" />
 					</p:inputText>
 					<p:message for="fiche" />
-
-					<h:outputLabel for="name" value="Name: *" />
-					<p:inputText id="name" required="true" label="Name" value="">
+					<h:outputText value="" />
+					
+					<h:outputLabel for="fiche" value="Nom Fiche : *" />
+					<p:inputText id="fichen" value="#{ficheCtr.fiche.ficheName}"
+						required="true" label="Fiche">
 						<f:validateLength minimum="2" />
 					</p:inputText>
-					<p:message for="name" />
-
-
-					<h:outputLabel for="calendar" value="Journee: *" />
-
-					<p:calendar value="#{calendarBean.date3}" id="popdupButtonCal"
-						showOn="button" />
-
-
-
-
-				</h:panelGrid>
-
-
-
-
-
-
-
-
-
-
-
-				<h3>Description Fiche</h3>
-				<p:inputTextarea rows="6" cols="150" />
-
-				<p>
-
-					<h:outputText value="Periodicite" />
+					<p:message for="fichen" />
+					<h:outputText value="" />
+					
+					
+					<h:outputLabel for="fichej" value="Desctription : *" />
+					<p:inputText id="fichej" value="#{ficheCtr.fiche.descriptionFiche}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="fichej" />
+					<h:outputText value="" />
+					
+						<h:outputLabel for="fiched" value="Journee : *" />
+					<p:calendar id="fiched" showOn="button" value="#{calendarBean.date3}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+				</p:calendar>
+					 
+					 <h:outputLabel for="fichep" value="Periodicite : *" />
 					<p:selectOneListbox id="basic" value="#{buttonBean.number}">
 						<f:selectItem itemLabel="Quotidien" itemValue="1" />
 						<f:selectItem itemLabel="Mensuel" itemValue="2" />
 						<f:selectItem itemLabel="A la demande" itemValue="3" />
 					</p:selectOneListbox>
+								</h:panelGrid>
+							</h:panelGrid>
+
+
+
+
+
+
+
+
+
+
+
+				
+
+				<p>
+				
 
 
 				</p>
 				<p>
-					<p:panelGrid columns="10">
-						<f:facet name="header">
-      Action
-    </f:facet>
+									</p>
+										<p:dataTable value="#{actionCtr.actions}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
 
-						<h:outputLabel value=":  *" />
-						<p:inputText value="" label="" />
+				<f:facet name="header">
+					<h:outputText value="Importer les actions" />
+				</f:facet>
+					<p:growl id="msg" />
+				
+							<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+				
+				<p:column headerText="Nom Action">
 
-						<h:outputLabel value="N Action: *" />
-						<p:inputText value="" label="N Action" />
 
-						<h:outputLabel value="Action: *" />
-						<p:inputText value="" required="true" label="Action" />
-
-						<h:outputLabel value="Mode Operatoire: *" />
-						<p:inputText value="" required="true" label="Mode Operatoire" />
+					<h:outputText value="#{act.nameAction}" />
 
 
-					</p:panelGrid>
+				</p:column>
+				<p:column headerText="Mode Operatoire">
+					<h:outputText value="#{act.modeOperatoire}" />
+				</p:column>
 
-				</p>
 
-				<p:growl id="mess" />
-
-				<p:splitButton value="Save"
-					actionListener="#{ficheCtr.doAddFiche()}" icon="ui-icon-disk">
-					<p:menuitem value="Update" actionListener="#{buttonBean.update}"
-						icon="ui-icon-arrowrefresh-1-w" />
-					<p:menuitem value="Delete" actionListener="#{buttonBean.delete}"
-						ajax="false" icon="ui-icon-close" />
-					<p:separator />
-					<p:menuitem value="Homepage" url="http://www.primefaces.org"
-						icon="ui-icon-extlink" />
-				</p:splitButton>
+			</p:dataTable>
 
 
 			</p:fieldset>
+			<p>
+			    <p:growl id="messages"/>  
+<p:splitButton value="Enregistrer" actionListener="#{ficheCtr.doAddFiche()}" update="messages" icon="ui-icon-disk">  
+     <p:separator />  
+        <p:menuitem value="Homepage" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf" icon="ui-icon-extlink"/>  
+    </p:splitButton>  
 
-
+</p>
 
 
 		</h:form>

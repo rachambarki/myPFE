@@ -26,6 +26,8 @@ public class UserDao implements UserDaoRemote, UserDaoLocal {
 
 	@Override
 	public void modifier(User t) {
+		System.out.println("wsel");
+		System.out.println(t.getFirstName());
 		entityManager.merge(t);
 
 	}

@@ -10,7 +10,6 @@ import tn.esprit.attijariProject.entities.Action;
 import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoRemote;
 
-
 @Stateless
 public class ActionDao implements ActionDaoLocal, ActionDaoRemote {
 	@PersistenceContext
@@ -24,10 +23,9 @@ public class ActionDao implements ActionDaoLocal, ActionDaoRemote {
 
 	@Override
 	public List<Action> findAllAction() {
-		return null;
 
-	//	return entityManager.createQuery("select a from Action a")
-		//		.getResultList();
+		return entityManager.createQuery("select a from Action a")
+				.getResultList();
 	}
 
 	@Override

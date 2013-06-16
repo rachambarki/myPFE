@@ -18,6 +18,7 @@ public class Action implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private int idAction;
 	private String NameAction;
 	private String modeOperatoire;
@@ -25,6 +26,8 @@ public class Action implements Serializable {
 	private Date heureFin;
 	private String verification;
 	private Fiche fiche;
+
+	private User user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +39,6 @@ public class Action implements Serializable {
 		this.idAction = idAction;
 	}
 
-	
 	public String getModeOperatoire() {
 		return modeOperatoire;
 	}
@@ -84,6 +86,15 @@ public class Action implements Serializable {
 
 	public void setNameAction(String nameAction) {
 		NameAction = nameAction;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

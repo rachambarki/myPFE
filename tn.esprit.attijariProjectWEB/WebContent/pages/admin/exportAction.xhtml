@@ -4,12 +4,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">menuAdmin</ui:define>
+	<ui:define name="title">export</ui:define>
 	<ui:define name="page">
-		<h:form id="form9">
-		
-				<p:fieldset legend="Menu administrateur" >  
-		 <h:panelGrid columns="50" cellpadding="100" bgcolor="#000000" styleClass="panelGridCenter">  
+		<h:form id="form1">
 			<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
@@ -69,10 +66,57 @@
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 					</p:menubar>
 					
-					
-					</h:panelGrid>
+		<p>
+		
+		<p:fieldset legend=" Exporter les donnees de page">
+			<p:dataTable id="tbl" value="#{actionCtr.actions}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
+
+				<f:facet name="header">
+					<h:outputText value="Liste d'action" />
+				</f:facet>
+				<p:column headerText="Nom Action">
+
+
+					<h:outputText value="#{act.nameAction}" />
+
+
+				</p:column>
+				<p:column headerText="Mode Operatoire">
+					<h:outputText value="#{act.modeOperatoire}" />
+				</p:column>
+
+				
+
+
+			</p:dataTable>
+			<center>
+		
+<h:panelGrid columns="4" bgcolor="#BBFFFF">  
+    
+    <p:panel header="Exporter les donnees de page">  
+     
+        <h:commandLink>  
+            <p:graphicImage library="images" name="csv.png" style=" width : 100px;" />  
+            <p:dataExporter type="csv" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage library="images" name="txt.png" style=" width : 100px;" />  
+            <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
+            <p:dataExporter type="pdf" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+    </p:panel>  
+</h:panelGrid>  	
+</center>	
 </p:fieldset>
-		</h:form>
+</p>
+</h:form>
+
 
 
 	</ui:define>

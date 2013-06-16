@@ -4,22 +4,28 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">AjoutPlanning</ui:define>
+	<ui:define name="title">GererAction</ui:define>
 	<ui:define name="page">
-		<h:form id="form1">
-
+		<h:form id="master">
 		<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
 					icon="ui-icon-extlink" />
-
-					<p:submenu label="Utilisateurs" icon="ui-icon-search">
+	<p:submenu label="Utilisateurs" icon="ui-icon-search">
 					<p:menuitem value="Gerer utilisateurs existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 					<p:menuitem value="Ajouter utilisateurs"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
 					
 					</p:submenu>
-				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+
+<p:submenu label="Actions" icon="ui-icon-search">
+					
+					<p:menuitem value="Ajouter Action"
+						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+					
+<p:menuitem value="Gerer actions existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+</p:submenu>
+				!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
 					<p:menuitem value="Gerer fiches existantes" url="#" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
@@ -48,64 +54,55 @@
 
 
 
-
-
-
-
-
-
-				<p:menuitem value="Consulter la boite Mail"
-					url="http://www.gmail.com" icon="ui-icon-extlink" />
-
-
-
 				<p:menuitem value="Deconnecter"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-					</p:menubar>
-			<P>
-
-
-				<p:fieldset legend=" Nouveau Planning">
-
-
-
-					<h:panelGrid columns="8">
-						<h:outputLabel for="Planning " value="Planning N: *" />
-						<p:inputText id="Planning" required="true" label="Planning"
-							value="#{FicheCtr.fiche.ficheId}">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<p:message for="Planning" />
-
-						<h:outputLabel for="Planning" value="Planning: *" />
-						<p:inputText id="planning" required="true" label="NPlanning"
-							value="">
-							<f:validateLength minimum="2" />
-						</p:inputText>
-						<p:message for="Planning" />
-
-
-						<h:outputLabel for="calendar" value="Journee: *" />
-
-						<p:calendar value="#{calendarBean.date3}" id="popdupButtonCalen"
-							showOn="button" />
-
-
-
-
-					</h:panelGrid>
-
-
-				</p:fieldset>
-
-
-			</P>
-
-
+			</p:menubar>
+<p>
 		
+		<p:fieldset legend=" Gerer les fiches">
+			<p:dataTable value="#{actionCtr.actions}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
+
+				<f:facet name="header">
+					<h:outputText value="Liste des fiches de lancement" />
+				</f:facet>
+				<p:column headerText="Nom Action">
+
+
+					<h:outputText value="#{act.nameAction}" />
+
+
+				</p:column>
+				<p:column headerText="Mode Operatoire">
+					<h:outputText value="#{act.modeOperatoire}" />
+				</p:column>
+
+				<p:column headerText="Mise a jour">
+					<h:commandButton value="Mettre a jour">
+						<f:setPropertyActionListener target="#{actionCtr.action}"
+							value="#{act}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+
+
+			</p:dataTable>
+
+
+
+			<h:panelGrid columns="2" rendered="#{actionCtr.displayForm}">
+				<h:outputText value="nom action" />
+				<h:inputText value="#{actionCtr.action.nameAction}" />
+				<h:outputText value="mode operatoire action" />
+				<h:inputText value="#{actionCtr.action.modeOperatoire}" />
+
+			</h:panelGrid>
+			</p:fieldset>
+			</p>
+			<p>
+			<p:commandButton value="Enregister les mises a jour "
+				action="#{actionCtr.doModifierAction}"></p:commandButton>
+				</p>
 		</h:form>
-
-
 
 	</ui:define>
 </ui:composition>

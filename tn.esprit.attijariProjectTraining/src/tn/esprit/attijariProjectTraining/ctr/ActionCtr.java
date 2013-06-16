@@ -15,12 +15,14 @@ import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 public class ActionCtr {
 	private Action action = new Action();
 	private List<Action> actions = new ArrayList<Action>();
+	private boolean displayForm;
 
 	@EJB
 	private ActionDaoLocal actionDaoLocal;
 
 	public List<Action> getActions() {
-
+		System.out.println(actions.size());
+		actions = actionDaoLocal.findAllAction();
 		return actions;
 	}
 
@@ -46,6 +48,14 @@ public class ActionCtr {
 		}
 		return retour;
 
+	}
+
+	public boolean isDisplayForm() {
+		return displayForm;
+	}
+
+	public void setDisplayForm(boolean displayForm) {
+		this.displayForm = displayForm;
 	}
 
 }

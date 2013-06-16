@@ -1,12 +1,14 @@
 package tn.esprit.attijariProject.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,7 @@ public class User implements Serializable {
 	 * @param args
 	 */
 	private int idUser;
-	
+
 	private String password;
 	private String matricule;
 	private String firstName;
@@ -29,6 +31,7 @@ public class User implements Serializable {
 	private String mailAdress;
 
 	private Equipe equipe;
+	private List<Action> actions;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,8 +43,6 @@ public class User implements Serializable {
 		this.idUser = idUser;
 	}
 
-	
-
 	public String getPassword() {
 		return password;
 	}
@@ -49,9 +50,6 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -92,6 +90,19 @@ public class User implements Serializable {
 
 	public void setMatricule(String matricule) {
 		this.matricule = matricule;
+	}
+
+	@OneToMany(mappedBy = "user")
+	public List<Action> getActions() {
+		return actions;
+	}
+
+	public void setActions(List<Action> actions) {
+		this.actions = actions;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

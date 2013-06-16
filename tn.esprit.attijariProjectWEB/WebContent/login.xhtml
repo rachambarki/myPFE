@@ -1,4 +1,4 @@
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -6,18 +6,57 @@
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
 	<ui:define name="title">login</ui:define>
 	<ui:define name="page">
-		<h:form id="f">
-			<p:fieldset legend="S'authentifier">
+	
+		<center>
+			<h:form id="f">
+			
+				<p:fieldset legend="S'authentifier">
+					<h:panelGrid columns="8" cellpadding="1">
 
-				<h:outputText value="login" />
-				<h:inputText value="#{authenticationBean.user.matricule}" />
-				<h:outputText value="password" />
-				<h:inputSecret value="#{authenticationBean.user.password}" />
+						<p>
+							<h:graphicImage library="images" name="lo.png"
+								style=" width : 200px;" />
+						</p>
 
 
-				<h:commandButton value="login" action="#{authenticationBean.login}" />
+						<h:panelGrid columns="1" bgcolor="#BBFFFF">
+							<p:row>
+								<p:column>
+									<h:outputText value="Matricule     :" />
+								</p:column>
+								<p:column>
+									<h:inputText value="#{authenticationBean.user.matricule}" />
+								</p:column>
+							</p:row>
 
-			</p:fieldset>
-		</h:form>
+							<p:row>
+								<p:column>
+									<h:outputText value="Mot de passe :" />
+								</p:column>
+								<h:inputSecret value="#{authenticationBean.user.password}" />
+								<p:column>
+								</p:column>
+							</p:row>
+
+						</h:panelGrid>
+						<h:commandButton value="login"
+							action="#{authenticationBean.login}" />
+					</h:panelGrid>
+
+
+
+					<h:commandLink id="nonAjax"
+						actionListener="#{authenticationBean.login}">
+						<p:graphicImage library="images" name="log.png" />
+
+					</h:commandLink>
+
+<label style="COLOR: #0000b9; FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">Identifiant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> <p:inputText></p:inputText>
+<label style="COLOR: #0000b9; FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">Mot de passe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> <p:inputText></p:inputText>
+
+				</p:fieldset>
+
+			</h:form>
+		</center>
 	</ui:define>
 </ui:composition>

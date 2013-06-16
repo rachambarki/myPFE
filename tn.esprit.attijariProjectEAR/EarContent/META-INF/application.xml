@@ -3,12 +3,6 @@
   <display-name>tn.esprit.attijariProjectEAR</display-name>
   <module>
     <web>
-      <web-uri>tn.esprit.attijariProjectTraining.war</web-uri>
-      <context-root>tn.esprit.attijariProjectTraining</context-root>
-    </web>
-  </module>
-  <module>
-    <web>
       <web-uri>tn.esprit.attijariProjectWEB.war</web-uri>
       <context-root>tn.esprit.attijariProjectWEB</context-root>
     </web>

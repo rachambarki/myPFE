@@ -3,7 +3,6 @@
 	<name>tn.esprit.attijariProjectEAR</name>
 	<comment></comment>
 	<projects>
-		<project>tn.esprit.attijariProjectTraining</project>
 		<project>tn.esprit.attijariProjectWEB</project>
 		<project>tn.esprit.attijariProjectEJB</project>
 	</projects>

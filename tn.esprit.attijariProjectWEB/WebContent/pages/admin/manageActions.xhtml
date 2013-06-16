@@ -4,13 +4,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">menuAdmin</ui:define>
+	<ui:define name="title">manageAction</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
 		
-				<p:fieldset legend="Menu administrateur" >  
-		 <h:panelGrid columns="50" cellpadding="100" bgcolor="#000000" styleClass="panelGridCenter">  
-			<p:menubar>
+
+                    	<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
 					icon="ui-icon-extlink" />
@@ -68,10 +67,89 @@
 				<p:menuitem value="Deconnecter      "
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 					</p:menubar>
-					
-					
-					</h:panelGrid>
-</p:fieldset>
+			
+    
+		
+	<p:layout style="min-width:300px;min-height:350px;" id="layout">  
+	
+                    <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="Options" minSize="200">
+  
+    <p:accordionPanel>
+                        <p:tab title="Calendrier">
+                            <br />
+                            <p:calendar mode="inline" navigator="none"/>
+                            <br />
+                        </p:tab>
+
+                        <p:tab title="Mailing">
+                            <h:outputText value="Menu 2 Content" />
+                        </p:tab>
+
+                        <p:tab title="Sauvegarder">
+                        	<p:commandButton value="Enregister "
+				action="#{actionCtr.doModifierAction}"></p:commandButton>
+                        </p:tab>
+                   
+			
+                    </p:accordionPanel>
+               
+
+ 
+    </p:layoutUnit>  
+  
+    <p:layoutUnit position="center">  
+    <center>
+      	<p:fieldset legend=" Gerer les Actions">
+      	<h:panelGrid border="1" columns="1" bgcolor="#BBFFFF">
+			<p:dataTable value="#{actionCtr.actions}" var="act" paginator="true" 
+				paginatorPosition="bottom" widgetVar="prodTabW">
+
+				<f:facet name="header">
+					<h:outputText value="Liste d'action" />
+				</f:facet>
+				<p:column headerText="Nom Action">
+
+
+					<h:outputText value="#{act.nameAction}" />
+
+
+				</p:column>
+				<p:column headerText="Mode Operatoire">
+					<h:outputText value="#{act.modeOperatoire}" />
+				</p:column>
+
+				<p:column headerText="Mise a jour">
+					<h:commandButton value="Mettre a jour">
+						<f:setPropertyActionListener target="#{actionCtr.action}"
+							value="#{act}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+
+
+			</p:dataTable>
+</h:panelGrid>
+
+
+			<h:panelGrid columns="2" rendered="#{actionCtr.displayForm}">
+				<h:outputText value="nom action" />
+				<h:inputText value="#{actionCtr.action.nameAction}" />
+				<h:outputText value="mode operatoire action" />
+				<h:inputText value="#{actionCtr.action.modeOperatoire}" />
+
+			</h:panelGrid>
+			</p:fieldset>
+			</center>
+
+    </p:layoutUnit>  
+         <p:layoutUnit id="right" position="east" size="300" resizable="true" closable="true" collapsible="true" header="Options" minSize="200">
+  
+                        <h:graphicImage library="images" name="cc.png"  style=" width : 300px;"/>
+
+ 
+    </p:layoutUnit>  
+</p:layout> 
+
+
 		</h:form>
 
 

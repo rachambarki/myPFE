@@ -4,12 +4,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">pagetna2</ui:define>
+	<ui:define name="title">consulterFiche</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
 		
 		
-	<p:layout style="min-width:300px;height:340px;" id="layout">  
+	<p:layout style="min-width:300px;height:330px;" id="layout">  
 	
                 <p:layoutUnit id="top" position="north" size="35" >
 <center>
@@ -65,14 +65,50 @@
     </p:layoutUnit>  
   
     <p:layoutUnit position="center">  
-    <center>
-    <P>
-    </P>
-     <P>
-    </P>
-    <h:graphicImage library="images" name="home_w.png"  style=" width : 300px;"/>
-   
-			</center>
+	<p:dataTable id="tbl" value="#{actionCtr.actions}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
+
+				<f:facet name="header">
+					<h:outputText value="Liste des fiches" />
+				</f:facet>
+				<p:column headerText="Nom Action">
+
+
+					<h:outputText value="#{act.nameAction}" />
+
+
+				</p:column>
+				<p:column headerText="Mode Operatoire">
+					<h:outputText value="#{act.modeOperatoire}" />
+				</p:column>
+
+				
+
+
+			</p:dataTable>
+			<center>
+		
+<h:panelGrid columns="4" bgcolor="#BBFFFF">  
+    
+    <p:panel header="Exporter les donnees de page">  
+     
+        <h:commandLink>  
+            <p:graphicImage library="images" name="csv.png" style=" width : 100px;" />  
+            <p:dataExporter type="csv" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage library="images" name="txt.png" style=" width : 100px;" />  
+            <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+          
+        <h:commandLink>  
+            <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
+            <p:dataExporter type="pdf" target="tbl" fileName="actions" pageOnly="true"/>  
+        </h:commandLink>  
+    </p:panel>  
+</h:panelGrid>  	
+</center>	
 			    </p:layoutUnit>  
 
  

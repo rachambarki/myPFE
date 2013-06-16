@@ -4,15 +4,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">ajoutOp</ui:define>
+	<ui:define name="title">AjoutAction</ui:define>
 	<ui:define name="page">
-		<h:form id="form1">
-
+		<h:form id="form">
 			<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
 					icon="ui-icon-extlink" />
-	<p:submenu label="Utilisateurs" icon="ui-icon-search">
+
+					<p:submenu label="Utilisateurs" icon="ui-icon-search">
 					<p:menuitem value="Gerer utilisateurs existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 					<p:menuitem value="Ajouter utilisateurs"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
@@ -25,7 +25,8 @@
 					
 <p:menuitem value="Gerer actions existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
 </p:submenu>
-				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+
+				!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
 					<p:menuitem value="Gerer fiches existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/gererFiche.jsf" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
@@ -55,93 +56,77 @@
 
 
 
-
-
-
-
-
-
 				<p:menuitem value="Deconnecter"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 			</p:menubar>
-
 <p>
 
-			<p:fieldset legend=" Inserer un nouveau utilisateur">
-			<h:panelGrid columns="8" cellpadding="30">  
-				 <p><h:graphicImage library="images" name="user.png"  style=" width : 200px;"/></p>
+			<p:fieldset legend=" Inserer une nouvelle action">
+			<h:panelGrid columns="8" cellpadding="25">  
+				 <p><h:graphicImage library="images" name="action.png"  style=" width : 200px;"/></p>
 		<p>
-
-				<h:panelGrid columns="4" bgcolor="#BBFFFF">
-					<h:outputLabel for="firstname" value="Firstname: *" />
-					<p:inputText id="firstname" value="#{userCtr.user.firstName}"
-						required="true" label="Firstname">
+				<h:panelGrid columns="4"  bgcolor="#BBFFFF">
+					<h:outputLabel for="action" value="Action : *" />
+					<p:inputText id="action" value="#{actionCtr.action.nameAction}"
+						required="true" label="Action">
 						<f:validateLength minimum="2" />
 					</p:inputText>
-					<p:message for="firstname" />
-					<h:outputText value="#{pprBean.firstname}" />
-
-					<h:outputLabel for="lastname" value="Lastname: *" />
-					<p:inputText id="lastname" value="#{userCtr.user.lastName}"
-						required="true" label="Surname" />
-					<p:message for="lastname" />
-					<h:outputText value="#{pprBean.surname}" />
-
-					<h:outputLabel for="matricule" value="Matricule: *" />
-					<p:inputText id="matricule" value="#{userCtr.user.matricule}"
-						required="true" label="Matricule" />
-					<p:message for="matricule" />
-					<h:outputText value="#{pprBean.surname}" />
-
-					<h:outputText value="Mot de passe: " />
-					<p:password id="feedback" value="#{userCtr.user.password}"
-						feedback="true" />
-
-					<p:separator />
-
-					<p>
-						<h:outputText value="Equipe: " />
-						<p:selectOneMenu position="right" value="#{buttonBean.number}">
-							<f:selectItem itemLabel="Select One" itemValue="" />
-							<f:selectItem itemLabel="Matin" itemValue="1" />
-							<f:selectItem itemLabel="Soir" itemValue="2" />
-							<f:selectItem itemLabel="Delta" itemValue="3" />
-						</p:selectOneMenu>
-
-
-</p>
-
-
-				</h:panelGrid>
-
-
+					<p:message for="action" />
+					<h:outputText value="" />
+					
+						<h:outputLabel for="actionM" value="Mode Operatoire : *" />
+					<p:inputText id="actionM" value="#{actionCtr.action.modeOperatoire}"
+						required="true" label="ActionM">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="actionM" />
+					<h:outputText value="" />
+					
+						
+						<h:outputLabel for="actionV" value="Verification : *" />
+					<p:inputText id="actionV" value="#{actionCtr.action.verification}"
+						required="true" label="ActionV">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="actionV" />
+					<h:outputText value="" />
+					
+						<h:outputLabel for="actionh" value="Heure Debut : *" />
+					<p:inputText id="actionh" value="#{actionCtr.action.heureDebut}"
+						required="true" label="Actionh">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="actionh" />
+					<h:outputText value="" />
+				
+					<h:outputLabel for="actionhf" value="Heure Fin : *" />
+					<p:inputText id="actionhf" value="#{actionCtr.action.heureFin}"
+						required="true" label="Actionhf">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="actionhf" />
+					<h:outputText value="" />
+			
+					
+					</h:panelGrid>
+					
+		
 			</p>
-
-
-
-			<p:separator />
-				</h:panelGrid>
+		</h:panelGrid>
 				</p:fieldset>
-				</p>
-
-
-
-
-
-
-
-
-
-	<p:growl id="mess" />
-
-				  <p:splitButton value="Enregistrer" actionListener="#{userCtr.doAddUser}"  icon="ui-icon-disk">  
-        <p:menuitem value="Mettre a jour" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf"  icon="ui-icon-arrowrefresh-1-w"/>  
-        <p:menuitem value="Supprimer" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" icon="ui-icon-close"/>  
+			<p>
+				
+				    <p:growl id="messages"/>  
+  
+    <p:splitButton value="Enregistrer" actionListener="#{actionCtr.doAddAction}" update="messages" icon="ui-icon-disk">  
+        <p:menuitem value="Mettre a jour" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf"  icon="ui-icon-arrowrefresh-1-w"/>  
+        <p:menuitem value="Supprimer" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" icon="ui-icon-close"/>  
         <p:separator />  
         <p:menuitem value="Homepage" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf" icon="ui-icon-extlink"/>  
     </p:splitButton>  
+    </p>
 
-
+</p>
 
 		</h:form>
 

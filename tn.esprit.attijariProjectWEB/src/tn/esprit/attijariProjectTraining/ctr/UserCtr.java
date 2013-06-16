@@ -22,6 +22,7 @@ public class UserCtr {
 	private User user = new User();
 
 	private List<User> users = new ArrayList<User>();
+	private boolean displayForm;
 
 	@EJB
 	private UserDaoLocal userDaoLocal;
@@ -156,4 +157,17 @@ public class UserCtr {
 		this.user = user;
 	}
 
+	public String doUpdate() {
+		setDisplayForm(true);
+
+		return "";
+	}
+
+	public boolean isDisplayForm() {
+		return displayForm;
+	}
+
+	public void setDisplayForm(boolean displayForm) {
+		this.displayForm = displayForm;
+	}
 }

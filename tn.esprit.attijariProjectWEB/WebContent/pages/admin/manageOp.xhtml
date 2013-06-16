@@ -4,37 +4,33 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">menuAdmin</ui:define>
+	<ui:define name="title">GererUtilisateur</ui:define>
 	<ui:define name="page">
-		<h:form id="form9">
-		
-				<p:fieldset legend="Menu administrateur" >  
-		 <h:panelGrid columns="50" cellpadding="100" bgcolor="#000000" styleClass="panelGridCenter">  
-			<p:menubar>
+		<h:form id="master">
+		<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
 					icon="ui-icon-extlink" />
-						
-					<p:submenu label="Utilisateurs" icon="ui-icon-search">
+
+				<p:submenu label="Utilisateurs" icon="ui-icon-search">
 					<p:menuitem value="Gerer utilisateurs existants" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 					<p:menuitem value="Ajouter utilisateurs"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/gererOperateur.jsf" />
 					
 					</p:submenu>
-				
-	<p:submenu label="Actions" icon="ui-icon-search">
+
+<p:submenu label="Actions" icon="ui-icon-search">
 					
 					<p:menuitem value="Ajouter Action"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
 					
 <p:menuitem value="Gerer actions existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
 </p:submenu>
-				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+				!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
 					<p:menuitem value="Gerer fiches existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/gererFiche.jsf" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
 					<p:menuitem value="xxxxxxxx" url="#" />
-					
 
 				</p:submenu>
 				<p:submenu label="Traitement" icon="ui-icon-search">
@@ -55,25 +51,74 @@
 					<p:menuitem value="xxxxxxxx" url="#" />
 
 				</p:submenu>
-				<p:submenu label="Exporter" icon="ui-icon-search">
-					<p:menuitem value="Liste d'actions"
-						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/exportAction.jsf" />
-					<p:menuitem value="xxxxxxx" />
-
-					<p:menuitem value="xxxxxxxx" url="#" />
-
-				</p:submenu>
 
 
-				<p:menuitem value="Deconnecter      "
+
+
+				<p:menuitem value="Deconnecter"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-					</p:menubar>
-					
-					
-					</h:panelGrid>
-</p:fieldset>
-		</h:form>
+			</p:menubar>
+<p>
+		
+		<p:fieldset legend=" Gerer les Utilisateurs">
+			<p:dataTable value="#{userCtr.users}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
 
+				<f:facet name="header">
+					<h:outputText value="Liste d'utilisateurs" />
+				</f:facet>
+				
+				<p:column headerText="Nom Utilisateur">
+					<h:outputText value="#{act.firstName}" />
+				</p:column>
+				
+				<p:column headerText="Prenom Utilisateur">
+					<h:outputText value="#{act.lastName}" />
+				</p:column>
+				
+				<p:column headerText="Matricule">
+					<h:outputText value="#{act.matricule}" />
+				</p:column>
+			
+			<p:column headerText="Mot de passe">
+					<h:outputText value="#{act.password}" />
+				</p:column>
+				<p:column headerText="Mise a jour">
+					<h:commandButton value="Mettre a jour">
+						<f:setPropertyActionListener target="#{userCtr.user}"
+							value="#{act}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</p:column>
+
+			</p:dataTable>
+
+<p>
+
+<p:fieldset legend=" Inserer les nouvelles donnees">
+<h:panelGrid columns="8" cellpadding="30">  
+				 <p><h:graphicImage library="images" name="update.png"  style=" width : 200px;"/></p>
+			<h:panelGrid rendered="#{userCtr.displayForm}" columns="2" bgcolor="#BBFFFF">
+				
+				<h:outputText value="Nom Utilisateur" />
+				<h:inputText value="#{userCtr.user.firstName}" />
+				<h:outputText value="Prenom Utilisateur" />
+				<h:inputText value="#{userCtr.user.lastName}" />
+				<h:outputText value="Matricule" />
+				<h:inputText value="#{userCtr.user.matricule}" />
+				<h:outputText value="Mot de passe" />
+				<h:inputText value="#{userCtr.user.password}" />
+
+			</h:panelGrid>
+			</h:panelGrid>
+			</p:fieldset>
+			</p>
+			</p:fieldset>
+			</p>
+			<p>
+			<p:commandButton value="Enregister "
+				action="#{userCtr.doUpdate()}"></p:commandButton>
+				</p>
+		</h:form>
 
 	</ui:define>
 </ui:composition>
