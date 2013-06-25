@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">pagetna2</ui:define>
+	<ui:define name="title">homeOperateur</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
 		
@@ -19,58 +19,56 @@
                    </center> </p:layoutUnit>
 	
 	
-                    <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="Options" minSize="200">
-  
-    <p:accordionPanel>
-     <p:tab title="Acceuil">
-                             <h:commandLink url="http://localhost:8182/tn.esprit.attijariProjectWEB/NewFile.jsf" value="Acceuil"/>
-                        </p:tab>
-    
-    <p:tab title="Consulter">
-                            <p:growl id="messages"/>  
-  
-  
-    <p:slideMenu style="width:200px"> 
-     <p:submenu label="Fiche da lancement" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" icon="ui-icon-newwin">  
-           </p:submenu>  
-        
-        <p:submenu label="Rapport" icon="ui-icon-refresh">  
-            <p:menuitem value="Rapports quotidiens" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" update="messages" icon="ui-icon-disk" />  
-            <p:menuitem value="Rapports fin de mois" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf" update="messages" icon="ui-icon-arrowrefresh-1-w" />  
+             		<p:layoutUnit id="left" position="west" size="300" resizable="true"
+					closable="true" collapsible="true" header="Options" minSize="200">
+
+				 <p:panelMenu style="width:290px">  
+        <p:submenu label="Acceuil" style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';" >  
+            <p:menuitem value="Acceuil"  icon="ui-icon-home" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf" />  
+             
         </p:submenu>  
-        </p:slideMenu>
-                        </p:tab>
+           <p:separator /> 
+            
+             <p:submenu label="Exporter" >  
+              <p:menuitem value="Fiche de lancement" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" icon="ui-icon-document"/>  
+            <p:submenu label="Rapports" icon="ui-icon-extlink">  
+                 
+                    <p:menuitem value="Rapport quotidien" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" icon="ui-icon-document"/>  
+                    <p:menuitem value="Rapport fin du moi" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf" icon="ui-icon-document" />  
+                  
+            </p:submenu>  
+          
+        </p:submenu>  
+          <p:separator /> 
+            
+         <p:submenu label="Calendrier">  
+      <p:menuitem >
+							<p:calendar mode="inline" navigator="none" />
+							</p:menuitem>
+							</p:submenu>  
+          <p:separator /> 
+            
+        <p:submenu label="se deconnecter">  
+            <p:menuitem  value="Se deconnecter" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf"   ajax="false" icon="ui-icon-close"/>  
+        </p:submenu>  
+        
+</p:panelMenu>
 
-                     
-    
-                        <p:tab title="Calendrier">
-                            <br />
-                            <p:calendar mode="inline" navigator="none"/>
-                            <br />
-                        </p:tab>
 
-                                                 <p:tab title="Deconnecter">
-                        
-                       <h:commandLink url="http://localhost:8182/tn.esprit.attijariProjectWEB/NewFile.jsf" value="Deconnecter"/> 
-                        </p:tab>
-                        
-                   
-			
-                    </p:accordionPanel>
-               
 
- 
-    </p:layoutUnit>  
-  
-    <p:layoutUnit position="center">  
-    <center>
-    <P>
-    </P>
-     <P>
-    </P>
-    <h:graphicImage library="images" name="home_w.png"  style=" width : 300px;"/>
+				</p:layoutUnit>
+
+                 <p:layoutUnit position="center">  
+
+ 	<center>
+					
+
+						<h:graphicImage library="images" name="homy.png"
+							style="width : 930px; height : 380px;"  />
+						
+					</center>
    
-			</center>
+			
 			    </p:layoutUnit>  
 
  

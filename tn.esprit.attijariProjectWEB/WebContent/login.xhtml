@@ -3,58 +3,73 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">login</ui:define>
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">autentif</ui:define>
 	<ui:define name="page">
 	
 		<center>
-			<h:form id="f">
-			
-				<p:fieldset legend="S'authentifier">
-					<h:panelGrid columns="8" cellpadding="1">
+			<h:form id="Login">
+			<p:growl id="growl" showDetail="true" sticky="true" /> 
+			<p:layout style="min-width:300px;height:320px;" id="layout">  
+	
+                    <p:layoutUnit id="right" position="east" size="300" resizable="true" closable="true" collapsible="true" header="SE CONNECTER" minSize="200">
+  
+     <p></p>
+     
+     <p:panel id="Growl"> 
+      <h:panelGrid  columns="1">  
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Matricule  </label>
+ <p>
+ <p:inputText    required="true" label="Matricule" value="#{authenticationBean.user.matricule}"> 
 
-						<p>
-							<h:graphicImage library="images" name="lo.png"
-								style=" width : 200px;" />
-						</p>
-
-
-						<h:panelGrid columns="1" bgcolor="#BBFFFF">
-							<p:row>
-								<p:column>
-									<h:outputText value="Matricule     :" />
-								</p:column>
-								<p:column>
-									<h:inputText value="#{authenticationBean.user.matricule}" />
-								</p:column>
-							</p:row>
-
-							<p:row>
-								<p:column>
-									<h:outputText value="Mot de passe :" />
-								</p:column>
-								<h:inputSecret value="#{authenticationBean.user.password}" />
-								<p:column>
-								</p:column>
-							</p:row>
-
-						</h:panelGrid>
-						<h:commandButton value="login"
+ </p:inputText>
+ 
+ </p>
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mot de passe </label>
+ <p>
+ 	<h:inputSecret   value="#{authenticationBean.user.password}" ></h:inputSecret>
+ 	
+ </p>
+  
+ <h:panelGrid columns="3">
+ 	<h:commandButton value="Login" update="growl"
 							action="#{authenticationBean.login}" />
-					</h:panelGrid>
+							 	<h:commandButton value="Clear"
+							action="#{authenticationBean.login}" />
+							
+							
+ </h:panelGrid>
+ </h:panelGrid>
+ </p:panel>
+ 
+    </p:layoutUnit>  
+    
+     <p:layoutUnit position="center">  
+     <p:imageSwitch effect="fade">  
+    <h:graphicImage library="images" name="tunis.png" />
+   
+     <h:graphicImage library="images" name="agence.jpg.jpg" style="width : 650px; height : 300px;" />
+       <h:graphicImage library="images" name="monde.png" style="width : 650px; height : 300px;" />
+    </p:imageSwitch>
 
+    
+             
+     </p:layoutUnit>
+       
+        <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="ESPACE SECURISE" minSize="200">
+  <p></p>
+  <P></P>
+   <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> Si vous n'avez pas encore votre code secret, veuillez contacter votre agence et recevez-le gratuitement.
+Si vous avez besoin d'asssistance, contactez le Webmaster.
+E-mail : </label>
+<p></p>
 
-
-					<h:commandLink id="nonAjax"
-						actionListener="#{authenticationBean.login}">
-						<p:graphicImage library="images" name="log.png" />
-
-					</h:commandLink>
-
-<label style="COLOR: #0000b9; FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">Identifiant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> <p:inputText></p:inputText>
-<label style="COLOR: #0000b9; FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">Mot de passe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> <p:inputText></p:inputText>
-
-				</p:fieldset>
+ <MARQUEE bgcolor="#FF8C00" style="COLOR: #FFFFF0;FONT-FAMILY: 'Times New Roman';" > contact@attijaribank.com.tn </MARQUEE>
+  
+ 
+  </p:layoutUnit>
+  
+    </p:layout>
 
 			</h:form>
 		</center>

@@ -8,26 +8,39 @@
 	<ui:define name="page">
 	
 		<center>
-			<h:form id="fff">
+			<h:form id="Login">
+			<p:growl id="growl" showDetail="true" sticky="true" /> 
 			<p:layout style="min-width:300px;height:320px;" id="layout">  
 	
                     <p:layoutUnit id="right" position="east" size="300" resizable="true" closable="true" collapsible="true" header="SE CONNECTER" minSize="200">
   
      <p></p>
- <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Matricule &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+     
+     <p:panel id="Growl"> 
+      <h:panelGrid  columns="1">  
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Matricule  </label>
  <p>
- <p:inputText value="#{authenticationBean.user.matricule}"></p:inputText>
+ <p:inputText    required="true" label="Matricule" value="#{authenticationBean.user.matricule}"> 
+
+ </p:inputText>
+ 
  </p>
- <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Mot de passe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mot de passe </label>
  <p>
- 	<h:inputSecret value="#{authenticationBean.user.password}" ></h:inputSecret>
+ 	<h:inputSecret   value="#{authenticationBean.user.password}" ></h:inputSecret>
+ 	
  </p>
+  
  <h:panelGrid columns="3">
- 	<h:commandButton value="Login"
+ 	<h:commandButton value="Login" update="growl"
 							action="#{authenticationBean.login}" />
 							 	<h:commandButton value="Clear"
 							action="#{authenticationBean.login}" />
+							
+							
  </h:panelGrid>
+ </h:panelGrid>
+ </p:panel>
  
     </p:layoutUnit>  
     

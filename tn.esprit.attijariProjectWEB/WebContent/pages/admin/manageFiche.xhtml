@@ -16,7 +16,7 @@
 						<MARQUEE direction="left" bgcolor="#C0C0C0">
 							<font color="black"
 								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Ajouter fiche le: </font>
+								Administrateur le: </font>
 							<p:clock />
 
 						</MARQUEE>
@@ -67,105 +67,46 @@
 				<p:layoutUnit position="center">
 					<center>
       	
-
-			<h:panelGrid columns="8" cellpadding="25"> 
-			 <p><h:graphicImage library="images" name="fiche.png"  style=" width : 200px;"/></p>
-		
-			
-						<h:panelGrid columns="2"  bgcolor="#BBFFFF">
-						
-					<h:outputLabel for="fiche" value="Fiche N : *" />
-					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheId}"
-						required="true" label="Fiche">
-						<f:validateLength minimum="2" />
-					</p:inputText>
-					<p:message for="fiche" />
-					<h:outputText value="" />
-					
-					<h:outputLabel for="fiche" value="Nom Fiche : *" />
-					<p:inputText id="fichen" value="#{ficheCtr.fiche.ficheName}"
-						required="true" label="Fiche">
-						<f:validateLength minimum="2" />
-					</p:inputText>
-					<p:message for="fichen" />
-					<h:outputText value="" />
-					
-					
-					<h:outputLabel for="fichej" value="Desctription : *" />
-					<p:inputText id="fichej" value="#{ficheCtr.fiche.descriptionFiche}"
-						required="true" label="Fiche">
-						<f:validateLength minimum="2" />
-					</p:inputText>
-					<p:message for="fichej" />
-					<h:outputText value="" />
-					
-						<h:outputLabel for="fiched" value="Journee : *" />
-					<p:calendar id="fiched" showOn="button" value="#{calendarBean.date3}"
-						required="true" label="Fiche">
-						<f:validateLength minimum="2" />
-				</p:calendar>
-					 
-					 <h:outputLabel for="fichep" value="Periodicite : *" />
-					<p:selectOneListbox id="basic" value="#{buttonBean.number}">
-						<f:selectItem itemLabel="Quotidien" itemValue="1" />
-						<f:selectItem itemLabel="Mensuel" itemValue="2" />
-						<f:selectItem itemLabel="A la demande" itemValue="3" />
-					</p:selectOneListbox>
-								</h:panelGrid>
-							</h:panelGrid>
-
-
-
-
-
-
-
-
-
-
-
-				
-
-				<p>
-				
-
-
-				</p>
-				<p>
-									</p>
-										<p:dataTable value="#{actionCtr.actions}" var="act" paginator="true"
+      	<h:panelGrid border="1" columns="1" bgcolor="#BBFFFF">
+			<p:dataTable value="#{ficheCtr.fiches}" var="act" paginator="true" 
 				paginatorPosition="bottom" widgetVar="prodTabW">
 
 				<f:facet name="header">
-					<h:outputText value="Importer les actions" />
-				</f:facet>
-					<p:growl id="msg" />
 				
-							<p:column icon="ui-icon-check">
-								<p:selectBooleanCheckbox value="">
-									<p:ajax update="msg" listener="#{formBean.addMessage}" />
-								</p:selectBooleanCheckbox>
-								<h:outputText value="" />
-							</p:column>
-				
-				<p:column headerText="Nom Action">
+				<p:column headerText="Identifient">
 
 
-					<h:outputText value="#{act.nameAction}" />
+					<h:outputText value="#{act.ficheId}" />
 
 
 				</p:column>
-				<p:column headerText="Mode Operatoire">
-					<h:outputText value="#{act.modeOperatoire}" />
+					<h:outputText value="Liste des fiches" />
+				</f:facet>
+				<p:column headerText="Nom Fiche">
+
+
+					<h:outputText value="#{act.ficheName}" />
+
+
+				</p:column>
+				<p:column headerText="Description Fiche">
+					<h:outputText value="#{act.descriptionFiche}" />
+				</p:column>
+
+				<p:column headerText="Mise a jour">
+					<h:commandButton value="Mettre a jour">
+						<f:setPropertyActionListener target="#{ficheCtr.fiches}"
+							value="#{act}"></f:setPropertyActionListener>
+					</h:commandButton>
 				</p:column>
 
 
 			</p:dataTable>
-
-
-
+</h:panelGrid>
+		
 			</center>
 				</p:layoutUnit>
+
 
 
 
@@ -207,6 +148,8 @@
 
 				</p:layoutUnit>
 
+				
+
 			</p:layout>
 
 
@@ -215,4 +158,3 @@
 
 	</ui:define>
 </ui:composition>
-

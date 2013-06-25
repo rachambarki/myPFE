@@ -1,21 +1,65 @@
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">meniAdministrateur</ui:define>
+	<ui:define name="title">autentif</ui:define>
 	<ui:define name="page">
-		<h:form id="form99">
+	
+		<center>
+			<h:form id="fff">
+			<p:layout style="min-width:300px;height:320px;" id="layout">  
+	
+                    <p:layoutUnit id="right" position="east" size="300" resizable="true" closable="true" collapsible="true" header="SE CONNECTER" minSize="200">
+  
+     <p></p>
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Matricule &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+ <p>
+ <p:inputText value="#{authenticationBean.user.matricule}"></p:inputText>
+ </p>
+ <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Mot de passe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+ <p>
+ 	<h:inputSecret value="#{authenticationBean.user.password}" ></h:inputSecret>
+ </p>
+ <h:panelGrid columns="3">
+ 	<h:commandButton value="Login"
+							action="#{authenticationBean.login}" />
+							 	<h:commandButton value="Clear"
+							action="#{authenticationBean.login}" />
+							 <p:message id="defaultMessage" for="default" /> 
+ </h:panelGrid>
+ 
+    </p:layoutUnit>  
+    
+     <p:layoutUnit position="center">  
+     <p:imageSwitch effect="fade">  
+    <h:graphicImage library="images" name="tunis.png" />
+   
+     <h:graphicImage library="images" name="agence.jpg.jpg" style="width : 650px; height : 300px;" />
+       <h:graphicImage library="images" name="monde.png" style="width : 650px; height : 300px;" />
+    </p:imageSwitch>
 
+    
+             
+     </p:layoutUnit>
+       
+        <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="ESPACE SECURISE" minSize="200">
+  <p></p>
+  <P></P>
+   <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> Si vous n'avez pas encore votre code secret, veuillez contacter votre agence et recevez-le gratuitement.
+Si vous avez besoin d'asssistance, contactez le Webmaster.
+E-mail : </label>
+<p></p>
 
-			<h3>Fade</h3>  
-<p:imageSwitch effect="fade">  
-      <h:graphicImage library="images" name="home_w.png"  style=" width : 300px;"/>
-        <h:graphicImage library="images" name="cc.png"  style=" width : 300px;"/>
-</p:imageSwitch> 
-		</h:form>
+ <MARQUEE bgcolor="#FF8C00" style="COLOR: #FFFFF0;FONT-FAMILY: 'Times New Roman';" > contact@attijaribank.com.tn </MARQUEE>
+  
+ 
+  </p:layoutUnit>
+  
+    </p:layout>
 
-
+			</h:form>
+		</center>
 	</ui:define>
 </ui:composition>

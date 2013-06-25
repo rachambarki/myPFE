@@ -3,10 +3,24 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">AjoutAction</ui:define>
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">ajoutAction</ui:define>
 	<ui:define name="page">
-		<h:form id="form">
+		<h:form id="form99">
+
+
+			<p:layout style="min-width:300px;height:340px;" id="layouty">
+
+				<p:layoutUnit id="topy" position="north" size="35">
+					<center>
+						<MARQUEE direction="left" bgcolor="#C0C0C0">
+							<font color="black"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
+								Ajouter Action le: </font>
+							<p:clock />
+
+						</MARQUEE>
+						
 			<p:menubar>
 				<p:menuitem value="Acceuil"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf"
@@ -26,7 +40,7 @@
 <p:menuitem value="Gerer actions existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
 </p:submenu>
 
-				!<p:submenu label="Fiche de lacement" icon="ui-icon-search">
+				<p:submenu label="Fiche de lacement" icon="ui-icon-search">
 					<p:menuitem value="Gerer fiches existantes" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/gererFiche.jsf" />
 					<p:menuitem value="Ajouter fiche"
 						url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
@@ -59,9 +73,55 @@
 				<p:menuitem value="Deconnecter"
 					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 			</p:menubar>
-<p>
+			
+					</center>
+				</p:layoutUnit>
+				
+				<p:layoutUnit id="left" position="west" size="300" resizable="true"
+					closable="true" collapsible="true" header="Options" minSize="200">
 
-			<p:fieldset legend=" Inserer une nouvelle action">
+				 <p:panelMenu style="width:290px">  
+        <p:submenu label="Acceuil">  
+            <p:menuitem value="Acceuil"  icon="ui-icon-home" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf" />  
+             
+        </p:submenu>  
+           <p:separator /> 
+            
+             <p:submenu label="Exporter" >  
+              <p:menuitem value="Fiche de lancement" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" icon="ui-icon-document"/>  
+            <p:submenu label="Rapports" icon="ui-icon-extlink">  
+                 
+                    <p:menuitem value="Rapport quotidien" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" icon="ui-icon-document"/>  
+                    <p:menuitem value="Rapport fin du moi" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf" icon="ui-icon-document" />  
+                  
+            </p:submenu>  
+          
+        </p:submenu>  
+          <p:separator /> 
+            
+         <p:submenu label="Calendrier">  
+      <p:menuitem >
+							<p:calendar mode="inline" navigator="none" />
+							</p:menuitem>
+							</p:submenu>  
+          <p:separator /> 
+            
+        <p:submenu label="se deconnecter">  
+            <p:menuitem  value="Se deconnecter" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf"   ajax="false" icon="ui-icon-close"/>  
+        </p:submenu>  
+        
+</p:panelMenu>
+
+
+
+				</p:layoutUnit>
+
+
+				<p:layoutUnit position="center">
+					<center>
+				
+				
+			
 			<h:panelGrid columns="8" cellpadding="25">  
 				 <p><h:graphicImage library="images" name="action.png"  style=" width : 200px;"/></p>
 		<p>
@@ -113,7 +173,7 @@
 		
 			</p>
 		</h:panelGrid>
-				</p:fieldset>
+				
 			<p>
 				
 				    <p:growl id="messages"/>  
@@ -125,11 +185,52 @@
         <p:menuitem value="Homepage" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf" icon="ui-icon-extlink"/>  
     </p:splitButton>  
     </p>
+	</center>
+				</p:layoutUnit>
 
-</p>
+
+				<p:layoutUnit id="right" position="east" size="250" resizable="true"
+					closable="true" collapsible="true" header="Options" Size="200">
+
+				 <p:panelMenu style="width:220px">  
+        <p:submenu label="Utilisateurs" >  
+              <p:menuitem value="Ajouter Utilisateur" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" icon="ui-icon-arrowrefresh-1-w" />  
+            <p:menuitem value="Gerer les utilisateurs" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" icon="ui-icon-wrench"/>  
+           </p:submenu>
+           <p:separator /> 
+            
+            <p:submenu label="Actions" >  
+              <p:menuitem value="Ajouter une action" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" icon="ui-icon-arrowrefresh-1-w" />  
+            <p:menuitem value="Gerer les actions" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" icon="ui-icon-wrench"/>  
+           </p:submenu>
+          <p:separator /> 
+            
+         <p:submenu label="Fiche de lancement" >  
+              <p:menuitem value="Ajouter une fiche" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" icon="ui-icon-arrowrefresh-1-w" />  
+            <p:menuitem value="Gerer les fiches" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" icon="ui-icon-wrench"/>  
+           </p:submenu>
+          <p:separator /> 
+            
+        <p:submenu label="Traitement" >  
+              <p:menuitem value="Ajouter un traitement" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf" icon="ui-icon-arrowrefresh-1-w" />  
+            <p:menuitem value="Gerer les traitements" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf" icon="ui-icon-wrench"/>  
+           </p:submenu> 
+            <p:separator /> 
+             <p:submenu label="Planning" >  
+              <p:menuitem value="Ajouter un planning" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf" icon="ui-icon-arrowrefresh-1-w" />  
+            <p:menuitem value="Gerer les plannings" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/managePlann.jsf" icon="ui-icon-wrench"/>  
+           </p:submenu> 
+        
+</p:panelMenu>
+
+
+
+				</p:layoutUnit>
+
+			</p:layout>
+
 
 		</h:form>
-
 
 
 	</ui:define>
