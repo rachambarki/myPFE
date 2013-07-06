@@ -4,79 +4,231 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">pagetna2</ui:define>
+	<ui:define name="title">manageOp</ui:define>
 	<ui:define name="page">
-		<h:form id="form9">
-		
-		
-	<p:layout style="min-width:300px;height:340px;" id="layout">  
-	
-                <p:layoutUnit id="top" position="north" size="35" >
-<center>
-                    	<MARQUEE direction="left"  bgcolor="#C0C0C0"> <font color="black" style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu Operateur le: </font> <p:clock />   
-                    	   
-                    	</MARQUEE>          
-                   </center> </p:layoutUnit>
-	
-	
-                    <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="Options" minSize="200">
-  
-    <p:accordionPanel>
-     <p:tab title="Acceuil">
-                            <h:outputText value="vvvvvvv" />
-                        </p:tab>
-    
-    <p:tab title="Consulter">
-                            <p:growl id="messages"/>  
-  
-  
-    <p:slideMenu style="width:200px"> 
-     <p:submenu label="Fiche da lancement" icon="ui-icon-newwin">  
-           </p:submenu>  
-        
-        <p:submenu label="Rapport" icon="ui-icon-refresh">  
-            <p:menuitem value="Rapports quotidiens" actionListener="#{menuBean.save}" update="messages" icon="ui-icon-disk" />  
-            <p:menuitem value="Rapports fin de mois" actionListener="#{menuBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />  
-        </p:submenu>  
-        </p:slideMenu>
-                        </p:tab>
+		<h:form id="form99">
 
-                     
-    
-                        <p:tab title="Calendrier">
-                            <br />
-                            <p:calendar mode="inline" navigator="none"/>
-                            <br />
-                        </p:tab>
 
-                                                 <p:tab title="Deconnecter">
-                         <p:submenu>
-                           <p:menuitem value="Deconnecter      "
-					url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-                      </p:submenu>
-                        </p:tab>
-                        
-                   
+			<p:layout style="min-width:300px;height:500px;" id="layouty">
+
+				<p:layoutUnit id="topy" position="north" size="35">
+					<center>
+						<MARQUEE direction="left" bgcolor="#000000">
+							<font color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
+								Administrateur le: </font>
+							<p:clock />
+
+						</MARQUEE>
+					</center>
+				</p:layoutUnit>
+
+
+			<p:layoutUnit id="left" position="west" size="250" resizable="true"
+					closable="true" collapsible="true" header="Options"
+					style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';"
+					minSize="200">
+
+					<p:panelMenu style="width:240px">
+						<p:submenu label="Acceuil"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Acceuil" icon="ui-icon-home"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf" />
+
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Exporter"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Fiche de lancement"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf"
+								icon="ui-icon-document" />
+							<p:submenu label="Rapports" icon="ui-icon-extlink">
+
+								<p:menuitem value="Rapport quotidien"
+									url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf"
+									icon="ui-icon-document" />
+								<p:menuitem value="Rapport fin du moi"
+									url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"
+									icon="ui-icon-document" />
+
+							</p:submenu>
+
+						</p:submenu>
+						<p:separator />
+						<p:panelMenu style="width:235px">
+						<p:submenu label="Utilisateurs"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter Utilisateur"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les utilisateurs"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Actions"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une action"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les actions"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Fiche de lancement"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une fiche"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les fiches"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Traitement"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter un traitement"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les traitements"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+						<p:submenu label="Planning"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter un planning"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les plannings"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/managePlann.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+
+					</p:panelMenu>
+						
+
+						
+						<p:separator />
+								<p:submenu label="Utilisateurs"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter Utilisateur"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les utilisateurs"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Se deconnecter"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Se deconnecter"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf"
+								ajax="false" icon="ui-icon-close" />
+						</p:submenu>
+							<p:submenu label="Actions"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une action"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les actions"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+
+						<p:submenu label="Fiche de lancement"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une fiche"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les fiches"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+						
+<p:submenu label="Traitement"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter un traitement"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf"
+								icon="ui-icon-arrowrefresh-1-w" />
+							<p:menuitem value="Gerer les traitements"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf"
+								icon="ui-icon-wrench" />
+						</p:submenu>
+						<p:separator />
+					</p:panelMenu>
+
+
+
+				</p:layoutUnit>
+
+				
+				<p:layoutUnit position="center" style="height:auto; min-height:400px;">
+					<center>
+			<p:dataTable value="#{userCtr.users}" var="act" paginator="true"
+				paginatorPosition="bottom" widgetVar="prodTabW">
+
+				<f:facet name="header">
+					<h:outputText value="Liste d'utilisateurs" />
+				</f:facet>
+				
+				<p:column headerText="Nom Utilisateur">
+					<h:outputText value="#{act.firstName}" />
+				</p:column>
+				
+				<p:column headerText="Prenom Utilisateur">
+					<h:outputText value="#{act.lastName}" />
+				</p:column>
+				
+				<p:column headerText="Matricule">
+					<h:outputText value="#{act.matricule}" />
+				</p:column>
 			
-                    </p:accordionPanel>
-               
+			<p:column headerText="Mot de passe">
+					<h:outputText value="#{act.password}" />
+				</p:column>
+				<p:column headerText="Mise a jour">
+					<p:commandButton value="Mettre a jour" update=":form99:details">
+						<f:setPropertyActionListener target="#{userCtr.user}" value="#{act}"/>
+					    <f:setPropertyActionListener target="#{userCtr.displayForm}" value="true"/>
+					</p:commandButton>
+				</p:column>
 
- 
-    </p:layoutUnit>  
-  
-    <p:layoutUnit position="center">  
-    <center>
-    <P>
-    </P>
-     <P>
-    </P>
-    <h:graphicImage library="images" name="home_w.png"  style=" width : 300px;"/>
-   
-			</center>
-			    </p:layoutUnit>  
+			</p:dataTable>
 
- 
-</p:layout> 
+<p>
+
+<p:fieldset id="details"  legend=" Inserer les nouvelles donnees">
+<h:panelGrid columns="8" cellpadding="30">  
+				 <p><h:graphicImage library="images" name="update.png"  style=" width : 200px;"/></p>
+			<h:panelGrid rendered="#{userCtr.displayForm}" columns="2" bgcolor="#BBFFFF">
+				
+				<h:outputText value="Nom Utilisateur" />
+				<h:inputText value="#{userCtr.user.firstName}" />
+				<h:outputText value="Prenom Utilisateur" />
+				<h:inputText value="#{userCtr.user.lastName}" />
+				<h:outputText value="Matricule" />
+				<h:inputText value="#{userCtr.user.matricule}" />
+				<h:outputText value="Mot de passe" />
+				<h:inputText value="#{userCtr.user.password}" />
+
+			</h:panelGrid>
+			</h:panelGrid>
+			</p:fieldset>
+			</p>
+		</center>
+				</p:layoutUnit>
+
+
+						</p:layout>
 
 
 		</h:form>

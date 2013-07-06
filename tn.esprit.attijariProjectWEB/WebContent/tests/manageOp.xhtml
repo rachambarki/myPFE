@@ -31,9 +31,6 @@
 <p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 <p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 </p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
-</p:submenu>
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
 <p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
@@ -78,10 +75,8 @@
 				
 <p:layoutUnit position="center">
 <h:form id="form">
-<center>
-<h:graphicImage library="images" name="muser.jpg" style="width : 90px; height : 90px;"/>
-</center>
-
+<u style="FONT-SIZE: large; FONT-FAMILY: 'Times New Roman';">Gerer la lister des utilisateurs </u>
+<br/>
 <br />
 <p:growl id="messages" showDetail="true"/>
 
@@ -120,12 +115,6 @@
 <p:column>
 <h:outputLink id="loginLink" value="javascript:void(0)" onclick="dlg.show()" title="login">
 <h:graphicImage library="images" name="yes.png" style="width : 30px; height : 30px;"/>
-
-</h:outputLink>
-</p:column>
-<p:column>
-<h:outputLink id="loginLink2" value="javascript:void(0)" onclick="dlg.show()" title="login">
-<h:graphicImage library="images" name="suppp.png" style="width : 30px; height : 30px;"/>
 
 </h:outputLink>
 </p:column>
@@ -169,6 +158,8 @@ actionListener="#{userCtr.doUpdate()}"
 
 </h:panelGrid>
 </p:dialog>
+
+
 
 </h:form>
 </p:layoutUnit>

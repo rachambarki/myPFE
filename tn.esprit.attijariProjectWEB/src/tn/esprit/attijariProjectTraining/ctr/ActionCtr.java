@@ -1,6 +1,7 @@
 package tn.esprit.attijariProjectTraining.ctr;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,6 +14,60 @@ import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 @ManagedBean
 @ViewScoped
 public class ActionCtr {
+	private int idAction;
+	public int getIdAction() {
+		return idAction;
+	}
+
+	public void setIdAction(int idAction) {
+		this.idAction = idAction;
+	}
+
+	public String getNameAction() {
+		return NameAction;
+	}
+
+	public void setNameAction(String nameAction) {
+		NameAction = nameAction;
+	}
+
+	public String getModeOperatoire() {
+		return modeOperatoire;
+	}
+
+	public void setModeOperatoire(String modeOperatoire) {
+		this.modeOperatoire = modeOperatoire;
+	}
+
+	public Date getHeureDebut() {
+		return heureDebut;
+	}
+
+	public void setHeureDebut(Date heureDebut) {
+		this.heureDebut = heureDebut;
+	}
+
+	public Date getHeureFin() {
+		return heureFin;
+	}
+
+	public void setHeureFin(Date heureFin) {
+		this.heureFin = heureFin;
+	}
+
+	public String getVerification() {
+		return verification;
+	}
+
+	public void setVerification(String verification) {
+		this.verification = verification;
+	}
+
+	private String NameAction;
+	private String modeOperatoire;
+	private Date heureDebut;
+	private Date heureFin;
+	private String verification;
 	private Action action = new Action();
 	private List<Action> actions = new ArrayList<Action>();
 	private boolean displayForm;

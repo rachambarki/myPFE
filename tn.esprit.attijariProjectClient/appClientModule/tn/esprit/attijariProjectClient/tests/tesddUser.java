@@ -24,11 +24,11 @@ public class tesddUser {
 		operateur.setMatricule("ali");
 
 		userDaoRemote.creer(operateur);
-		administrateur.setMatricule("med ali");
+		administrateur.setMatricule("rasha");
 		administrateur.setFirstName("med ali");
 		administrateur.setLastName("guebci");
 		administrateur.setMailAdress("w@attijari.com");
-		administrateur.setPassword("1234med");
+		administrateur.setPassword("06491007");
 		//administrateur.setEquipe("soir");
 		//administrateur.setAdminRole("informatique");
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -9,14 +10,13 @@
 		<h:form id="form99">
 
 
-			<p:layout style="min-width:300px;height:340px;" id="layouty">
+			<p:layout style="min-width:300px;height:600px;" id="layouty">
 
-				<p:layoutUnit id="topy" position="north" size="35">
+						<p:layoutUnit id="topy" position="north" size="35">
 					<center>
-						<MARQUEE direction="left" bgcolor="#C0C0C0">
-							<font color="black"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Administrateur le: </font>
+						<MARQUEE direction="left" bgcolor="#000000">
+							<font color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu Administrateur le: </font>
 							<p:clock />
 
 						</MARQUEE>
@@ -24,139 +24,96 @@
 				</p:layoutUnit>
 
 
-				<p:layoutUnit id="left" position="west" size="220" resizable="true"
-					closable="true" collapsible="true" header="Options"
-					style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';"
-					minSize="200">
+<p:layoutUnit position="west" size="260" >
+<p:menu>
 
-					<p:panelMenu style="width:210px">
-						<p:submenu label="Acceuil"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Acceuil" icon="ui-icon-home"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf" />
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+</p:submenu>
+<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+</p:submenu>
+<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
+<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
 
-						</p:submenu>
-						<p:separator />
+</p:submenu>
 
-						<p:submenu label="Exporter"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Fiche de lancement"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf"
-								icon="ui-icon-document" />
-							<p:submenu label="Rapports" icon="ui-icon-extlink">
 
-								<p:menuitem value="Rapport quotidien"
-									url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf"
-									icon="ui-icon-document" />
-								<p:menuitem value="Rapport fin du moi"
-									url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"
-									icon="ui-icon-document" />
+<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
+<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/manageOp.jsf" />
 
-							</p:submenu>
-
-						</p:submenu>
-						<p:separator />
-
-						<p:submenu label="Calendrier"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem>
-								<p:calendar mode="inline" navigator="none" />
-							</p:menuitem>
-						</p:submenu>
-						<p:separator />
-
-						<p:submenu label="Se deconnecter"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Se deconnecter"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/NewFile.jsf"
-								ajax="false" icon="ui-icon-close" />
-						</p:submenu>
-
-					</p:panelMenu>
+</p:submenu>
 
 
 
-				</p:layoutUnit>
+<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+
+</p:submenu>
+
+
+<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
+
+</p:submenu>
+
+
+
+
+</p:menu>
+</p:layoutUnit>
 
 				
+				
+				
+				
+
+
+
+
 				<p:layoutUnit position="center" size="1450" resizable="true"
 					closable="true" collapsible="true">
 					<center>
 					
 
-						<h:graphicImage library="images" name="welc.png"
-							style="width : 1450px; height : 700px;"  />
+				
+			 
+
+   
+				
+    
+      <h:graphicImage library="images" name="g.png"  
+				 />
+ 
+
 						
 					</center>
+						</p:layoutUnit>
+					   <p:layoutUnit id="r" position="east" size="300"
+				>
+				<MARQUEE onmouseover="this.stop();" onmouseout="this.start();" direction="down" >
+                              <h:graphicImage library="images" name="amen.png" 
+				 />
+				  
+				 </MARQUEE>
+				   <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/> 
+				
+				
 				</p:layoutUnit>
 
 
 
 
 
-				<p:layoutUnit id="right" position="east" size="245" resizable="true"
-					closable="true" collapsible="true" header="Options" minSize="200"
-					style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-
-					<p:panelMenu style="width:235px">
-						<p:submenu label="Utilisateurs"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Ajouter Utilisateur"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf"
-								icon="ui-icon-arrowrefresh-1-w" />
-							<p:menuitem value="Gerer les utilisateurs"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf"
-								icon="ui-icon-wrench" />
-						</p:submenu>
-						<p:separator />
-
-						<p:submenu label="Actions"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Ajouter une action"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf"
-								icon="ui-icon-arrowrefresh-1-w" />
-							<p:menuitem value="Gerer les actions"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf"
-								icon="ui-icon-wrench" />
-						</p:submenu>
-						<p:separator />
-
-						<p:submenu label="Fiche de lancement"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Ajouter une fiche"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf"
-								icon="ui-icon-arrowrefresh-1-w" />
-							<p:menuitem value="Gerer les fiches"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf"
-								icon="ui-icon-wrench" />
-						</p:submenu>
-						<p:separator />
-
-						<p:submenu label="Traitement"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Ajouter un traitement"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf"
-								icon="ui-icon-arrowrefresh-1-w" />
-							<p:menuitem value="Gerer les traitements"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf"
-								icon="ui-icon-wrench" />
-						</p:submenu>
-						<p:separator />
-						<p:submenu label="Planning"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Ajouter un planning"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf"
-								icon="ui-icon-arrowrefresh-1-w" />
-							<p:menuitem value="Gerer les plannings"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/managePlann.jsf"
-								icon="ui-icon-wrench" />
-						</p:submenu>
-
-					</p:panelMenu>
-
-
-
-				</p:layoutUnit>
 
 
 

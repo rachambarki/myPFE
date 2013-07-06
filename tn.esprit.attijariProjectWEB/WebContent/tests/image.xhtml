@@ -1,65 +1,190 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">autentif</ui:define>
+	<ui:define name="title">ajoutFiche</ui:define>
 	<ui:define name="page">
+		<h:form id="form99">
+
+<p:layout style="min-width:300px;height:900px;" id="layout">  
 	
-		<center>
-			<h:form id="fff">
-			<p:layout style="min-width:300px;height:320px;" id="layout">  
+                <p:layoutUnit id="top" position="north" size="35" >
+<center>
+                    	<MARQUEE direction="left"  bgcolor="#00000"> <font color="white" style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Ajouter une fiche le: </font> <p:clock />   
+                    	   
+                    	</MARQUEE>          
+                   </center> </p:layoutUnit>
 	
-                    <p:layoutUnit id="right" position="east" size="300" resizable="true" closable="true" collapsible="true" header="SE CONNECTER" minSize="200">
-  
-     <p></p>
- <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Matricule &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
- <p>
- <p:inputText value="#{authenticationBean.user.matricule}"></p:inputText>
- </p>
- <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">Mot de passe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
- <p>
- 	<h:inputSecret value="#{authenticationBean.user.password}" ></h:inputSecret>
- </p>
- <h:panelGrid columns="3">
- 	<h:commandButton value="Login"
-							action="#{authenticationBean.login}" />
-							 	<h:commandButton value="Clear"
-							action="#{authenticationBean.login}" />
-							 <p:message id="defaultMessage" for="default" /> 
- </h:panelGrid>
- 
-    </p:layoutUnit>  
-    
-     <p:layoutUnit position="center">  
-     <p:imageSwitch effect="fade">  
-    <h:graphicImage library="images" name="tunis.png" />
-   
-     <h:graphicImage library="images" name="agence.jpg.jpg" style="width : 650px; height : 300px;" />
-       <h:graphicImage library="images" name="monde.png" style="width : 650px; height : 300px;" />
-    </p:imageSwitch>
+	
+<p:layoutUnit position="west" size="260" >
+<p:menu>
 
-    
-             
-     </p:layoutUnit>
-       
-        <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="ESPACE SECURISE" minSize="200">
-  <p></p>
-  <P></P>
-   <label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';"> Si vous n'avez pas encore votre code secret, veuillez contacter votre agence et recevez-le gratuitement.
-Si vous avez besoin d'asssistance, contactez le Webmaster.
-E-mail : </label>
-<p></p>
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+</p:submenu>
+<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+</p:submenu>
+<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
+<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
 
- <MARQUEE bgcolor="#FF8C00" style="COLOR: #FFFFF0;FONT-FAMILY: 'Times New Roman';" > contact@attijaribank.com.tn </MARQUEE>
-  
- 
-  </p:layoutUnit>
-  
-    </p:layout>
+</p:submenu>
 
-			</h:form>
-		</center>
+
+<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
+<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/manageOp.jsf" />
+
+</p:submenu>
+
+
+
+<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+
+</p:submenu>
+
+
+<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
+
+</p:submenu>
+
+
+
+
+</p:menu>
+</p:layoutUnit>
+
+				
+
+
+				<p:layoutUnit position="center">
+					<center>
+					 			
+			
+			
+						<h:panelGrid columns="2"  bgcolor="FFFFFF">
+						
+					<h:outputLabel for="fiche" value="Fiche N : *" />
+					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheId}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="fiche" />
+					<h:outputText value="" />
+					
+					<h:outputLabel for="fiche" value="Nom Fiche : *" />
+					<p:inputText id="fichen" value="#{ficheCtr.fiche.ficheName}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="fichen" />
+					<h:outputText value="" />
+					
+					
+					<h:outputLabel for="fichej" value="Desctription : *" />
+					<p:inputText id="fichej" value="#{ficheCtr.fiche.descriptionFiche}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="fichej" />
+					<h:outputText value="" />
+					
+						<h:outputLabel for="fiched" value="Journee : *" />
+					<p:calendar id="fiched" showOn="button" value="#{calendarBean.date3}"
+						required="true" label="Fiche">
+						<f:validateLength minimum="2" />
+				</p:calendar>
+					 
+					 <h:outputLabel for="fichep" value="Periodicite : *" />
+					<p:selectOneListbox id="basic" value="#{buttonBean.number}">
+						<f:selectItem itemLabel="Quotidien" itemValue="1" />
+						<f:selectItem itemLabel="Mensuel" itemValue="2" />
+						<f:selectItem itemLabel="A la demande" itemValue="3" />
+					</p:selectOneListbox>
+								</h:panelGrid>
+							
+
+
+
+
+
+
+
+
+
+
+
+				
+
+<p><h:graphicImage library="images" name="fiche.png"  style=" width : 150px;"/></p>
+		
+      	<p:dataTable var="act" value="#{actionCtr.actions}" id="ListUser" editable="true"> 
+      		<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.idAction}" />
+
+
+
+</p:column> 
+
+<p:column headerText="Nom Action" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nameAction}" />
+
+
+
+</p:column> 
+<p:column headerText="Mode operatoire" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.modeOperatoire}" />
+
+
+</p:column>
+<p:column headerText="Verification" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.verification}" />
+
+
+
+</p:column> 
+
+
+</p:dataTable>
+
+
+
+
+			</center>
+				</p:layoutUnit>
+
+
+
+			
+			</p:layout>
+
+
+		</h:form>
+
+
 	</ui:define>
 </ui:composition>
+
