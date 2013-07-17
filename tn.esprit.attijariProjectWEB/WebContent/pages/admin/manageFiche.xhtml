@@ -144,36 +144,28 @@
 
 
 
-<p:growl id="growl" showDetail="true" life="3000" />
-
-<p:dialog id="dialog" header="Veuillez saisir les nouvelles donnees" widgetVar="dlg">
-
-
-<h:panelGrid columns="2" cellpadding="5">
-
-<h:outputLabel for="matricule" value="Mode Operatoire:" />
-<p:inputText value="#{actionCtr.modeOperatoire}"
-id="matricule" required="true" label="matricule" />
-
-<h:outputLabel for="Nom" value="Nom:" />
-<p:inputText value="#{actionCtr.nameAction}"
-id="Nom" required="true" label="Nom" />
-
-<h:outputLabel for="Prenom" value="Verification:" />
-<h:inputText value="#{actionCtr.verification}"
-id="Prenom" required="true" label="Prenom" />
 
 
 
-<f:facet name="footer">
-<p:commandButton id="modifier" value="Enregistrer" update="growl"
-actionListener="#{actionCtr.doUpdate()}"
+<p:dataTable var="act" value="#{ficheCtr.fiches}" id="ListUser" editable="true"> 
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 
-/> 
-</f:facet>
+<h:outputText value="#{act.ficheId}" />
 
-</h:panelGrid>
-</p:dialog>
+
+
+</p:column> 
+
+<p:column headerText="Nom Action" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.ficheName}" />
+
+
+
+</p:column> 
+
+</p:dataTable>
+
 
 </h:form>
 </p:layoutUnit>

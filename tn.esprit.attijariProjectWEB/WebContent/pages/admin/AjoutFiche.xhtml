@@ -10,7 +10,7 @@
 		<h:form id="form99">
 
 
-			<p:layout style="min-width:300px;height:500px;" id="layouty">
+			<p:layout style="min-width:500px;height:700px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
@@ -91,7 +91,7 @@
 <br />
 <p:growl id="messages" showDetail="true"/>
 
-<p:dataTable var="act" value="#{actionCtr.actions}" id="ListUser" editable="true"> 
+<p:dataTable var="act" value="#{actionCtr1.actions}" id="ListUser" editable="true"> 
 
 
 <p:column icon="ui-icon-check">
@@ -119,13 +119,7 @@
 
 
 </p:column>
-<p:column headerText="Verification" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
 
-<h:outputText value="#{act.verification}" />
-
-
-
-</p:column> 
 
 
 </p:dataTable>
@@ -140,29 +134,31 @@
 <h:panelGrid columns="2" cellpadding="5">
 
 <h:outputLabel for="matricule" value="Mode Operatoire:" />
-<p:inputText value="#{actionCtr.modeOperatoire}"
+<p:inputText value="#{actionCtr1.modeOperatoire}"
 id="matricule" required="true" label="matricule" />
 
 <h:outputLabel for="Nom" value="Nom:" />
-<p:inputText value="#{actionCtr.nameAction}"
+<p:inputText value="#{actionCtr1.nameAction}"
 id="Nom" required="true" label="Nom" />
 
 <h:outputLabel for="Prenom" value="Verification:" />
-<h:inputText value="#{actionCtr.verification}"
+<h:inputText value="#{actionCtr1.verification}"
 id="Prenom" required="true" label="Prenom" />
 
 
 
 <f:facet name="footer">
 <p:commandButton id="modifier" value="Enregistrer" update="growl"
-actionListener="#{actionCtr.doUpdate()}"
+actionListener="#{actionCtr1.doUpdate()}"
 
 /> 
 </f:facet>
 
 </h:panelGrid>
 </p:dialog>
-<p>
+
+
+<center>
 	<h:panelGrid columns="2"  bgcolor="FFFFFF">
 
 						
@@ -206,14 +202,15 @@ actionListener="#{actionCtr.doUpdate()}"
 					
 				
 					
-					<p:commandButton id="modifier" value="Enregistrer" update="growl"
-actionListener="#{ficheCtr.doAddFiche()}"
-
-/> 
+	 
 
 								</h:panelGrid>
-								</p>
 							
+							
+									<p:commandButton value="save" actionListener="#{ficheCtr.doAddFiche()}" update="growl"></p:commandButton>
+					
+			 <p:commandButton value="Reset" type="reset" /> 
+								</center>
 
 </h:form>
 </p:layoutUnit>

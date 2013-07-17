@@ -10,157 +10,173 @@
 		<h:form id="form99">
 
 
-			<p:layout style="min-width:300px;height:500px;" id="layouty">
+			<p:layout style="min-width:300px;height:570px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
-						<MARQUEE direction="left" bgcolor="#000000">
-							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Ajouter Utilisateur le: </font>
-							<p:clock />
-
-						</MARQUEE>
+						<MARQUEE direction="left" bgcolor="#000000"> <font
+							color="white"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
+							Ajouter Utilisateur le: </font> <p:clock /> </MARQUEE>
 					</center>
 				</p:layoutUnit>
 
 
-				<p:layoutUnit position="west" size="260" >
-<p:menu>
+				<p:layoutUnit position="west" size="260">
+					<p:menu>
 
-<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-</p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
-</p:submenu>
-<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
-<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
-<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
-<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
+						<p:submenu label="Acceuil"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Acceuil"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+							<p:menuitem value="D&eacute;connecter"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+						</p:submenu>
+						<p:submenu label="Calendrier"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Mon journal"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+						</p:submenu>
+						<p:submenu label="Exporter les Rapports"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Fiche de lancement"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
+							<p:menuitem value="Rapport Quotidien"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+							<p:menuitem value="Rapport Fin du Moi"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf" />
+							<p:menuitem value="Planning"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="Etat-Diff-Admin.xhtml" />
 
-</p:submenu>
-
-
-<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
-<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
-
-</p:submenu>
-
-
-
-<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
-<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
-
-<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
-
-</p:submenu>
-
-
-<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
-<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
-
-<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
-
-</p:submenu>
+						</p:submenu>
 
 
+						<p:submenu label="G&eacute;rer les utilisateurs"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter un utilisateur"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
+							<p:menuitem value="G&eacute;rer les utilisateurs"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+
+						</p:submenu>
 
 
-</p:menu>
-</p:layoutUnit>
+
+						<p:submenu label="Actions"
+							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une action"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+							<p:menuitem value="G&eacute;rer les actions"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+
+						</p:submenu>
+
+
+						<p:submenu label="Fiche de lancement"
+							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ajouter une fiche"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+							<p:menuitem value="G&eacute;rer les fiches"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
+
+						</p:submenu>
+
+
+
+
+					</p:menu>
+				</p:layoutUnit>
 
 
 				<p:layoutUnit position="center">
-				<form action="">
+					<form action="">
+
+					<center>
+							<h:graphicImage library="images" name="ado.png"
+								style="width : 150px; height : 100px;" />
+
+	<p:growl id="growl"  sticky="true" /> 
+
+			 
+				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
+					<h:outputLabel for="firstname" value="Nom  : *" />
+					<p:inputText id="firstname" value="#{userCtr1.user1.firstName}">
 				
-				<center>
-<h:graphicImage library="images" name="addd.png" style="width : 250px; height : 200px;"/>
-
-
+				    <f:validateLength minimum="2" />  
+            </p:inputText>  
+           
+            
+            
+            
+				<h:outputLabel for="user2" value="Prenom  : *" />
+					<p:inputText id="user2" value="#{userCtr1.user1.lastName}">
+					  <f:validateLength minimum="2" /> 
+				</p:inputText>
+				 <h:outputText value="Tel Num: " />  
+            <p:inputMask   
+                        mask="(+999) 99-999-999">
+                          <f:validateLength minimum="8" /> 
+                        </p:inputMask> 
+					
+					
+					<h:outputLabel for="user3" value="Mail  : *" />
+					<p:inputText id="user3" value="#{userCtr1.user1.mailAdress}">
+					
+				</p:inputText>
+				<h:outputLabel for="user4" value="Role  : *" />
+					<p:inputText id="user4" value="#{userCtr1.user1.role}">
+					
+				</p:inputText>
+				<h:outputLabel for="user6" value="Matricule : *" />
+					<p:inputText id="user6" value="#{userCtr1.user1.matricule}">
+					  <f:validateLength minimum="4" /> 
+				</p:inputText>
+				
+				
+                             
+            <h:outputLabel for="pwd1" value="Password 1: *" />  
+            <p:password id="pwd1" value="#{userCtr1.user1.password}" match="pwd2" feedback="true" inline="true"/>  
+  
+            <h:outputLabel for="pwd2" value="Password 2: *" />  
+            <p:password id="pwd2" value="#{userCtr1.user1.password}" feedback="true" inline="true" />
 			
-		
-				<h:panelGrid columns="4" bgcolor="#FFFFFF">
-					<h:outputLabel for="firstname" value="Firstname: *" />
-					<p:inputText id="firstname" value="#{userCtr.user.firstName}"
-						required="true" label="Firstname">
-						<f:validateLength minimum="2" />
-					</p:inputText>
-					<p:message for="firstname" />
-					<h:outputText value="#{pprBean.firstname}" />
-
-					<h:outputLabel for="lastname" value="Lastname: *" />
-					<p:inputText id="lastname" value="#{userCtr.user.lastName}"
-						required="true" label="Surname" />
-					<p:message for="lastname" />
-					<h:outputText value="#{pprBean.surname}" />
-
-					<h:outputLabel for="matricule" value="Matricule: *" />
-					<p:inputText id="matricule" value="#{userCtr.user.matricule}"
-						required="true" label="Matricule" />
-					<p:message for="matricule" />
-					<h:outputText value="#{pprBean.surname}" />
-
-					<h:outputText value="Mot de passe: " />
-					<p:password id="feedback" value="#{userCtr.user.password}"
-						feedback="true" />
-
-					<p:separator />
-
-					<p>
-						<h:outputText value="Equipe: " />
-						<p:selectOneMenu position="right" value="#{buttonBean.number}">
-							<f:selectItem itemLabel="Select One" itemValue="" />
-							<f:selectItem itemLabel="Matin" itemValue="1" />
-							<f:selectItem itemLabel="Soir" itemValue="2" />
-							<f:selectItem itemLabel="Delta" itemValue="3" />
-						</p:selectOneMenu>
-
-
-</p>
-
-
-				</h:panelGrid>
-
-
-		
-
-
-
-		
+				<h:outputLabel for="city" value="Equipe :" />  
+				 <p:selectOneMenu id="city" value="#{userCtr1.user1.equipe}"> 
+					        <f:selectItem itemLabel="Equipe rattache" itemValue="" />  
+                <f:selectItems value="#{userCtr1.user1.equipe}" />  
+              
+            </p:selectOneMenu>  
+					
+					</h:panelGrid>
+					
+					<p:commandButton value="save" actionListener="#{userCtr1.docreateUser}" update="growl"></p:commandButton>
+					 <p:commandButton value="Reset" type="reset" /> 
 			
-			
+					</center>
+					
+					</form>
 
-
-
-
-
-
-
-
-
-	<p:growl id="mess" />
-
-				  <p:splitButton value="Enregistrer" actionListener="#{userCtr.doAddUser}"  icon="ui-icon-disk">  
-        <p:menuitem value="Mettre a jour" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf"  icon="ui-icon-arrowrefresh-1-w"/>  
-        <p:menuitem value="Supprimer" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" icon="ui-icon-close"/>  
-        <p:separator />  
-        <p:menuitem value="Homepage" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/home.jsf" icon="ui-icon-extlink"/>  
-    </p:splitButton>  
-
-
-			</center>
-			</form>
-			
 				</p:layoutUnit>
 
 
 
 
-						</p:layout>
+			</p:layout>
 
 
 		</h:form>

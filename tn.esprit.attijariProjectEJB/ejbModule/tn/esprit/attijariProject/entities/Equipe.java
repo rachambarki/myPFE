@@ -45,7 +45,7 @@ public class Equipe implements Serializable{
 	public void setDescEquipe(String descEquipe) {
 		this.descEquipe = descEquipe;
 	}
-
+	
 	@OneToMany(mappedBy="equipe")
 	public List<User> getUsers() {
 		return users;

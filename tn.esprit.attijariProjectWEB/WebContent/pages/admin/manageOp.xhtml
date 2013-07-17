@@ -16,8 +16,8 @@
 						<MARQUEE direction="left" bgcolor="#000000">
 							<font color="white"
 								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Administrateur le: </font>
-							<p:clock />
+								Gerer les Utilisateurs </font>
+							
 
 						</MARQUEE>
 					</center>
@@ -80,8 +80,10 @@
 <h:form id="form">
 <center>
 <h:graphicImage library="images" name="muser.jpg" style="width : 90px; height : 90px;"/>
+
 </center>
 
+<center><p:clock /></center>
 <br />
 <p:growl id="messages" showDetail="true"/>
 
@@ -141,23 +143,23 @@
 <h:panelGrid columns="2" cellpadding="5">
 
 <h:outputLabel for="matricule" value="Matricule:" />
-<p:inputText value="#{userCtr.matricule}"
+<p:inputText value="#{userCtr.user.matricule}"
 id="matricule" required="true" label="matricule" />
 
 <h:outputLabel for="Nom" value="Nom:" />
-<p:inputText value="#{userCtr.firstName}"
+<p:inputText value="#{userCtr.user.firstName}"
 id="Nom" required="true" label="Nom" />
 
 <h:outputLabel for="Prenom" value="Prenom:" />
-<h:inputText value="#{userCtr.lastName}"
+<h:inputText value="#{userCtr.user.lastName}"
 id="Prenom" required="true" label="Prenom" />
 
 <h:outputLabel for="adresseMail" value="Adresse Mail:" />
-<p:inputText value="#{userCtr.mailAdress}"
+<p:inputText value="#{userCtr.user.mailAdress}"
 id="adresseMail" required="true" label="adresseMail" />
 
 <h:outputLabel for="mdp" value="Mot de passe:" />
-<h:inputText value="#{userCtr.password}"
+<h:inputText value="#{userCtr.user.password}"
 id="mdp" required="true" label="mdp" />
 
 <f:facet name="footer">

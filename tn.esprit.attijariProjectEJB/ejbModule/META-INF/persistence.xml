@@ -5,14 +5,15 @@
 	<persistence-unit name="rasha">
 
 		<jta-data-source>java:/oracle</jta-data-source>
-		<class>tn.esprit.attijariProject.entities.Traitement</class>
 		<class>tn.esprit.attijariProject.entities.Equipe</class>
+		<class>tn.esprit.attijariProject.entities.Traitement</class>
 		<class>tn.esprit.attijariProject.entities.Operateur</class>
+		<class>tn.esprit.attijariProject.entities.Planning</class>
 		<class>tn.esprit.attijariProject.entities.Fiche</class>
 		<class>tn.esprit.attijariProject.entities.Administrateur</class>
 		<class>tn.esprit.attijariProject.entities.Action</class>
 		<class>tn.esprit.attijariProject.entities.User</class>
-		<class>tn.esprit.attijariProject.entities.Planning</class>
+		
 		
 
 

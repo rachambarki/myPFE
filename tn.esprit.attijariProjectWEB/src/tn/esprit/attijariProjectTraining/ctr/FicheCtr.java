@@ -14,10 +14,11 @@ import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
 @SessionScoped
 public class FicheCtr {
 
-	private Fiche fiche = new Fiche();
-	private List<Fiche> fiches = new ArrayList<Fiche>();
+
 
 	@EJB
+	private Fiche fiche = new Fiche();
+	private List<Fiche> fiches = new ArrayList<Fiche>();
 	private FicheDaoLocal ficheDaoLocal;
 
 	public Fiche getFiche() {
@@ -37,14 +38,11 @@ public class FicheCtr {
 	}
 
 	public String doAddFiche() {
-		String retour = "";
-		try {
+	
+	
 			ficheDaoLocal.creer(fiche);
-
-		} catch (Exception e) {
-			retour = "ma zedech fiche";
-		}
-		return retour;
+			 return "";
+		
 
 	}
 

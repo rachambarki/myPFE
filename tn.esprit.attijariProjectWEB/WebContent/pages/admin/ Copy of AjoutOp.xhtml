@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">ajoutop</ui:define>
+	<ui:define name="page">
+		<h:form id="form99">
+	<p:growl id="growl"  sticky="true" /> 
+<center>
+			 
+				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
+					<h:outputLabel for="firstname" value="Nom  : *" />
+					<p:inputText id="firstname" value="#{userCtr1.user1.firstName}">
+				
+				    <f:validateLength minimum="2" />  
+            </p:inputText>  
+           
+            
+            
+            
+				<h:outputLabel for="user2" value="Prenom  : *" />
+					<p:inputText id="user2" value="#{userCtr1.user1.lastName}">
+					  <f:validateLength minimum="2" /> 
+				</p:inputText>
+				 <h:outputText value="Tel Num: " />  
+            <p:inputMask   
+                        mask="(+999) 99-999-999">
+                          <f:validateLength minimum="8" /> 
+                        </p:inputMask> 
+					
+					
+					<h:outputLabel for="user3" value="Mail  : *" />
+					<p:inputText id="user3" value="#{userCtr1.user1.mailAdress}">
+					
+				</p:inputText>
+				<h:outputLabel for="user4" value="Role  : *" />
+					<p:inputText id="user4" value="#{userCtr1.user1.role}">
+					
+				</p:inputText>
+				<h:outputLabel for="user6" value="Matricule : *" />
+					<p:inputText id="user6" value="#{userCtr1.user1.matricule}">
+					  <f:validateLength minimum="4" /> 
+				</p:inputText>
+				
+				
+                             
+            <h:outputLabel for="pwd1" value="Password 1: *" />  
+            <p:password id="pwd1" value="#{userCtr1.user1.password}" match="pwd2" feedback="true" inline="true"/>  
+  
+            <h:outputLabel for="pwd2" value="Password 2: *" />  
+            <p:password id="pwd2" value="#{userCtr1.user1.password}" feedback="true" inline="true" />
+			
+				<h:outputLabel for="city" value="Equipe :" />  
+				 <p:selectOneMenu id="city" value="#{userCtr1.user1.equipe}"> 
+					        <f:selectItem itemLabel="Equipe rattache" itemValue="" />  
+                <f:selectItems value="#{userCtr1.user1.equipe}" />  
+              
+            </p:selectOneMenu>  
+					
+					</h:panelGrid>
+					
+					<p:commandButton value="save" actionListener="#{userCtr1.docreateUser}" update="growl"></p:commandButton>
+					 <p:commandButton value="Reset" type="reset" /> 
+			
+					</center>
+					
+		
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>

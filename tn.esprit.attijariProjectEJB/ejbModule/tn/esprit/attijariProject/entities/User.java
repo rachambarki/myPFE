@@ -30,8 +30,12 @@ public class User implements Serializable {
 	private String lastName;
 	private String mailAdress;
 
+	
 	private Equipe equipe;
+	
 	private List<Action> actions;
+	private  String phone;
+	private String role;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -104,5 +108,23 @@ public class User implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 
 }

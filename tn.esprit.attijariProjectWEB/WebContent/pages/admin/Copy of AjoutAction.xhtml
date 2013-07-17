@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">ajoutAction</ui:define>
+	<ui:define name="page">
+		<h:form id="form99">
+		<p:growl id="growl"  sticky="true" /> 
+		<center>
+
+				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
+					<h:outputLabel for="action" value="Action : *" />
+					<p:inputText id="action" value="#{actionCtr.action1.nameAction}">
+					 <f:validateLength minimum="2" />  
+				</p:inputText>
+					
+						
+					<h:outputLabel for="action1" value="Mode Operatoire : " />
+					<p:inputText id="action1" value="#{actionCtr.action1.modeOperatoire}">
+					 <f:validateLength minimum="8" />  
+				</p:inputText>
+				
+				<h:outputLabel for="action2" value="Heure Debut : " />
+					<p:inputText id="action2" value="#{actionCtr.action1.heureDebut}">
+					 <f:validateLength minimum="4" />  
+				</p:inputText>
+				<h:outputLabel for="action3" value="Heure Fin : " />
+					<p:inputText id="action3" value="#{actionCtr.action1.heureFin}">
+					 <f:validateLength minimum="4" />  
+				</p:inputText>
+				
+					<h:outputLabel for="city" value="Operateur :" />  
+				 <p:selectOneMenu id="city" value="#{userCtr.user.matricule}"> 
+					        <f:selectItem itemLabel="Operateur" itemValue="" />  
+                <f:selectItems value="#{userCtr.users}" />  
+              
+            </p:selectOneMenu>  
+					
+					</h:panelGrid>
+				
+					<p:commandButton value="save" actionListener="#{actionCtr.docreateAction}" update="growl"></p:commandButton>
+					
+			 <p:commandButton value="Reset" type="reset" /> 
+			</center>
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>

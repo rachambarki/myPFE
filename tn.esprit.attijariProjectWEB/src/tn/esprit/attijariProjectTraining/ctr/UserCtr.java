@@ -19,13 +19,16 @@ public class UserCtr {
 	private String lastName;
 	private String mailAdress;
 
+	@EJB
+	private UserDaoLocal userDaoLocal;
+
+	public UserCtr() {
+	}
+
 	private User user = new User();
 
 	private List<User> users = new ArrayList<User>();
 	private boolean displayForm;
-
-	@EJB
-	private UserDaoLocal userDaoLocal;
 
 	public String getPassword() {
 		return password;
@@ -170,4 +173,5 @@ public class UserCtr {
 	public void setDisplayForm(boolean displayForm) {
 		this.displayForm = displayForm;
 	}
+
 }
