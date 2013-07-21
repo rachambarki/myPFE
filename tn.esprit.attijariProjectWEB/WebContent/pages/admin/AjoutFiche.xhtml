@@ -126,44 +126,15 @@
 
 
 
-<p:growl id="growl" showDetail="true" life="3000" />
-
-<p:dialog id="dialog" header="Veuillez saisir les nouvelles donnees" widgetVar="dlg">
-
-
-<h:panelGrid columns="2" cellpadding="5">
-
-<h:outputLabel for="matricule" value="Mode Operatoire:" />
-<p:inputText value="#{actionCtr1.modeOperatoire}"
-id="matricule" required="true" label="matricule" />
-
-<h:outputLabel for="Nom" value="Nom:" />
-<p:inputText value="#{actionCtr1.nameAction}"
-id="Nom" required="true" label="Nom" />
-
-<h:outputLabel for="Prenom" value="Verification:" />
-<h:inputText value="#{actionCtr1.verification}"
-id="Prenom" required="true" label="Prenom" />
-
-
-
-<f:facet name="footer">
-<p:commandButton id="modifier" value="Enregistrer" update="growl"
-actionListener="#{actionCtr1.doUpdate()}"
-
-/> 
-</f:facet>
-
-</h:panelGrid>
-</p:dialog>
 
 
 <center>
 	<h:panelGrid columns="2"  bgcolor="FFFFFF">
+	<p:growl id="growl1"  sticky="true" /> 
 
 						
 					<h:outputLabel for="fiche" value="Fiche N : *" />
-					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheId}"
+					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheName}"
 						required="true" label="Fiche">
 						<f:validateLength minimum="2" />
 					</p:inputText>
@@ -188,13 +159,13 @@ actionListener="#{actionCtr1.doUpdate()}"
 					<h:outputText value="" />
 					
 						<h:outputLabel for="fiched" value="Journee : *" />
-					<p:calendar id="fiched" showOn="button" value="#{calendarBean.date3}"
+					<p:calendar id="fiched" showOn="button" value="#{ficheCtr.fiche.journee}"
 						required="true" label="Fiche">
 						<f:validateLength minimum="2" />
 				</p:calendar>
 					 
 					 <h:outputLabel for="fichep" value="Periodicite : *" />
-					<p:selectOneListbox id="basic" value="#{buttonBean.number}">
+					<p:selectOneListbox id="basic" value="#{ficheCtr.fiche.fichePeriodicity}">
 						<f:selectItem itemLabel="Quotidien" itemValue="1" />
 						<f:selectItem itemLabel="Mensuel" itemValue="2" />
 						<f:selectItem itemLabel="A la demande" itemValue="3" />
@@ -207,7 +178,7 @@ actionListener="#{actionCtr1.doUpdate()}"
 								</h:panelGrid>
 							
 							
-									<p:commandButton value="save" actionListener="#{ficheCtr.doAddFiche()}" update="growl"></p:commandButton>
+									<p:commandButton value="save" actionListener="#{ficheCtr.doAddFiche()}" update="growl1"></p:commandButton>
 					
 			 <p:commandButton value="Reset" type="reset" /> 
 								</center>

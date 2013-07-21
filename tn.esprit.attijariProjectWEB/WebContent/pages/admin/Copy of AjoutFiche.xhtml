@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">ajoutFiche</ui:define>
+	<ui:define name="page">
+		<h:form id="form99">
+<h:panelGrid columns="2"  bgcolor="FFFFFF">
+	
+
+						
+					<h:outputLabel for="fiche" value="Fiche N : *" />
+					<p:inputText id="fiche" value="#{ficheCtr.fiche1.ficheName}"
+					/>
+			
+					
+				
+					
+					
+				
+					
+	 
+
+								</h:panelGrid>
+							
+							
+									<p:commandButton value="save" actionListener="#{ficheCtr.doAddFiche()}" ></p:commandButton>
+					
+			 <p:commandButton value="Reset" type="reset" /> 
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
+

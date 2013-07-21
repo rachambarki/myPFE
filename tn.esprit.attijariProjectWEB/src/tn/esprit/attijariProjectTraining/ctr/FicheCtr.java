@@ -15,11 +15,12 @@ import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
 public class FicheCtr {
 
 
-
-	@EJB
 	private Fiche fiche = new Fiche();
 	private List<Fiche> fiches = new ArrayList<Fiche>();
-	private FicheDaoLocal ficheDaoLocal;
+	@EJB
+	
+	 FicheDaoLocal ficheDaoLocal;
+	private Fiche fiche1 = new Fiche();
 
 	public Fiche getFiche() {
 		return fiche;
@@ -44,6 +45,14 @@ public class FicheCtr {
 			 return "";
 		
 
+	}
+
+	public Fiche getFiche1() {
+		return fiche1;
+	}
+
+	public void setFiche1(Fiche fiche1) {
+		this.fiche1 = fiche1;
 	}
 
 }

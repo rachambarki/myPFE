@@ -16,12 +16,8 @@ public class userCtr1 {
 
 	private static final String Prenom = null;
 
-
-
 	@EJB
 	UserDaoLocal userDaoLocal;
-
-
 
 	private User user1 = new User();
 
@@ -41,8 +37,11 @@ public class userCtr1 {
 
 	public userCtr1() {
 	}
-	  public void savePerson(ActionEvent actionEvent) {  
-	        String firstname = null;
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + firstname + " " + Prenom + "!"));  
-	    }  
+
+	public void savePerson(ActionEvent actionEvent) {
+		String firstname = null;
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage("Welcome " + firstname + " " + Prenom + "!"));
+	}
+
 }

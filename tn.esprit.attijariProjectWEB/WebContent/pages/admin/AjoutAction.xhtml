@@ -8,7 +8,7 @@
 	<ui:define name="title">ajoutAction</ui:define>
 	<ui:define name="page">
 		<h:form id="form99">
-		<p:growl id="growl"  sticky="true" /> 
+		
 
 	<p:layout style="min-width:300px;height:700px;" id="layouty">
 
@@ -95,11 +95,13 @@
 	
 				
 			
-				
+				<p:growl id="growl1"  sticky="true" />
 				
 
 
 				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
+				
+				
 					<h:outputLabel for="action" value="Action : *" />
 					<p:inputText id="action" value="#{actionCtr.action1.nameAction}">
 					 <f:validateLength minimum="2" />  
@@ -131,7 +133,7 @@
 				
 					
 			 	</h:panelGrid>
-			 	<p:commandButton value="save" actionListener="#{actionCtr.docreateAction}" update="growl"></p:commandButton>
+			 	<p:commandButton value="save" actionListener="#{actionCtr.docreateAction}" update="growl1"></p:commandButton>
 					
 			 <p:commandButton value="Reset" type="reset" /> 
 			
