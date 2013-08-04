@@ -1,5 +1,6 @@
 package tn.esprit.attijariProjectTraining.ctr;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +13,18 @@ import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
 
 @ManagedBean
 @SessionScoped
-public class FicheCtr {
+public class FicheCtr implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@EJB
+	public FicheDaoLocal ficheDaoLocal;
 
 	private Fiche fiche = new Fiche();
 	private List<Fiche> fiches = new ArrayList<Fiche>();
-	@EJB
-	
-	 FicheDaoLocal ficheDaoLocal;
 	private Fiche fiche1 = new Fiche();
 
 	public Fiche getFiche() {
@@ -31,6 +36,8 @@ public class FicheCtr {
 	}
 
 	public List<Fiche> getFiches() {
+		fiches = ficheDaoLocal.findAllFiche();
+		System.out.println(fiches.size());
 		return fiches;
 	}
 
@@ -39,11 +46,9 @@ public class FicheCtr {
 	}
 
 	public String doAddFiche() {
-	
-	
-			ficheDaoLocal.creer(fiche);
-			 return "";
-		
+
+		ficheDaoLocal.creer(fiche);
+		return "";
 
 	}
 

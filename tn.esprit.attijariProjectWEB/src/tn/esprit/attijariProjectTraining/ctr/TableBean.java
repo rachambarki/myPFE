@@ -5,29 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-
-import org.primefaces.event.RowEditEvent;
-
-import tn.esprit.attijariProject.entities.User;
-import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
-
-@ManagedBean
-@SessionScoped
 public class TableBean implements Serializable {
 
-	private List<User> users = new ArrayList<User>();
-	@EJB
-	private UserDaoLocal userDaoLocal;
 	private final static String[] colors;
 
 	private final static String[] manufacturers;
-
-	private List<Car> carsSmall;
 
 	static {
 		colors = new String[10];
@@ -55,20 +37,42 @@ public class TableBean implements Serializable {
 		manufacturers[9] = "Ford";
 	}
 
-	public TableBean() {
-		carsSmall = new ArrayList<Car>();
+	private List<Car> cars;
 
-		populateRandomCars(carsSmall, 9);
+	private Car selectedCar;
+
+	private Car[] selectedCars;
+
+	private CarDataModel mediumCarsModel;
+
+	public TableBean() {
+		cars = new ArrayList<Car>();
+
+		populateRandomCars(cars, 50);
+
+		mediumCarsModel = new CarDataModel(cars);
+	}
+
+	public Car[] getSelectedCars() {
+		return selectedCars;
+	}
+
+	public void setSelectedCars(Car[] selectedCars) {
+		this.selectedCars = selectedCars;
+	}
+
+	public Car getSelectedCar() {
+		return selectedCar;
+	}
+
+	public void setSelectedCar(Car selectedCar) {
+		this.selectedCar = selectedCar;
 	}
 
 	private void populateRandomCars(List<Car> list, int size) {
 		for (int i = 0; i < size; i++)
 			list.add(new Car(getRandomModel(), getRandomYear(),
 					getRandomManufacturer(), getRandomColor()));
-	}
-
-	public List<Car> getCarsSmall() {
-		return carsSmall;
 	}
 
 	private int getRandomYear() {
@@ -87,43 +91,7 @@ public class TableBean implements Serializable {
 		return UUID.randomUUID().toString().substring(0, 8);
 	}
 
-	public String[] getManufacturers() {
-		return manufacturers;
-	}
-
-	public String[] getColors() {
-		return colors;
-	}
-
-	public void onEdit(RowEditEvent event) {
-		try {
-			System.out.println("aaaaaaaaaaaaaahhhhhhhhhhhhhhhh");
-			System.out.println(((User)event.getObject()).getFirstName());
-			userDaoLocal.modifier(((User)event.getObject()));
-			FacesMessage msg = new FacesMessage("Car Edited",
-					((User) event.getObject()).getFirstName());
-
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		} catch (Exception e) {
-			System.out.println(1111);
-			e.printStackTrace();
-		}
-	}
-
-	public void onCancel(RowEditEvent event) {
-		FacesMessage msg = new FacesMessage("Car Cancelled",
-				((User) event.getObject()).getFirstName());
-
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
-	public List<User> getUsers() {
-		users = userDaoLocal.findAllUsers();
-		System.out.println(users.size());
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public CarDataModel getMediumCarsModel() {
+		return mediumCarsModel;
 	}
 }

@@ -41,10 +41,9 @@ public class TraitementDao implements TraitementDaoLocal, TraitementDaoRemote {
 
 	@Override
 	public List<Traitement> findAllTraitement() {
-		return null;
 
-		//return entityManager.createQuery("select t from Traitement t")
-			//	.getResultList();
+		return entityManager.createQuery("select t from Traitement t")
+				.getResultList();
 	}
 
 }

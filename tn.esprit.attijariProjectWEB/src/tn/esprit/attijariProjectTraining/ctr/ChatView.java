@@ -16,7 +16,7 @@ public class ChatView {
 
 	private final PushContext pushContext = PushContextFactory.getDefault()
 			.getPushContext();
-	
+
 	@ManagedProperty("#{chatUsers}")
 	private ChatUsers users;
 

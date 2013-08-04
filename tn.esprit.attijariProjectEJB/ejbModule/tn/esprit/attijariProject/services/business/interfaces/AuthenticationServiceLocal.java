@@ -7,5 +7,5 @@ import tn.esprit.attijariProject.entities.User;
 @Local
 public interface AuthenticationServiceLocal {
 
-	User authenticate(String login, String password);
+	User authenticate(Integer login, String password);
 }

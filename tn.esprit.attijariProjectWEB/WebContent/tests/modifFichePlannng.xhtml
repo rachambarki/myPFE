@@ -1,0 +1,29 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">managePlanning</ui:define>
+	<ui:define name="page">
+		<h:form id="form99">
+
+
+	<p:dataTable var="act" value="#{ficheCtr.fiches}" id="ListUser" editable="true"> 
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.ficheName}" />
+
+
+
+</p:column> 
+
+
+</p:dataTable>
+
+				</h:form>
+
+
+	</ui:define>
+</ui:composition>
+

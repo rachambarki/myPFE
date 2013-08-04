@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">manageOp</ui:define>
+	<ui:define name="title">manageFiche</ui:define>
 	<ui:define name="page">
-	
+		<h:form id="form99">
 
 
 			<p:layout style="min-width:300px;height:500px;" id="layouty">
@@ -15,9 +16,8 @@
 					<center>
 						<MARQUEE direction="left" bgcolor="#000000">
 							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Gerer les Utilisateurs </font> <p:clock></p:clock>
-							
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Gerer les fiches: </font>
+							<p:clock />
 
 						</MARQUEE>
 					</center>
@@ -60,7 +60,7 @@
 
 
 <p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
-<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
 
 <p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
 
@@ -76,130 +76,45 @@
 				
 				
 				
-<p:layoutUnit position="center">
 
-		
-		<center>
-<h:graphicImage library="images" name="muser.jpg" style="width : 95px; height : 95px;"/>
+
+
+
+			
+							
+<p:layoutUnit position="center">
+<h:form id="form">
+<center>
+<h:graphicImage library="images" name="action.png" style="width : 95px; height : 95px;"/>
 </center>
 
 <br />
-<h:form id="form">
+<p:growl id="messages" showDetail="true"/>
+
+<p:dataTable var="act" value="#{planningCtr.plannings}" id="ListUser" editable="true"> 
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.idPlanning}" />
 
 
 
-			<p:dataTable var="ListUser" value="#{userCtr.users}" id="ListUser"
-				editable="true">
-				<p:column headerText="Nom"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+</p:column> 
+<p:column headerText="Montant" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
 
-					<h:outputText value="#{ListUser.firstName}" />
+<h:outputText value="#{act.montant}" />
 
 
 
-				</p:column>
-				<p:column headerText="Prenom"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.lastName}" />
-
-
-				</p:column>
-				<p:column headerText="Adresse Mail"
-					style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.mailAdress}" />
+</p:column> 
 
 
 
-				</p:column>
-				<p:column headerText="Mot de passe"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+<p:column>
+<p:commandButton action="#{planningCtr.doAddTraitement}" icon="ui-icon-pencil" />
+<p:commandButton action="#{planningCtr.doAddTraitement}" icon="ui-icon-close" />
 
-					<h:outputText value="#{ListUser.password}" />
-				</p:column>
-
-
-				<p:column headerText="Matricule"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.matricule}" />
-
-				</p:column>
-				<p:column headerText="Tel_num"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.phone}" />
-
-				</p:column>
-			
-				<p:column>
-					<p:commandButton  icon="ui-icon-pencil"
-						actionListener="#{userCtr1.selectionner}" update=":f2:p"
-						oncomplete="dlg.show()">
-						
-						<f:param name="id" value="#{ListUser.matricule
-						}" />
-
-					</p:commandButton>
-			
-					<p:commandButton  icon="ui-icon-close" 
-						actionListener="#{userCtr1.selectionner}" update=":f2:p"
-						oncomplete="dlg.show()">
-						
-						<f:param name="id" value="#{ListUser.matricule
-						}" />
-
-					</p:commandButton>
-				</p:column>
-			</p:dataTable>
-		</h:form>
-
-
-
-
-		<h:form id="f2">
-		<p:growl id="growl" showDetail="true" life="3000" />
-
-			<p:dialog id="dialog" header="Veuillez saisir les nouvelles donnees"
-				widgetVar="dlg">
-
-
-				<h:panelGrid columns="2" cellpadding="5" id="p">
-
-
-					<h:outputLabel for="Nom" value="Nom:" />
-					<p:inputText value="#{userCtr1.user2.firstName}" id="Nom"
-						required="true" label="Nom" />
-						
-						<h:outputLabel for="Prenom" value="Prenom:" />
-					<p:inputText value="#{userCtr1.user2.lastName}" id="Prenom"
-						required="true" label="Prenom" />
-						
-								<h:outputLabel for="pwd" value="Mot de passe:" />
-					<h:inputSecret  value="#{userCtr1.user2.password}" id="pwd"
-						required="true" label="pwd" />
-								<h:outputLabel for="pwd1" value="Telephone:" />
-					<h:inputSecret  value="#{userCtr1.user2.phone}" id="pwd1"
-						required="true" label="pwd1" />
-						
-						
-								<h:outputLabel for="Mail" value="E-mail:" />
-					<p:inputText value="#{userCtr1.user2.mailAdress}" id="Mail"
-						required="true" label="Mail" />
-
-
-
-					<f:facet name="footer">
-						<p:commandButton id="modifier" value="Valider" update="growl"
-							actionListener="#{userCtr1.doUpdateUser}" />
-
-
-					</f:facet>
-
-				</h:panelGrid>
-			</p:dialog>
-		</h:form>
+</p:column>
+</p:dataTable>
 
 
 
@@ -209,12 +124,18 @@
 
 
 
-
-
+</h:form>
 </p:layoutUnit>
-</p:layout>
+			
 
+
+			
+			</p:layout>
+
+
+		</h:form>
 
 
 	</ui:define>
 </ui:composition>
+

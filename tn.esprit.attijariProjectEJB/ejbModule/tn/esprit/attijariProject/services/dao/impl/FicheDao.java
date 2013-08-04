@@ -41,10 +41,9 @@ public class FicheDao implements FicheDaoLocal, FicheDaoRemote {
 
 	@Override
 	public List<Fiche> findAllFiche() {
-		return null;
+	
 
-		// return
-		// entityManager.createQuery("select f from Fiche f").getResultList();
-	}
+		return entityManager.createQuery("select f from Fiche f").getResultList();
 
+}
 }

@@ -7,10 +7,87 @@
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
 	<ui:define name="title">chat</ui:define>
 	<ui:define name="page">
-	<h:outputStylesheet library="css" name="chat.css" />
-	<h:outputScript>
+	<p:layout style="min-width:300px;height:600px;" id="layouty">
+
+						<p:layoutUnit id="topy" position="north" size="35">
+					<center>
+						<MARQUEE direction="left" bgcolor="#000000">
+							<font color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu Administrateur le: </font>
+							<p:clock />
+
+						</MARQUEE>
+					</center>
+				</p:layoutUnit>
+
+
+<p:layoutUnit position="west" size="260" >
+<p:menu>
+
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+</p:submenu>
+<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+</p:submenu>
+<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
+</p:submenu>
+
+<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
+<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
+
+</p:submenu>
+
+
+<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/manageOp.jsf" />
+
+</p:submenu>
+
+
+
+<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+
+</p:submenu>
+
+
+<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
+
+<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
+
+</p:submenu>
+
+
+
+
+</p:menu>
+</p:layoutUnit>
+
+				
+				
+				
+				
+
+
+
+
+				<p:layoutUnit position="center" size="1450" resizable="true"
+					closable="true" collapsible="true">
+					<center>
 	
-	   
+		<h:outputStylesheet library="css" name="chat.css" />
+
+		<h:outputScript>
             //<![CDATA[
             function handleMessage(data) {
                 var chatContent = $(PrimeFaces.escapeClientId('form:public'));
@@ -20,67 +97,108 @@
                 chatContent.scrollTop(chatContent.height());
             }
             //]]>
-   
-	
-	</h:outputScript>
-	  
-            <p:growl id="growl" showDetail="true" />
-            
-            <h:form id="form">
-                
-                <p:fieldset id="container" legend="PrimeChat" toggleable="true">
-                    
-                    <h:panelGroup rendered="#{chatView.loggedIn}">
-                        
-                        <h:panelGrid columns="2" columnClasses="publicColumn,usersColumn" style="width:100%">
-                            <p:outputPanel id="public" layout="block" styleClass="ui-corner-all ui-widget-content chatlogs"/>
-                            
-                            <p:dataList id="users" var="user" value="#{chatUsers.users}" styleClass="usersList">
-                                <f:facet name="header">
-                                    Users
+
+		</h:outputScript>
+		<p:growl id="growl" showDetail="true" />
+
+		<h:form id="form">
+
+			<p:fieldset id="container" legend="Attijari Chat" toggleable="true">
+
+				<h:panelGroup rendered="#{chatView.loggedIn}">
+
+					<h:panelGrid columns="2" columnClasses="publicColumn,usersColumn"
+						style="width:100%">
+						<p:outputPanel id="public" layout="block"
+							styleClass="ui-corner-all ui-widget-content chatlogs" />
+
+						<p:dataList id="users" var="user" value="#{chatUsers.users}"
+							styleClass="usersList">
+							<f:facet name="header">
+                                   User
                                 </f:facet>
 
-                                <p:commandButton title="Chat" icon="ui-icon-comment" oncomplete="PF('pChat').show()" update=":form:privateChatContainer">
-                                    <f:setPropertyActionListener value="#{user}" target="#{chatView.privateUser}" />
-                                </p:commandButton>
+							<p:commandButton title="Chat" icon="ui-icon-comment"
+								oncomplete="pChat.show()"
+								update=":form:privateChatContainer">
+								<f:setPropertyActionListener value="#{user}"
+									target="#{chatView.privateUser}" />
+							</p:commandButton>
                                 #{user}
                             </p:dataList>
-                        </h:panelGrid>
-                        
-                        <p:separator />
-                        
-                        <p:inputText value="#{chatView.globalMessage}" styleClass="messageInput" />
-                        <p:spacer width="5" />
-                        <p:commandButton value="Send" actionListener="#{chatView.sendGlobal}" oncomplete="$('.messageInput').val('').focus()"/>
-                        <p:spacer width="5" />
-                        <p:commandButton value="Disconnect" actionListener="#{chatView.disconnect}" global="false" update="container" />
-                    </h:panelGroup>
-                    
-                    <h:panelGroup rendered="#{not chatView.loggedIn}" >
-                        Username: <p:inputText value="#{chatView.username}" />
-                
-                        <p:spacer width="5" />
-                        <p:commandButton value="Login" actionListener="#{chatView.login}" update="container" 
-                                         icon="ui-icon-person" />
-                    </h:panelGroup>
-                    
-                </p:fieldset>
-                
-                <p:dialog widgetVar="pChat" header="Private Chat" modal="true" showEffect="fade" hideEffect="fade">
-                    <h:panelGrid id="privateChatContainer" columns="2" columnClasses="vtop,vtop">
-                        <p:outputLabel for="pChatInput" value="To: #{chatView.privateUser}" />
-                        <p:inputTextarea id="pChatInput" value="#{chatView.privateMessage}" rows="5" cols="30" />
-                        
-                        <p:spacer />
-                        <p:commandButton value="Send" actionListener="#{chatView.sendPrivate}" oncomplete="PF('pChat').hide()" />
-                    </h:panelGrid>
-                </p:dialog>
-                             
-            </h:form>
-            
-            <p:socket onMessage="handleMessage" channel="/chat" autoConnect="false" widgetVar="subscriber">
-                <p:ajax event="message" update=":form:users" />
-            </p:socket>
-	
+					</h:panelGrid>
+
+					<p:separator />
+
+					<p:inputText value="#{chatView.globalMessage}"
+						styleClass="messageInput" />
+					<p:spacer width="5" />
+					<p:commandButton value="Envoyer"
+						actionListener="#{chatView.sendGlobal}"
+						oncomplete="$('.messageInput').val('').focus()" />
+					<p:spacer width="5" />
+					<p:commandButton value="se deconnecter"
+						actionListener="#{chatView.disconnect}" global="false"
+						update="container" />
+				</h:panelGroup>
+
+				<h:panelGroup rendered="#{not chatView.loggedIn}">
+                        Pseudo: <p:inputText
+						value="#{chatView.username}" />
+
+					<p:spacer width="5" />
+					<p:commandButton value="Login" actionListener="#{chatView.login}"
+						update="container" icon="ui-icon-person" />
+				</h:panelGroup>
+
+			</p:fieldset>
+
+			<p:dialog widgetVar="pChat" header="Chat Prive" modal="false"
+				showEffect="fade" hideEffect="fade">
+				<h:panelGrid id="privateChatContainer" columns="2"
+					columnClasses="vtop,vtop">
+					<p:outputLabel for="pChatInput" value="To: #{chatView.privateUser}" />
+					<p:inputTextarea id="pChatInput" value="#{chatView.privateMessage}"
+						rows="5" cols="30" />
+
+					<p:spacer />
+					<p:commandButton value="Envoyer"
+						actionListener="#{chatView.sendPrivate}"
+						oncomplete="pChat.hide()" />
+				</h:panelGrid>
+			</p:dialog>
+
+		</h:form>
+
+		<p:socket onMessage="handleMessage" channel="/chat"
+			autoConnect="false" widgetVar="subscriber">
+			<p:ajax event="message" update=":form:users" />
+		</p:socket>
+		</center>
+			</p:layoutUnit>
+					   <p:layoutUnit id="r" position="east" size="300"
+				>
+				<MARQUEE onmouseover="this.stop();" onmouseout="this.start();" direction="down" >
+                              <h:graphicImage library="images" name="amen.png" 
+				 />
+				  
+				 </MARQUEE>
+				   <p:calendar value="#{calendarBean.date1}" mode="inline" id="inlineCal"/> 
+				
+				
+				</p:layoutUnit>
+
+
+
+
+
+
+
+
+			</p:layout>
+
+
+
+
 	</ui:define>
 </ui:composition>

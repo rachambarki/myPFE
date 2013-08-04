@@ -22,30 +22,20 @@ public class User implements Serializable {
 	/**
 	 * @param args
 	 */
-	private int idUser;
+	private Integer Matricule;
 
 	private String password;
-	private String matricule;
+
 	private String firstName;
 	private String lastName;
 	private String mailAdress;
 
-	
 	private Equipe equipe;
-	
+
 	private List<Action> actions;
-	private  String phone;
+	private List<Equipe>  equipes;
+	private String phone;
 	private String role;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
 
 	public String getPassword() {
 		return password;
@@ -88,14 +78,6 @@ public class User implements Serializable {
 		this.equipe = equipe;
 	}
 
-	public String getMatricule() {
-		return matricule;
-	}
-
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
-	}
-
 	@OneToMany(mappedBy = "user")
 	public List<Action> getActions() {
 		return actions;
@@ -109,7 +91,6 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 
-	
 	public String getPhone() {
 		return phone;
 	}
@@ -126,5 +107,23 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Integer getMatricule() {
+		return Matricule;
+	}
+
+	public void setMatricule(Integer matricule) {
+		Matricule = matricule;
+	}
+	@OneToMany(mappedBy = "user")
+
+	public List<Equipe> getEquipes() {
+		return equipes;
+	}
+
+	public void setEquipes(List<Equipe> equipes) {
+		this.equipes = equipes;
+	}
 
 }

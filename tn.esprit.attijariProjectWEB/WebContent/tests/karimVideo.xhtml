@@ -5,138 +5,99 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">ajoutOperateur</ui:define>
+	<ui:define name="title">test</ui:define>
 	<ui:define name="page">
-		<h:form id="form99">
+		<h:outputStylesheet library="css" name="chat.css" />
 
+	
+		<p:growl id="growl" showDetail="true" />
 
-			<p:layout style="min-width:300px;height:500px;" id="layouty">
+		<h:form id="form">
 
-				<p:layoutUnit id="topy" position="north" size="35">
-					<center>
-						<MARQUEE direction="left" bgcolor="#000000">
-							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Ajouter Utilisateur le: </font>
-							<p:clock />
+			<p:fieldset id="container" legend="Attijari Chat" toggleable="true">
 
-						</MARQUEE>
-					</center>
-				</p:layoutUnit>
+				<h:panelGroup rendered="#{chatView.loggedIn}">
 
+					<h:panelGrid columns="2" columnClasses="publicColumn,usersColumn"
+						style="width:100%">
+						<p:outputPanel id="public" layout="block"
+							styleClass="ui-corner-all ui-widget-content chatlogs" />
 
-				<p:layoutUnit position="west" size="260" >
-<p:menu>
+						<p:dataList id="users" var="user" value="#{chatUsers.users}"
+							styleClass="usersList">
+							<f:facet name="header">
+                                   User
+                                </f:facet>
 
-<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-</p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
-</p:submenu>
-<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
-<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
-<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
-<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
+							<p:commandButton title="Chat" icon="ui-icon-comment"
+								oncomplete="PF('pChat').show()"
+								update=":form:privateChatContainer">
+								<f:setPropertyActionListener value="#{user}"
+									target="#{chatView.privateUser}" />
+							</p:commandButton>
+                                #{user}
+                            </p:dataList>
+					</h:panelGrid>
 
-</p:submenu>
+					<p:separator />
 
+					<p:inputText value="#{chatView.globalMessage}"
+						styleClass="messageInput" />
+					<p:spacer width="5" />
+					<p:commandButton value="Envoyer"
+						actionListener="#{chatView.sendGlobal}"
+						oncomplete="$('.messageInput').val('').focus()" />
+					<p:spacer width="5" />
+					<p:commandButton value="se deconnecter"
+						actionListener="#{chatView.disconnect}" global="false"
+						update="container" />
+				</h:panelGroup>
 
-<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
-<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+				<h:panelGroup rendered="#{not chatView.loggedIn}">
+                        Pseudo: <p:inputText
+						value="#{chatView.username}" />
 
-</p:submenu>
+					<p:spacer width="5" />
+					<p:commandButton value="Login" actionListener="#{chatView.login}"
+						update="container" icon="ui-icon-person" />
+				</h:panelGroup>
 
+			</p:fieldset>
 
+			<p:dialog widgetVar="pChat" header="Chat Prive" modal="true"
+				showEffect="fade" hideEffect="fade">
+				<h:panelGrid id="privateChatContainer" columns="2"
+					columnClasses="vtop,vtop">
+					<p:outputLabel for="pChatInput" value="To: #{chatView.privateUser}" />
+					<p:inputTextarea id="pChatInput" value="#{chatView.privateMessage}"
+						rows="5" cols="30" />
 
-<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
-<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
-
-<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
-
-</p:submenu>
-
-
-<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
-<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
-
-<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
-
-</p:submenu>
-
-
-
-
-</p:menu>
-</p:layoutUnit>
-
-
-				<p:layoutUnit position="center">
-				<form action="">
-				
-				<center>
-<h:graphicImage library="images" name="addd.png" style="width : 250px; height : 200px;"/>
-
-
-			
-		
-				<h:panelGrid columns="4" bgcolor="#FFFFFF">
-					<h:outputLabel for="ide" value="id: *" />
-					<p:inputText id="firstname" value="#{userBean.user.idUser}"
-						>
-					
-					</p:inputText>
-					
-					<h:outputLabel for="firstname" value="Firstname: *" />
-					<p:inputText id="firstname" value="#{userBean.user.firstName}"
-						required="true" label="Firstname">
-						<f:validateLength minimum="2" />
-					</p:inputText>
-				
-					
-					
-
-					
-
-
+					<p:spacer />
+					<p:commandButton value="Envoyer"
+						actionListener="#{chatView.sendPrivate}"
+						oncomplete="PF('pChat').hide()" />
 				</h:panelGrid>
-
-
-		
-
-
-
-		
-			
-			
-
-
-
-
-
-
-
-
-
-	<p:growl id="mess" />
-
-		<p:commandButton actionListener="#{userBean.doSaveUser()}" value="save"></p:commandButton>
-
-			</center>
-			</form>
-			
-				</p:layoutUnit>
-
-
-
-
-						</p:layout>
-
+			</p:dialog>
 
 		</h:form>
+			<h:outputScript>
+            //<![CDATA[
+            function handleMessage(data) {
+                var chatContent = $(PrimeFaces.escapeClientId('form:public'));
+                chatContent.append(data + '<br />');
+                
+                //keep scroll
+                chatContent.scrollTop(chatContent.height());
+            }
+            //]]>
+
+		</h:outputScript>
+
+		<p:socket onMessage="handleMessage" channel="/chat"
+			autoConnect="false" widgetVar="subscriber">
+			<p:ajax event="message" update=":form:users" />
+		</p:socket>
+	
 
 
 	</ui:define>

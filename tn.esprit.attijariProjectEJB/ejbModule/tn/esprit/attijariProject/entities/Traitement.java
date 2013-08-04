@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,6 +23,7 @@ public class Traitement {
 	private int nbreOut;
 	private int nbreIn;
 	private int montant;
+	private Planning planning;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -96,6 +98,15 @@ public class Traitement {
 
 	public void setMontant(int montant) {
 		this.montant = montant;
+	}
+
+	@ManyToOne
+	public Planning getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(Planning planning) {
+		this.planning = planning;
 	}
 
 }

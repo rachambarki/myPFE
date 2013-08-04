@@ -4,18 +4,17 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
-import tn.esprit.attijariProject.entities.Action;
+import tn.esprit.attijariProject.entities.Planning;
 import tn.esprit.attijariProject.services.dao.IDaoGenerique;
 
 @Remote
 
-public interface ActionDaoRemote  extends IDaoGenerique<Action>{
+public interface PlanningDaoRemote  extends IDaoGenerique<Planning>{
 
 
-	
 
-	Action findAction(int idAction);
+Planning findPl(int idPlanning );
 
-List<Action> findAllAction();
+	List<Planning> findAllPl();
 
 }

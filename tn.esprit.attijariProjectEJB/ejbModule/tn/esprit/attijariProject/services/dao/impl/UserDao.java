@@ -50,9 +50,13 @@ public class UserDao implements UserDaoRemote, UserDaoLocal {
 	}
 
 	@Override
-	public User finfUserByMatricule(String matricule) {
+	public User finfUserByMatricule(Integer matricule) {
 
 		return entityManager.find(User.class, matricule);
+	}
+	public User finfUserById(Integer id) {
+
+		return entityManager.find(User.class, id);
 	}
 
 }

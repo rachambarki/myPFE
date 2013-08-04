@@ -25,7 +25,7 @@ public class AuthenticationService implements AuthenticationServiceRemote,
 		// TODO Auto-generated constructor stub
 	}
 
-	public User authenticate(String login, String password) {
+	public User authenticate(Integer login, String password) {
 		User found = null;
 		String jpql = "select u from User u where u.matricule=:login and u.password=:password";
 		Query query = entityManager.createQuery(jpql);

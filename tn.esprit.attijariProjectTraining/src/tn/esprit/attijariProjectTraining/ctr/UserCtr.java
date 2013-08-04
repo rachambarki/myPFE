@@ -14,7 +14,15 @@ import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
 @SessionScoped
 public class UserCtr {
 	private String password;
-	private String matricule;
+	private Integer matricule;
+	public Integer getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(Integer matricule) {
+		this.matricule = matricule;
+	}
+
 	private String firstName;
 	private String lastName;
 	private String mailAdress;
@@ -34,13 +42,7 @@ public class UserCtr {
 		this.password = password;
 	}
 
-	public String getMatricule() {
-		return matricule;
-	}
-
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
-	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -106,13 +108,13 @@ public class UserCtr {
 		return msg1;
 	}
 
-	public String findByMatricule(String matricule) {
+	public String findByMatricule(Integer matricule) {
 		String msg2 = "";
 		users = userDaoLocal.findAllUsers();
 		try {
 			for (User m : users) {
-				if (m.getMatricule().equals(matricule)
-						&& m.getPassword().equals(password)) {
+				if (m.getMatricule()==matricule
+						&& (m.getPassword().equals(password))) {
 					user = m;
 					msg2 = "user_getted_Ok";
 				}
@@ -132,13 +134,12 @@ public class UserCtr {
 		users = userDaoLocal.findAllUsers();
 		for (User m : users) {
 
-			if (m.getMatricule().equals(matricule)
-					&& m.getPassword().equals(password)) {
+			if (m.getMatricule() == matricule && (m.getPassword().equals(password))) {
 				user = m;
 				return msg3;
 			} else
 
-			if (m.getMatricule().equals(matricule)) {
+			if (m.getMatricule()==(matricule)) {
 				user = m;
 
 				return msg3;

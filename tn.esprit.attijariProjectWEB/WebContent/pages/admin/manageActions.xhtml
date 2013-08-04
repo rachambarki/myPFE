@@ -132,17 +132,12 @@
 
 </p:column> 
 
-<p:column>
-<h:outputLink id="loginLink" value="javascript:void(0)" onclick="dlg.show()" title="login">
-<h:graphicImage library="images" name="yes.png" style="width : 30px; height : 30px;"/>
 
-</h:outputLink>
-</p:column>
-<p:column>
-<h:outputLink id="loginLink2" value="javascript:void(0)" onclick="dlg.show()" title="login">
-<h:graphicImage library="images" name="suppp.png" style="width : 30px; height : 30px;"/>
 
-</h:outputLink>
+<p:column>
+<p:commandButton action="#{actionCtr1.doAddAction()}" icon="ui-icon-pencil" />
+<p:commandButton action="#{actionCtr1.doAddAction()}" icon="ui-icon-close" />
+
 </p:column>
 </p:dataTable>
 

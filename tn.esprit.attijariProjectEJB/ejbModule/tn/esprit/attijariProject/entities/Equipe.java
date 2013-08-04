@@ -5,12 +5,13 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_EQUIPE")
-public class Equipe implements Serializable{
+@Table(name = "T_EQUIPE")
+public class Equipe implements Serializable {
 	/**
 	 * 
 	 */
@@ -18,7 +19,8 @@ public class Equipe implements Serializable{
 	private int idEquipe;
 	private String nomEquipe;
 	private String descEquipe;
-	
+	private User user;
+
 	private List<User> users;
 
 	@Id
@@ -45,14 +47,23 @@ public class Equipe implements Serializable{
 	public void setDescEquipe(String descEquipe) {
 		this.descEquipe = descEquipe;
 	}
-	
-	@OneToMany(mappedBy="equipe")
+
+	@OneToMany(mappedBy = "equipe")
 	public List<User> getUsers() {
 		return users;
 	}
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

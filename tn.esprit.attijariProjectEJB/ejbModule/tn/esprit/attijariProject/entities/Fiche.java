@@ -31,6 +31,7 @@ public class Fiche implements Serializable {
 	private String ordereDeLancement;// ordre dexecution
 	private List<Action> listActions;
 	private Traitement traitement;
+	private Planning planning;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -123,6 +124,14 @@ public class Fiche implements Serializable {
 
 	public void setTraitement(Traitement traitement) {
 		this.traitement = traitement;
+	}
+	@ManyToOne
+	public Planning getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(Planning planning) {
+		this.planning = planning;
 	}
 
 }

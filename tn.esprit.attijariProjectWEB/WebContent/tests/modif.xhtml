@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">manageOp</ui:define>
+	<ui:define name="page">
+
+
+
+
+
+
+
+
+
+		<h:form id="form">
+
+
+
+			<p:dataTable var="ListUser" value="#{userCtr.users}" id="ListUser"
+				editable="true">
+				<p:column headerText="Nom"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.firstName}" />
+
+
+
+				</p:column>
+				<p:column headerText="Prenom"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.lastName}" />
+
+
+				</p:column>
+				<p:column headerText="Adresse Mail"
+					style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.mailAdress}" />
+
+
+
+				</p:column>
+				<p:column headerText="Mot de passe"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.password}" />
+				</p:column>
+
+
+				<p:column headerText="Matricule"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.matricule}" />
+
+				</p:column>
+				<p:column headerText="Tel_num"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+					<h:outputText value="#{ListUser.phone}" />
+
+				</p:column>
+			
+				<p:column>
+					<p:commandButton  icon="ui-icon-pencil"
+						actionListener="#{userCtr1.selectionner}" update=":f2:p"
+						oncomplete="dlg.show()">
+						
+						<f:param name="id" value="#{ListUser.matricule
+						}" />
+
+					</p:commandButton>
+			
+					<p:commandButton  icon="ui-icon-close" 
+						actionListener="#{userCtr1.selectionner}" update=":f2:p"
+						oncomplete="dlg.show()">
+						
+						<f:param name="id" value="#{ListUser.matricule
+						}" />
+
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+
+
+
+		<h:form id="f2">
+		<p:growl id="growl" showDetail="true" life="3000" />
+
+			<p:dialog id="dialog" header="Veuillez saisir les nouvelles donnees"
+				widgetVar="dlg">
+
+
+				<h:panelGrid columns="2" cellpadding="5" id="p">
+
+
+					<h:outputLabel for="Nom" value="Nom:" />
+					<p:inputText value="#{userCtr1.user2.firstName}" id="Nom"
+						required="true" label="Nom" />
+						
+						<h:outputLabel for="Prenom" value="Prenom:" />
+					<p:inputText value="#{userCtr1.user2.lastName}" id="Prenom"
+						required="true" label="Prenom" />
+						
+								<h:outputLabel for="pwd" value="Mot de passe:" />
+					<h:inputSecret  value="#{userCtr1.user2.password}" id="pwd"
+						required="true" label="pwd" />
+								<h:outputLabel for="pwd1" value="Telephone:" />
+					<h:inputSecret  value="#{userCtr1.user2.phone}" id="pwd1"
+						required="true" label="pwd1" />
+						
+						
+								<h:outputLabel for="Mail" value="E-mail:" />
+					<p:inputText value="#{userCtr1.user2.mailAdress}" id="Mail"
+						required="true" label="Mail" />
+
+
+
+					<f:facet name="footer">
+						<p:commandButton id="modifier" value="Valider" update="growl"
+							actionListener="#{userCtr1.doUpdateUser}" />
+
+
+					</f:facet>
+
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>

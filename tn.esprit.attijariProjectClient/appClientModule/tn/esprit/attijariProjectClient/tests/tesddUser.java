@@ -21,11 +21,11 @@ public class tesddUser {
 				.lookup("tn.esprit.attijariProjectEAR/tn.esprit.attijariProjectEJB/UserDao!tn.esprit.attijariProject.services.dao.interfaces.UserDaoRemote");
 		Administrateur administrateur = new Administrateur();
 		Operateur operateur = new Operateur();
-		operateur.setMatricule("ali");
+	//	operateur.setMatricule("23456");
 
 		userDaoRemote.creer(operateur);
-		administrateur.setMatricule("rasha");
-		administrateur.setFirstName("med ali");
+	//	administrateur.setMatricule("6789");
+		administrateur.setFirstName("med ali cc");
 		administrateur.setLastName("guebci");
 		administrateur.setMailAdress("w@attijari.com");
 		administrateur.setPassword("06491007");

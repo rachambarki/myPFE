@@ -1,4 +1,4 @@
-package tn.esprit.attijariProjectTraining.ctr;
+ package tn.esprit.attijariProjectTraining.ctr;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -49,6 +49,15 @@ public class AuthenticationBean {
 		return navigateTo;
 	}
 
+	public String logout(){
+		String navigateTo = null;
+		loggedIn = false;
+		user = new User();
+		userType = "";
+		navigateTo = "/login";
+		return navigateTo;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -72,5 +81,6 @@ public class AuthenticationBean {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+	
 
 }
