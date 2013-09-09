@@ -24,7 +24,7 @@
 				</p:layoutUnit>
 
 
-<p:layoutUnit position="west" size="260" >
+<p:layoutUnit position="west" size="245" >
   <h:form rendered="#{authenticationBean.loggedIn}">
                 	<h:panelGrid columns="2">
                 		<h:outputText value="Bienvenue Mr:  #{authenticationBean.user.firstName}" />
@@ -43,6 +43,9 @@
 </p:submenu>
 <p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/chatOp.jsf" />
+</p:submenu>
+<p:submenu label="Consultation rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
 </p:submenu>
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
@@ -66,7 +69,7 @@
 					
 
 						<h:graphicImage library="images" name="homy.jpg"
-							style="width : 930px; height : 380px;"  />
+							style="width :1100px; height : 429px;"  />
 						
 					</center>
    

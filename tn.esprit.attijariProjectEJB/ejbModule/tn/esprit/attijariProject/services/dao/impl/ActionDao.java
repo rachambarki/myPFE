@@ -31,7 +31,7 @@ public class ActionDao implements ActionDaoLocal, ActionDaoRemote {
 	@Override
 	public void creer(Action t) {
 		entityManager.persist(t);
-
+System.out.println("ok");
 	}
 
 	@Override

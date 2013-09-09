@@ -12,15 +12,8 @@
 			<p:layout style="min-width:300px;height:500px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
-					<center>
-						<MARQUEE direction="left" bgcolor="#000000">
-							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Administrateur le: </font>
-							<p:clock />
-
-						</MARQUEE>
-					</center>
+			    <h:outputText value="Id" /><br/>
+    <h:inputText value="#{Test.ficheId}" />
 				</p:layoutUnit>
 
 
@@ -172,6 +165,9 @@
 
 				
 				<p:layoutUnit position="center" style="height:auto; min-height:400px;">
+					
+					  <h:outputText value="Id" /><br/>
+    <h:inputText value="#{Test.ficheId}" />
 					<center>
 			<p:dataTable value="#{userCtr.users}" var="act" paginator="true"
 				paginatorPosition="bottom" widgetVar="prodTabW">

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">recherche</ui:define>
+	<ui:define name="page">
+		<h:form id="form9">
+		
+		
+				<p:layout style="min-width:300px;height:500px;" id="layouty">
+
+				<p:layoutUnit id="topy" position="north" size="35">
+					<center>
+						<MARQUEE direction="left" bgcolor="#000000">
+							<font color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu Operateur le: </font>
+							<p:clock />
+
+						</MARQUEE>
+					</center>
+				</p:layoutUnit>
+
+
+<p:layoutUnit position="west" size="245" >
+  <h:form rendered="#{authenticationBean.loggedIn}">
+                	<h:panelGrid columns="2">
+                		<h:outputText value="Bienvenue Mr:  #{authenticationBean.user.firstName}" />
+                	
+                	</h:panelGrid>
+                </h:form>
+             
+<p:menu>
+
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/home1.jsf" />
+<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+</p:submenu>
+<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/calendrier.jsf" />
+</p:submenu>
+<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/chatOp.jsf" />
+</p:submenu>
+<p:submenu label="Consultation rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
+</p:submenu>
+<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+
+</p:submenu>
+
+
+
+
+
+
+
+
+
+</p:menu>
+</p:layoutUnit>
+                 <p:layoutUnit position="center">  
+                 
+ 	<center>
+					
+
+						<h:graphicImage library="images" name="search.jpg"
+						 />
+						
+					</center>
+
+ <p:dataTable var="act" value="#{ficheCtr.fiches}" id="ListUser" editable="true"  emptyMessage="Fiche recherch&eacute;e non trouv&eacute;s" filteredValue="#{ficheCtr.filtredFich}"> 
+
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.ficheId}"
+
+
+                filterMatchMode="contains" >
+            <h:outputText value="#{act.ficheId}" />  
+   
+
+
+
+</p:column> 
+
+<p:column headerText="Nom fiche" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.ficheName}"
+
+
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.ficheName}" />
+
+
+
+</p:column> 
+<p:column headerText="Periodicite" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.fichePeriodicity}"
+
+
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.fichePeriodicity}" />
+
+
+</p:column>
+
+
+<p:column headerText="Description" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.ordereDeLancement}"
+
+
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.descriptionFiche}" />
+
+
+
+</p:column> 
+<p:column headerText="Ordre de lancement" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.ordereDeLancement}"
+
+
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.ordereDeLancement}" />
+
+
+
+</p:column> 
+
+
+</p:dataTable>
+			
+			    </p:layoutUnit>  
+
+ 
+</p:layout> 
+
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>

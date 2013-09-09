@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">RechercheTrait</ui:define>
+	<ui:define name="page">
+		<h:form id="form99">
+
+
+			<p:layout style="min-width:300px;height:600px;" id="layouty">
+
+						<p:layoutUnit id="topy" position="north" size="35">
+					<center>
+						<MARQUEE direction="left" bgcolor="#000000">
+							<font color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Recherche Rapide: </font>
+							<p:clock />
+
+						</MARQUEE>
+					</center>
+				</p:layoutUnit>
+
+
+<p:layoutUnit position="west" size="260" >
+
+   <h:form rendered="#{authenticationBean.loggedIn}">
+                	<h:panelGrid columns="2">
+                		<h:outputText value="Bienvenue Mr:  #{authenticationBean.user.firstName}" />
+                	
+                	</h:panelGrid>
+                </h:form>
+             
+<p:menu>
+
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+</p:submenu>
+<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+</p:submenu>
+<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
+</p:submenu>
+
+<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/%20consulterRapportQ.jsf" />
+<p:menuitem value="Table de Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterRapportFM.jsf"/>
+
+
+</p:submenu>
+
+
+<p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
+<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+
+</p:submenu>
+
+
+
+<p:submenu label="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une action" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutAction.jsf" />
+
+<p:menuitem value="G&eacute;rer les actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageActions.jsf" />
+
+</p:submenu>
+
+
+<p:submenu label="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter une fiche" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutFiche.jsf" />
+
+<p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
+
+</p:submenu>
+<p:submenu label="Traitement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter un traitement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf" />
+
+<p:menuitem value="G&eacute;rer les traitements" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf" />
+
+</p:submenu>
+
+<p:submenu label="Tb Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter un planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf" />
+
+<p:menuitem value="G&eacute;rer les Plannings" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/managePlann.jsf" />
+
+</p:submenu>
+
+
+
+
+</p:menu>
+</p:layoutUnit>
+
+				
+				
+				
+				
+
+
+
+
+				<p:layoutUnit position="center" size="1450" resizable="true"
+					closable="true" collapsible="true">
+			 	<center>
+					
+
+						<h:graphicImage library="images" name="ppp.jpg"
+						 />
+						
+					</center>
+
+
+	<p:dataTable var="act" value="#{traitementCtr.traitements}" id="ListUser" editable="true" emptyMessage="Action recherch&eacute;e non trouv&eacute;s" filteredValue="#{traitementCtr.filtredTrait}">
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';"  filterBy="#{act.traitementId}"
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.traitementId}" />
+
+
+
+</p:column> 
+
+
+
+<p:column headerText="Nom Traitement" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" filterBy="#{act.etat}"
+                filterMatchMode="contains" >
+
+<h:outputText value="#{act.etat}" />
+
+
+
+</p:column> 
+
+<p:column headerText="H_exec" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.hExec}" />
+
+
+
+</p:column> 
+<p:column headerText="Montant" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.montant}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre In" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreIn}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre Out" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreOut}" />
+
+
+
+</p:column> 
+
+
+
+</p:dataTable>
+				
+				
+				</p:layoutUnit>
+
+
+
+
+
+
+
+
+			</p:layout>
+
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
+	<ui:define name="title">autentif</ui:define>
+	<ui:define name="page">
+
+		<center>
+			
+				<p:growl id="growl" showDetail="true" sticky="true" />
+				 <p:layout style="min-width:300px;height:370px;" id="layout">
+				 <p:layoutUnit id="topy" position="north" size="35">
+						<center>
+							<MARQUEE direction="left" bgcolor="#000000"> <font
+								color="white"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">BIENVENUE
+								SUR NOTRE SITE </font> </MARQUEE>
+						</center>
+
+					</p:layoutUnit>
+				 <p:layoutUnit position="center"  >
+				 <center>
+					<p:fieldset  style="background-image: url(../resources/images/bjr.png);height:280px; width :855px;" >
+						<br/>	<br/>	<br/>		
+							<h:panelGrid columns="2"  >
+								<label style="COLOR: #0174DF; FONT-FAMILY: 'Times New Roman';">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									Matricule </label>
+								<p>
+									<p:inputText required="true" label="Matricule"
+										value="#{authenticationBean.user.matricule}">
+
+									</p:inputText>
+
+								</p>
+								<label style="COLOR:#0174DF; FONT-FAMILY: 'Times New Roman';">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									Mot de passe </label>
+								<p>
+									<h:inputSecret value="#{authenticationBean.user.password}"></h:inputSecret>
+
+								</p>
+
+								<h:panelGrid columns="3">
+									<p:commandButton value="Login" update="growl"
+										action="#{authenticationBean.login}" />
+									<p:commandButton value="Reset" type="reset" />
+
+
+								</h:panelGrid>
+							</h:panelGrid>
+						
+
+			
+							</p:fieldset>
+							</center>
+
+</p:layoutUnit>
+	
+		<p:layoutUnit id="right" position="east" size="300" resizable="true" 
+						header="SE CONNECTER"   >
+<p></p>
+						<P></P>
+					
+						<label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si vous n'avez pas encore votre code secret, veuillez contacter
+							votre agence et recevez-le gratuitement. Si vous avez besoin
+							d'asssistance, contactez le Webmaster. E-mail : </label>
+						<p></p>
+
+						<MARQUEE bgcolor="#FF8C00"
+							style="COLOR: #FFFFF0;FONT-FAMILY: 'Times New Roman';">
+						contact@attijaribank.com.tn </MARQUEE>
+
+
+					</p:layoutUnit>
+					
+</p:layout>
+		
+		</center>
+	</ui:define>
+</ui:composition>

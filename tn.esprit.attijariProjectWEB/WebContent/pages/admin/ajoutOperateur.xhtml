@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
 	<ui:define name="title">ajoutOperateur</ui:define>
 	<ui:define name="page">
-		<h:form id="form99">
+	
 
 
 			<p:layout style="min-width:300px;height:570px;" id="layouty">
@@ -89,27 +89,28 @@
 
 
 				<p:layoutUnit position="center">
-					<form action="">
+					<h:form>
 
-					<center>
-							<h:graphicImage library="images" name="ado.png"
+				
+							
+
+	<center>
+<h:graphicImage library="images" name="ado.png"
 								style="width : 150px; height : 100px;" />
 
-	<p:growl id="growl"  sticky="true" /> 
-
-			 
-				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
+				<h:panelGrid columns="1" >
+				
 					<h:outputLabel for="firstname" value="Nom  : *" />
-					<p:inputText id="firstname" value="#{userCtr1.user1.firstName}">
+					<h:inputText id="firstname" value="#{userCtr1.fName}">
 				
 				    <f:validateLength minimum="2" />  
-            </p:inputText>  
+            </h:inputText>  
            
             
             
             
 				<h:outputLabel for="user2" value="Prenom  : *" />
-					<p:inputText id="user2" value="#{userCtr1.user1.lastName}">
+					<p:inputText id="user2" value="#{userCtr1.lName}">
 					  <f:validateLength minimum="2" /> 
 				</p:inputText>
 				 <h:outputText value="Tel Num: " />  
@@ -120,36 +121,40 @@
 					
 					
 					<h:outputLabel for="user3" value="Mail  : *" />
-					<p:inputText id="user3" value="#{userCtr1.user1.mailAdress}">
+					<p:inputText id="user3" value="#{userCtr1.mail}">
 					
 				</p:inputText>
 				<h:outputLabel for="user4" value="Role  : *" />
-					<p:inputText id="user4" value="#{userCtr1.user1.role}">
+					<p:inputText id="user4" value="#{userCtr1.rol}">
 					
 				</p:inputText>
 				<h:outputLabel for="user6" value="Matricule : *" />
-					<p:inputText id="user6" value="#{userCtr1.user1.matricule}">
+					<p:inputText id="user6" value="#{userCtr1.matr}">
 					  <f:validateLength minimum="4" /> 
 				</p:inputText>
 				
 				
                              
             <h:outputLabel for="pwd1" value="Password 1: *" />  
-            <p:password id="pwd1" value="#{userCtr1.user1.password}" match="pwd2" feedback="true" inline="true"/>  
+            <p:password id="pwd1" value="#{userCtr1.pass}" match="pwd2" feedback="true" inline="true"/>  
   
             <h:outputLabel for="pwd2" value="Confirmer PWD: *" />  
-            <p:password id="pwd2" value="#{userCtr1.user1.password}" feedback="true" inline="true" />
+            <p:password id="pwd2" value="#{userCtr1.pass}" feedback="true" inline="true" />
 			
-			
+		
 					
+				
 					</h:panelGrid>
-					
-					<p:commandButton value="save" actionListener="#{userCtr1.docreateUser}" update="growl"></p:commandButton>
-					 <p:commandButton value="Reset" type="reset" /> 
-			
+	
 					</center>
-					
-					</form>
+					<h:form >
+					<center>
+					<p:commandButton value="save" actionListener="#{userCtr1.docreateUser()}" />
+					 <p:commandButton value="Reset" type="reset" /> 
+			</center>
+				
+					</h:form>
+					</h:form>
 
 				</p:layoutUnit>
 
@@ -157,9 +162,6 @@
 
 
 			</p:layout>
-
-
-		</h:form>
 
 
 	</ui:define>

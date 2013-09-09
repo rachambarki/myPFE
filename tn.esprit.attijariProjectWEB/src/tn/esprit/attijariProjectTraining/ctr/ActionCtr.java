@@ -1,5 +1,6 @@
 package tn.esprit.attijariProjectTraining.ctr;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -12,10 +13,46 @@ import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 @ManagedBean
 @RequestScoped
 public class ActionCtr {
-
+	// private Date date;
 	@EJB
-	
+	// java.sql.Date date1=new java.sql.Date(date.getTime());
+	// public string goto(){
+	// return "nompage.xhtml"
+	// }
 	ActionDaoLocal actionDaoLocal;
+	private Action action = new Action();
+	private List<Action> filtredAct;
+
+	public String getNameAction() {
+		return nameAction;
+	}
+
+	public void setNameAction(String nameAction) {
+		this.nameAction = nameAction;
+	}
+
+	public String getModeOperatoire() {
+		return modeOperatoire;
+	}
+
+	public void setModeOperatoire(String modeOperatoire) {
+		this.modeOperatoire = modeOperatoire;
+	}
+
+	public Date getHeureDebut() {
+		return heureDebut;
+	}
+
+	public void setHeureDebut(Date heureDebut) {
+		this.heureDebut = heureDebut;
+	}
+
+	private String nameAction;
+	private String modeOperatoire;
+	private Date heureDebut;
+	private Date heuref;
+	private String verifi;
+
 	public ActionDaoLocal getActionDaoLocal() {
 		return actionDaoLocal;
 	}
@@ -46,8 +83,13 @@ public class ActionCtr {
 	private Action action1 = new Action();
 
 	public String docreateAction() {
-
-		actionDaoLocal.creer(action1);
+		action.setNameAction(nameAction);
+		action.setHeureDebut(heureDebut);
+		action.setModeOperatoire(modeOperatoire);
+		action.setHeureFin(heuref);
+		action.setVerification(verifi);
+System.out.println("eeeee");
+		actionDaoLocal.creer(action);
 		return "";
 	}
 
@@ -60,6 +102,38 @@ public class ActionCtr {
 	}
 
 	public ActionCtr() {
+	}
+
+	public Action getAction() {
+		return action;
+	}
+
+	public void setAction(Action action) {
+		this.action = action;
+	}
+
+	public Date getHeuref() {
+		return heuref;
+	}
+
+	public void setHeuref(Date heuref) {
+		this.heuref = heuref;
+	}
+
+	public String getVerifi() {
+		return verifi;
+	}
+
+	public void setVerifi(String verifi) {
+		this.verifi = verifi;
+	}
+
+	public List<Action> getFiltredAct() {
+		return filtredAct;
+	}
+
+	public void setFiltredAct(List<Action> filtredAct) {
+		this.filtredAct = filtredAct;
 	}
 
 }

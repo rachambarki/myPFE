@@ -5,18 +5,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">manageFiche</ui:define>
+	<ui:define name="title">ajoutFiche</ui:define>
 	<ui:define name="page">
 		<h:form id="form99">
 
 
-			<p:layout style="min-width:300px;height:500px;" id="layouty">
+			<p:layout style="min-width:500px;height:700px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
 						<MARQUEE direction="left" bgcolor="#000000">
 							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Gerer les fiches: </font>
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Ajouter une fiche: </font>
 							<p:clock />
 
 						</MARQUEE>
@@ -34,18 +34,22 @@
 <p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
 </p:submenu>
+<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
+</p:submenu>
+
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
-<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
-<p:menuitem value="Rapport Fin du Moi" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterRapportFM.jsf"/>
-<p:menuitem value="Planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="Etat-Diff-Admin.xhtml"/>
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterFiche.jsf" />
+<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/%20consulterRapportQ.jsf" />
+<p:menuitem value="Table de Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterRapportFM.jsf"/>
+
 
 </p:submenu>
 
 
 <p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
-<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/tests/manageOp.jsf" />
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+<p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 
 </p:submenu>
 
@@ -65,12 +69,24 @@
 <p:menuitem value="G&eacute;rer les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageFiche.jsf" />
 
 </p:submenu>
+<p:submenu label="Traitement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter un traitement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjouterTraitement.jsf" />
+
+<p:menuitem value="G&eacute;rer les traitements" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageTraitement.jsf" />
+
+</p:submenu>
+
+<p:submenu label="Tb Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';">
+<p:menuitem value="Ajouter un planning" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/AjoutPlanning.jsf" />
+
+<p:menuitem value="G&eacute;rer les Plannings" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/managePlann.jsf" />
+
+</p:submenu>
 
 
 
 
-</p:menu>
-</p:layoutUnit>
+</p:menu></p:layoutUnit>
 
 				
 				
@@ -83,48 +99,21 @@
 			
 							
 <p:layoutUnit position="center">
-<h:form id="form">
-<center>
-<h:graphicImage library="images" name="action.png" style="width : 95px; height : 95px;"/>
-</center>
 
-<br />
-<p:growl id="messages" showDetail="true"/>
-
-<p:dataTable var="act" value="#{planningCtr.plannings}" id="ListUser" editable="true"> 
-<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.idPlanning}" />
+<p:fieldset>
 
 
+<h:panelGrid columns="2"  bgcolor="FFFFFF">
+<h:outputLabel for="fiche" value="Fiche N : *" />
+					<p:inputText id="fiche" value="#{ficheCtr.fiche.ficheName}"
+						></p:inputText>
+					</h:panelGrid>
+</p:fieldset>
 
-</p:column> 
-<p:column headerText="Montant" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
+							
+							
+								
 
-<h:outputText value="#{act.montant}" />
-
-
-
-</p:column> 
-
-
-
-<p:column>
-<p:commandButton action="#{planningCtr.doAddTraitement}" icon="ui-icon-pencil" />
-<p:commandButton action="#{planningCtr.doAddTraitement}" icon="ui-icon-close" />
-
-</p:column>
-</p:dataTable>
-
-
-
-
-
-
-
-
-
-</h:form>
 </p:layoutUnit>
 			
 

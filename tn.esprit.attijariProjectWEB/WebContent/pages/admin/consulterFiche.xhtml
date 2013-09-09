@@ -109,22 +109,20 @@
 
     
     <p:panel >  
+    <br />
+    <br />
       <font color="#FF0000"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez selectionner un format: </font>
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez entrer l'identifient de la fiche à t&eacute;lecharger : </font>
+								<h:inputText value="#{test.ficheId}" />
     
     
      <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5"> 
      <center>
     
-        <h:commandLink>  
-            <p:graphicImage library="images" name="csv.png" style=" width : 100px;" />  
-            <p:dataExporter type="csv" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
+       
+    
           
-        <h:commandLink>  
-            <p:graphicImage library="images" name="txt.png" style=" width : 100px;" />  
-            <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
+      
           
         <h:commandLink>  
             <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
@@ -139,52 +137,10 @@
 
 <p:growl id="messages" showDetail="true"/>
 
-<p:dataTable var="act" value="#{actionCtr1.actions}" id="ListUser" editable="true"> 
-<p:growl id="msg" />
-	<p:column icon="ui-icon-check">
-								<p:selectBooleanCheckbox value="">
-									<p:ajax update="msg" listener="#{formBean.addMessage}" />
-								</p:selectBooleanCheckbox>
-								<h:outputText value="" />
-							</p:column>
 
-
-
-
-<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.idAction}" />
-
-
-
-</p:column> 
-
-<p:column headerText="Nom Action" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.nameAction}" />
-
-
-
-</p:column> 
-<p:column headerText="Mode operatoire" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.modeOperatoire}" />
-
-
-</p:column>
-<p:column headerText="Verification" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.verification}" />
-
-
-
-</p:column> 
-
-
-</p:dataTable>
 <p></p>
 	<center>
- <p:commandButton action="#{test.pdfCompta()}" value="testez ici" />
+ <p:commandButton action="#{test.pdfCompta()}" value="D&eacute;marrer t&eacute;l&eacute;chargement" />
  </center>
 			    </p:layoutUnit>  
 

@@ -15,6 +15,7 @@ import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 @ViewScoped
 public class ActionCtr1 {
 	
+	
 	public int getIdAction() {
 		return idAction;
 	}
@@ -75,7 +76,7 @@ public class ActionCtr1 {
 	@EJB
 	private ActionDaoLocal actionDaoLocal;
 	private Action selectedAction;
-
+	private List<Action> filtredAct;
 	public List<Action> getActions() {
 
 		actions = actionDaoLocal.findAllAction();
@@ -153,6 +154,14 @@ public class ActionCtr1 {
 
 	public void setSelectedAction(Action selectedAction) {
 		this.selectedAction = selectedAction;
+	}
+
+	public List<Action> getFiltredAct() {
+		return filtredAct;
+	}
+
+	public void setFiltredAct(List<Action> filtredAct) {
+		this.filtredAct = filtredAct;
 	}
 
 }

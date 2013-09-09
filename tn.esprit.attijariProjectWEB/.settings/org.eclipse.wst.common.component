@@ -3,6 +3,9 @@
     <wb-module deploy-name="tn.esprit.attijariProjectWEB">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="tn.esprit.attijariProjectEJB.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tn.esprit.attijariProjectEJB/tn.esprit.attijariProjectEJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="tn.esprit.attijariProjectWEB"/>
         <property name="java-output-path" value="/tn.esprit.attijariProjectWEB/build/classes"/>
     </wb-module>

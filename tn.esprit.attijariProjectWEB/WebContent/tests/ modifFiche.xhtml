@@ -1,69 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">ffffffff</ui:define>
+	<ui:define name="title">ajoutOperateur</ui:define>
 	<ui:define name="page">
+	
 
 
-
-<h:form id="master">
-
-
-	<p:dataTable rendered="#{not empty ficheBean.fiches}"
-							 value="#{ficheBean.fiches}"
-							 var="cat" 
-							 rows="5"
-							 rowKey="#{cat.ficheId}"
-							 paginator="true"
-							 paginatorPosition="bottom"
-							 filteredValue="#{ficheBean.filteredFiches}"
-							 selectionMode="single"
-							 selection="#{ficheBean.fiche}"
-							 widgetVar="catTabW">
-							 
-							 
-							 
-							 <f:facet name="header">
-							<h:outputText value="All fiches" />
-					</f:facet>
-							 
-							 
-							 	<p:ajax event="rowSelect" listener="#{ficheBean.onRowSelect}" update=":details"/>
-							 	
-					<p:ajax event="filter" listener="#{ficheBean.onFilter}" update=":details"/>	
+				<h:panelGrid columns="2" >
+				<p:column>
+					<h:outputLabel for="firstname" value="Nomghjhgfhbn  : *" />
+					<h:inputText id="firstname" value="#{userCtr1.fName}">
+				
+				    <f:validateLength minimum="2" />  
+            </h:inputText>  
+           
+            
+            
+            
+				<h:outputLabel for="user2" value="Prenom  : *" />
+					<p:inputText id="user2" value="#{userCtr1.lName}">
+					  <f:validateLength minimum="2" /> 
+				</p:inputText>
+				 <h:outputText value="Tel Num: " />  
+            <p:inputMask   
+                        mask="(+999) 99-999-999">
+                          <f:validateLength minimum="8" /> 
+                        </p:inputMask> 
 					
-					<p:column headerText="#" filterBy="#{cat.ficheId}" filterMatchMode="startsWith">
-						<h:outputText value="#{cat.ficheId}" />
-					</p:column>
-							 
-							 <p:column headerText="name" filterBy="#{cat.ficheName}" filterMatchMode="contains">
-						<h:outputText value="#{cat.ficheName}" />
-					</p:column>
-							 
-							 </p:dataTable>
-
-<p:commandButton icon="ui-icon-circle-plus" actionListener="#{ficheBean.doNew}" value="new" update=":details" />
-
-
-
-
-
-
-
-
-</h:form>
-
-
-
-
-
-
-
-
-
-
-	</ui:define>
+					
+					<h:outputLabel for="user3" value="Mail  : *" />
+					<p:inputText id="user3" value="#{userCtr1.mail}">
+					
+				</p:inputText>
+				<h:outputLabel for="user4" value="Role  : *" />
+					<p:inputText id="user4" value="#{userCtr1.rol}">
+					
+				</p:inputText>
+				<h:outputLabel for="user6" value="Matricule : *" />
+					<p:inputText id="user6" value="#{userCtr1.matr}">
+					  <f:validateLength minimum="4" /> 
+				</p:inputText>
+				
+				
+                             
+            <h:outputLabel for="pwd1" value="Password 1: *" />  
+            <p:password id="pwd1" value="#{userCtr1.pass}" match="pwd2" feedback="true" inline="true"/>  
+  
+            <h:outputLabel for="pwd2" value="Confirmer PWD: *" />  
+            <p:password id="pwd2" value="#{userCtr1.pass}" feedback="true" inline="true" />
+			
+			</p:column>
+					
+					</h:panelGrid>
+		</ui:define>
 </ui:composition>
+

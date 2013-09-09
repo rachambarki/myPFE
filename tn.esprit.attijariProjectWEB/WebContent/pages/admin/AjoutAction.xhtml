@@ -120,39 +120,39 @@
 				
 				
 					<h:outputLabel for="action" value="Action : *" />
-					<p:inputText id="action" value="#{actionCtr.action1.nameAction}">
+					<p:inputText id="action" value="#{actionCtr.nameAction}">
 					 <f:validateLength minimum="2" />  
 				</p:inputText>
 					
 						
 					<h:outputLabel for="action1" value="Mode Operatoire : " />
-					<p:inputText id="action1" value="#{actionCtr.action1.modeOperatoire}">
+					<p:inputText id="action1" value="#{actionCtr.modeOperatoire}">
 					 <f:validateLength minimum="8" />  
 				</p:inputText>
 				
-				<h:outputLabel for="action2" value="Heure Debut : " />
-					<p:inputText id="action2" value="#{actionCtr.action1.heureDebut}">
-					 <f:validateLength minimum="4" />  
-				</p:inputText>
-				<h:outputLabel for="action3" value="Heure Fin : " />
-					<p:inputText id="action3" value="#{actionCtr.action1.heureFin}">
-					 <f:validateLength minimum="4" />  
+					<h:outputLabel for="action3" value="Verification : " />
+					<p:inputText id="action3" value="#{actionCtr.verifi}">
+					 <f:validateLength minimum="8" />  
 				</p:inputText>
 				
-					<h:outputLabel for="city" value="Operateur :" />  
-				 <p:selectOneMenu id="city" value="#{userCtr.user.matricule}"> 
-					        <f:selectItem itemLabel="Operateur" itemValue="" />  
-                <f:selectItems value="#{userCtr.users}" />  
-              
-            </p:selectOneMenu>  
-					
+				<h:outputLabel for="action4" value="Heure_Deb : " />
+					<p:calendar  id="action4" value="#{actionCtr.heureDebut}">
+					  
+				</p:calendar>
 				
+			
+					<h:outputLabel for="action5" value="Heure_Fin : " />
+					<p:calendar  id="action5" value="#{actionCtr.heuref}">
+					  
+				</p:calendar>
 				
 					
 			 	</h:panelGrid>
-			 	<p:commandButton value="save" actionListener="#{actionCtr.docreateAction}" update="growl1"></p:commandButton>
+			
+			 	<p:commandButton value="save" action="#{actionCtr.docreateAction}" update="growl1"></p:commandButton>
 					
 			 <p:commandButton value="Reset" type="reset" /> 
+			
 			
 			</center>
 			

@@ -3,6 +3,7 @@
 	<name>tn.esprit.attijariProjectWEB</name>
 	<comment></comment>
 	<projects>
+		<project>tn.esprit.attijariProjectEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -10,8 +10,10 @@
 		<center>
 			<h:form id="Login">
 				<p:growl id="growl" showDetail="true" sticky="true" />
-				<p:layout style="min-width:300px;height:370px;" id="layout">
+				<p:layout style="min-width:300px;height:490px;" id="layout">
 					<p:layoutUnit id="topy" position="north" size="35">
+					
+					
 						<center>
 							<MARQUEE direction="left" bgcolor="#000000"> <font
 								color="white"
@@ -20,21 +22,26 @@
 						</center>
 
 					</p:layoutUnit>
-					<p:layoutUnit id="right" position="east" size="300" resizable="true" 
-						header="SE CONNECTER"   >
+				
+						
+					<p:layoutUnit id="right" position="east" size="300" resizable="true"
+						closable="true" collapsible="true" header="SE CONNECTER"
+						minSize="200">
 
 
 						<p:panel id="Growl" >
 							<h:panelGrid columns="1"  >
+								<h:graphicImage library="images" name="clef.png" style="width : 150px; height : 110px;" />
+							
 								<label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									Matricule </label>
-								<p>
+								<p>	
 									<p:inputText required="true" label="Matricule"
 										value="#{authenticationBean.user.matricule}">
 
 									</p:inputText>
-
+								
 								</p>
 								<label style="COLOR: #0000b9; FONT-FAMILY: 'Times New Roman';">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -43,11 +50,15 @@
 									<h:inputSecret value="#{authenticationBean.user.password}"></h:inputSecret>
 
 								</p>
-
+		
 								<h:panelGrid columns="3">
-									<h:commandButton value="Login" update="growl"
+													
+								
+
+						
+									<p:commandButton value="Login" update="growl"
 										action="#{authenticationBean.login}" />
-									<h:commandButton value="Reset" type="reset" />
+									<p:commandButton value="Reset" type="reset" />
 
 
 								</h:panelGrid>
@@ -58,12 +69,12 @@
 
 					<p:layoutUnit position="center" resizable="false" closable="false" collapsible="false" size="300" style="width:350px;height:690px;"  >
 						<p:imageSwitch effect="fade">
-							<h:graphicImage library="images" name="tunis.png" style="width : 650px; height : 300px;" />
+							<h:graphicImage library="images" name="tunis.png" style="width : 750px; height : 400px;" />
 
 							<h:graphicImage library="images" name="agence.jpg.jpg"
-								style="width : 650px; height : 300px;" />
+								style="width : 750px; height : 400px;" />
 							<h:graphicImage library="images" name="monde.png"
-								style="width : 650px; height : 300px;" />
+								style="width : 750px; height : 400px;" />
 						</p:imageSwitch>
 
 

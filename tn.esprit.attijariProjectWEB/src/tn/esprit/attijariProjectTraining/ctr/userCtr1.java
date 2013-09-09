@@ -21,6 +21,73 @@ import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
 public class userCtr1 {
 
 	private static final String Prenom = null;
+	private String fName;
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	public Integer getMatr() {
+		return matr;
+	}
+
+	public void setMatr(Integer matr) {
+		this.matr = matr;
+	}
+
+	public UserDaoLocal getUserDaoLocal() {
+		return userDaoLocal;
+	}
+
+	public void setUserDaoLocal(UserDaoLocal userDaoLocal) {
+		this.userDaoLocal = userDaoLocal;
+	}
+
+	public static String getPrenom() {
+		return Prenom;
+	}
+
+	private String lName;
+	private String pass;
+	private String mail;
+	private String rol;
+	private Integer matr;
 
 	@EJB
 	UserDaoLocal userDaoLocal;
@@ -42,8 +109,13 @@ public class userCtr1 {
 	}
 
 	public String docreateUser() {
-
-		userDaoLocal.creer(user1);
+		user1.setFirstName(fName);
+		user1.setLastName(lName);
+		user1.setMailAdress(mail);
+		user1.setMatricule(matr);
+		user1.setPassword(pass);
+		user1.setRole(rol);
+		userDaoLocal.modifier(user1);
 		return "";
 	}
 

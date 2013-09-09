@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -23,6 +24,24 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 @ManagedBean
 @SessionScoped
 public class Test {
+	private int ficheId;
+	private int fiche;
+
+	public int getFiche() {
+		return fiche;
+	}
+
+	public void setFiche(int fiche) {
+		this.fiche = fiche;
+	}
+
+	public int getFicheId() {
+		return ficheId;
+	}
+
+	public void setFicheId(int ficheId) {
+		this.ficheId = ficheId;
+	}
 
 	private Connection baseConnection() {
 
@@ -70,7 +89,7 @@ public class Test {
 			// byte[] bytes = JasperExportManager.exportReportToPdf(print);
 
 			JasperDesign jasperDesign = JRXmlLoader
-					.load("C:/rapport/report1.jrxml");
+					.load("C:/rapport/moumou4.jrxml");
 			JasperReport jasperReport = JasperCompileManager
 					.compileReport(jasperDesign);
 
@@ -94,7 +113,7 @@ public class Test {
 					jasperReport, map, connection);
 
 			// JasperExportManager.exportReportToPdfFile(jasperPrint,
-			// "D:/PFE/rapport/report3.pdf");
+			// "C:/rapport/moumou4.pdf");
 			byte[] bytes = JasperExportManager.exportReportToPdf(jasperPrint);
 
 			System.out.println("salut");
@@ -124,4 +143,62 @@ public class Test {
 		}
 	}
 
+	public void pdfparam() {
+
+		Connection connection = baseConnection();
+
+		try {
+
+			// InputStream reporte = jasperCtrl.class.getResourceAsStream(path);
+			// JasperPrint print;
+			// print = JasperFillManager.fillReport(reporte, map, connection);
+			// byte[] bytes = JasperExportManager.exportReportToPdf(print);
+
+			JasperDesign jasperDesign = JRXmlLoader
+					.load("C:/rapport/tassouTest.jrxml");
+			JasperReport jasperReport = JasperCompileManager
+					.compileReport(jasperDesign);
+
+			Map<String, Object> map = new HashMap<String, Object>();
+
+			map.put("id", ficheId);
+			// System.out.println(NumComte);
+			//
+			// map.put("Date", date);
+			// System.out.println(date);
+			// //
+			JasperPrint jasperPrint = JasperFillManager.fillReport(
+					jasperReport, map, connection);
+
+			// JasperExportManager.exportReportToPdfFile(jasperPrint,
+			// "C:/rapport/moumou4.pdf");
+			byte[] bytes = JasperExportManager.exportReportToPdf(jasperPrint);
+
+			System.out.println("salut");
+
+			HttpServletResponse response = (HttpServletResponse) FacesContext
+					.getCurrentInstance().getExternalContext().getResponse();
+			System.out.println("4");
+			response.setHeader("Expires", "0");
+			System.out.println("5");
+			response.setHeader("Cache-Control",
+					"must-revalidate, post-check=0, pre-check=0");
+			response.setHeader("Pragma", "public");
+			System.out.println("alors");
+			response.setContentType("application/pdf");
+			response.setContentLength(bytes.length);
+			response.getOutputStream().write(bytes);
+			FacesContext.getCurrentInstance().responseComplete();
+			response.getOutputStream().flush();
+			response.getOutputStream().close();
+
+		} catch (JRException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
 }

@@ -38,6 +38,9 @@
 <p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/chatOp.jsf" />
 </p:submenu>
+<p:submenu label="Consultation rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
+</p:submenu>
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
 <p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
@@ -74,6 +77,8 @@
 
     
     <p:panel >  
+       <h:outputText value="Id" /><br/>
+    <h:inputText value="#{Test.ficheId}" />
       <font color="#FF0000"
 								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez selectionner un format: </font>
     
@@ -91,9 +96,9 @@
             <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
         </h:commandLink>  
           
-        <h:commandLink>  
+        <h:commandLink action="#{test.pdfparam()}">  
             <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
-            <p:dataExporter type="pdf" target="tbl" fileName="actions" pageOnly="true"/>  
+           
         </h:commandLink>  
         </center>
         </h:panelGrid>

@@ -2,6 +2,7 @@ package tn.esprit.attijariProjectTraining.ctr;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -21,6 +22,72 @@ public class TraitementCtr implements Serializable {
 
 	@EJB
 	TraitementDaoLocal traitementDaoLocal;
+	private List<Traitement> filtredTrait;
+
+	public int getTraitementMa() {
+		return traitementMa;
+	}
+
+	public void setTraitementMa(int traitementMa) {
+		this.traitementMa = traitementMa;
+	}
+
+	public Date getTraitementD() {
+		return traitementD;
+	}
+
+	public void setTraitementD(Date traitementD) {
+		this.traitementD = traitementD;
+	}
+
+	public String getEta() {
+		return eta;
+	}
+
+	public void setEta(String eta) {
+		this.eta = eta;
+	}
+
+	public Date gethEc() {
+		return hEc;
+	}
+
+	public void sethEc(Date hEc) {
+		this.hEc = hEc;
+	}
+
+	public int getNbreO() {
+		return nbreO;
+	}
+
+	public void setNbreO(int nbreO) {
+		this.nbreO = nbreO;
+	}
+
+	public int getNbreI() {
+		return nbreI;
+	}
+
+	public void setNbreI(int nbreI) {
+		this.nbreI = nbreI;
+	}
+
+	public int getMont() {
+		return mont;
+	}
+
+	public void setMont(int mont) {
+		this.mont = mont;
+	}
+
+	private int traitementMa;
+
+	private Date traitementD;
+	private String eta;
+	private Date hEc;
+	private int nbreO;
+	private int nbreI;
+	private int mont;
 
 	private Traitement traitement = new Traitement();
 
@@ -45,14 +112,24 @@ public class TraitementCtr implements Serializable {
 	}
 
 	public String doAddTraitement() {
-		String retour = "";
-		try {
-			traitementDaoLocal.creer(traitement);
-		} catch (Exception e) {
-			retour = "ma zedech trt";
-		}
-		return retour;
+		traitement.setEtat(eta);
+		traitement.sethExec(hEc);
+		traitement.setMontant(mont);
+		traitement.setTraitementMatricule(traitementMa);
+		traitement.setNbreIn(nbreI);
+		traitement.setTraitementDate(traitementD);
+		System.out.println("traitement wsell");
+		traitementDaoLocal.creer(traitement);
+		return "";
 
+	}
+
+	public List<Traitement> getFiltredTrait() {
+		return filtredTrait;
+	}
+
+	public void setFiltredTrait(List<Traitement> filtredTrait) {
+		this.filtredTrait = filtredTrait;
 	}
 
 }

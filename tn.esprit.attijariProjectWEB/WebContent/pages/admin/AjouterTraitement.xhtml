@@ -101,7 +101,7 @@
 			 
 				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
 					<h:outputLabel for="firstname" value="Traitement  : *" />
-					<p:inputText id="firstname" value="#{traitementCtr.traitement.etat}">
+					<p:inputText id="firstname" value="#{traitementCtr.eta}">
 				
 				    <f:validateLength minimum="2" />  
             </p:inputText>  
@@ -110,32 +110,30 @@
             
             
 				<h:outputLabel for="user2" value="Heure_exec  : *" />
-					<p:inputText id="user2" value="#{traitementCtr.traitement.hExec}">
+					<p:calendar  id="user2" value="#{traitementCtr.hEc}">
 					  <f:validateLength minimum="2" /> 
-				</p:inputText>
+		</p:calendar>
 				
 					<h:outputLabel for="user3" value="Montant  : *" />
-					<p:inputText id="user3" value="#{traitementCtr.traitement.montant}">
+					<p:inputText id="user3" value="#{traitementCtr.mont}">
 					
 				</p:inputText>
 				<h:outputLabel for="user4" value="Nbre_In  : *" />
-					<p:inputText id="user4" value="#{traitementCtr.traitement.nbreIn}">
+					<p:inputText id="user4" value="#{traitementCtr.nbreI}">
 					
 				</p:inputText>
 				<h:outputLabel for="user6" value="Nbre_Out : *" />
-					<p:inputText id="user6" value="#{traitementCtr.traitement.nbreOut}">
-					  <f:validateLength minimum="4" /> 
+					<p:inputText id="user6" value="#{traitementCtr.nbreO}">
+					
 				</p:inputText>
 				
 					
 
-						<h:outputText value="Type de traitement: " />
-						<p:selectOneButton value="#{buttonBean.number}">
-							<f:selectItem itemLabel="Quotidien" itemValue="1" />
-							<f:selectItem itemLabel="Hebr" itemValue="2" />
-							<f:selectItem itemLabel="Mensuel" itemValue="3" />
-							<f:selectItem itemLabel="A la demande" itemValue="4" />
-						</p:selectOneButton>
+				<h:outputLabel for="user9" value="Date de Traitement : *" />
+					<p:calendar  id="user9" value="#{traitementCtr.nbreO}">
+					
+</p:calendar>
+				
 
 				
 				
