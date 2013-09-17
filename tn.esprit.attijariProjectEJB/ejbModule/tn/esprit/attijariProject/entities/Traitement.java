@@ -3,6 +3,7 @@ package tn.esprit.attijariProject.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,7 +44,7 @@ public class Traitement {
 		this.traitementMatricule = traitementMatricule;
 	}
 
-	@OneToMany(mappedBy = "traitement")
+	@OneToMany(mappedBy = "traitement",cascade=CascadeType.ALL)
 	public List<Fiche> getListfiche() {
 		return listfiche;
 	}

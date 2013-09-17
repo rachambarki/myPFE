@@ -5,9 +5,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">ajoutTraitement</ui:define>
+	<ui:define name="title">ajoutEquipe</ui:define>
 	<ui:define name="page">
-		<h:form id="form99">
+	
 
 
 			<p:layout style="min-width:300px;height:570px;" id="layouty">
@@ -17,7 +17,7 @@
 						<MARQUEE direction="left" bgcolor="#000000"> <font
 							color="white"
 							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-							Ajouter Utilisateur le: </font> <p:clock /> </MARQUEE>
+							Ajouter Equipe le: </font> <p:clock /> </MARQUEE>
 					</center>
 				</p:layoutUnit>
 
@@ -89,119 +89,52 @@
 
 
 				<p:layoutUnit position="center">
-					<form action="">
-
+					<h:form>
 					<center>
-							<h:graphicImage library="images" name="plann.jpg"
-								style="width : 200px; height : 160px;" />
-								<br />
+							<h:graphicImage library="images" name="immm.jpg"
+								style="width : 200px; height : 130px;" />
+							<br />
+					</center>
 
-	<p:growl id="growl"  sticky="true" /> 
-
-			 
-				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
-					<h:outputLabel for="firstname" value="Traitement  : *" />
-					<p:inputText id="firstname" value="#{traitementCtr.eta}">
 				
-				    <f:validateLength minimum="2" />  
-            </p:inputText>  
+							
+	<center>
+
+
+				<h:panelGrid columns="1" >
+				
+					
+				
            
             
             
             
-				<h:outputLabel for="user2" value="Heure_exec  : *" />
-					<p:calendar  id="user2" value="#{traitementCtr.hEc}">
-					  <f:validateLength minimum="2" /> 
-		</p:calendar>
-				
-					<h:outputLabel for="user3" value="Montant  : *" />
-					<p:inputText id="user3" value="#{traitementCtr.mont}">
 					
-				</p:inputText>
-				<h:outputLabel for="user4" value="Nbre_In  : *" />
-					<p:inputText id="user4" value="#{traitementCtr.nbreI}">
 					
-				</p:inputText>
-				<h:outputLabel for="user6" value="Nbre_Out : *" />
-					<p:inputText id="user6" value="#{traitementCtr.nbreO}">
-					
-				</p:inputText>
-				
-					
-
-				
-					
-
-				
-
-				
-				
-                             
-            
-					
-					</h:panelGrid>
-					<br />
-					<p></p>
-					
+					<h:outputLabel for="user3" value="Equipe  : *" />
+					<p:inputText id="user3" value="#{equipeController.nomEqu}">
+								
+		</p:inputText>
+		<br />
+			<h:outputLabel for="userP" value="Descristion  : *" />
+					<p:inputText id="userP" value="#{equipeController.descEqu}">
 					
 			
-					</center>
-					<h:form >
-					<p:dataTable var="act" value="#{ficheCtr.dataModelFichs}" id="ListUser" editable="true"> 
-					<p:growl id="msg" />
+			
+		</p:inputText>
+		
+					
+				
+					</h:panelGrid>
 	
-							<p:column>
-							
-				<p:commandButton action="#{ficheCtr.doSomthing}" value="select" />
-							</p:column>
-						
-<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.ficheId}" />
-
-
-
-</p:column> 
-
-<p:column headerText="Nom fiche" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.ficheName}" />
-
-
-
-</p:column> 
-<p:column headerText="Periodicite" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.fichePeriodicity}" />
-
-
-</p:column>
-<p:column headerText="Descroption" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.descriptionFiche}" />
-
-
-
-</p:column> 
-<p:column headerText="Ordre de lancement" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.ordereDeLancement}" />
-
-
-
-</p:column> 
-
-
-
-</p:dataTable>
-</h:form>
-<p:commandButton value="save" actionListener="#{traitementCtr.doAddTraitement}" update="growl"></p:commandButton>
+				<br />
+<br />					
+					<p:commandButton value="save" action="#{equipeController.doAddEquipe()}" />
 					 <p:commandButton value="Reset" type="reset" /> 
+			</center>
 
-
-					
-					
-					</form>
+		
+					</h:form>
 
 				</p:layoutUnit>
 
@@ -209,9 +142,6 @@
 
 
 			</p:layout>
-
-
-		</h:form>
 
 
 	</ui:define>

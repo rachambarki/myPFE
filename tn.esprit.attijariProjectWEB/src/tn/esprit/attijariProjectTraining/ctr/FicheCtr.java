@@ -8,13 +8,15 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import tn.esprit.attijariProject.entities.Action;
 import tn.esprit.attijariProject.entities.Fiche;
 import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
 
-@ManagedBean
+@ManagedBean(name="ficheCtr")
 @SessionScoped
 public class FicheCtr implements Serializable {
 
@@ -28,7 +30,17 @@ public class FicheCtr implements Serializable {
 	public ActionDaoLocal actionDaoLocal;
 	private String nameAction;
 	private List<Action> listAAjouter =new ArrayList<Action>();
-
+private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
+	
+	public String doSomthing(){
+		Fiche ficheTMP=dataModelFichs.getRowData();
+		selectedFichesFromTable.add(ficheTMP);
+		
+		System.out.println("ahla :"+selectedFichesFromTable.size());
+		return "";
+	}
+	
+	
 	public String getNameAction() {
 		return nameAction;
 	}
@@ -78,6 +90,7 @@ public class FicheCtr implements Serializable {
 	private List<Fiche> filtredFich;
 	private List<Fiche> fiches = new ArrayList<Fiche>();
 	
+	private DataModel<Fiche> dataModelFichs=new ListDataModel<Fiche>();
 	
 	private Fiche fiche1 = new Fiche();
 
@@ -249,6 +262,25 @@ public class FicheCtr implements Serializable {
 
 	public void setFiltredFich(List<Fiche> filtredFich) {
 		this.filtredFich = filtredFich;
+	}
+
+	public DataModel<Fiche> getDataModelFichs() {
+	dataModelFichs.setWrappedData(ficheDaoLocal.findAllFiche());
+		return dataModelFichs;
+	}
+
+	public void setDataModelFichs(DataModel<Fiche> dataModelFichs) {
+		this.dataModelFichs = dataModelFichs;
+	}
+
+
+	public List<Fiche> getSelectedFichesFromTable() {
+		return selectedFichesFromTable;
+	}
+
+
+	public void setSelectedFichesFromTable(List<Fiche> selectedFichesFromTable) {
+		this.selectedFichesFromTable = selectedFichesFromTable;
 	}
 
 }

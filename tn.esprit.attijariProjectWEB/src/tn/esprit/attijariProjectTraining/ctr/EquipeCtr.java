@@ -16,6 +16,7 @@ public class EquipeCtr {
 
 
 	@EJB
+	
 	EquipeDaoLocal equipeDaoLocal;
 	private Equipe equipe = new Equipe();
 	private List<Equipe> equipes = new ArrayList<Equipe>();

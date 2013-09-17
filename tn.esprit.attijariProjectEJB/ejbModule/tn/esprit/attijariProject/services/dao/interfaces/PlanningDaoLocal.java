@@ -14,4 +14,7 @@ public interface PlanningDaoLocal extends IDaoGenerique<Planning> {
 
 	List<Planning> findAllPl();
 
+	// User finfUserByMatricule(Integer matricule);
+	Planning finPlanningByEtat(boolean etat);
+
 }

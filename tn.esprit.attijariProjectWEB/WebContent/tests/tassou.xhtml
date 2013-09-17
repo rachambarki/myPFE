@@ -8,43 +8,61 @@
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
 	<ui:define name="page">
 	<h:form>
-	<h:panelGrid columns="2" >
-			
+	
+	
+	
+<p:dataTable var="ListUser" value="#{equipeController.equipes}" id="ListUser"
+				editable="true">
+				<p:column headerText="Nom"
+					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 
-<p:column>
-			
-							<h:graphicImage library="images" name="ado.png"
-								style="width : 150px; height : 100px;" />
+					<h:outputText value="#{ListUser.nomEquipe}" />
 
-	</p:column>
-				<p:column>
-					<h:outputLabel for="firstname" value="Nom  : *" />
-					<h:inputText id="firstname" value="#{tassou.fName}">
+
+
+				</p:column>
+				</p:dataTable>
 				
-				    <f:validateLength minimum="2" />  
-            </h:inputText>  
+	<center>
+
+
+				<h:panelGrid columns="1" >
+				
+					
+				
            
             
             
             
-				<h:outputLabel for="user2" value="Prenom  : *" />
-					<p:inputText id="user2" value="#{tassou.lName}">
-					  <f:validateLength minimum="2" /> 
-				</p:inputText>
-				 <h:outputText value="Tel Num: " />  
-            
-			
-			</p:column>
 					
+					
+					<h:outputLabel for="user3" value="nomEquipe  : *" />
+					<p:inputText id="user3" value="#{equipeController.nomEqu}">
+					
+			
+			
+		</p:inputText>
+					
+				
 					</h:panelGrid>
 	
-					<h:form>
-					<h:commandButton value="save" actionListener="#{userCtr1.docreateUser}" ></h:commandButton>
-					 <p:commandButton value="Reset" type="reset" /> 
-			
 				
-					</h:form>
-					</h:form>
+					
+					<p:commandButton value="save" action="#{equipeController.doAddEquipe()}" />
+					 <p:commandButton value="Reset" type="reset" /> 
+			</center>
+
+
+
+
+
+				
+
+	
+	
+
+            
+			</h:form>
 </ui:define>
 	
 	</ui:composition>

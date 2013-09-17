@@ -46,4 +46,10 @@ public class PlanningDao implements PlanningDaoLocal, PlanningDaoRemote {
 
 	}
 
+	@Override
+	public Planning finPlanningByEtat(boolean etat) {
+		return entityManager.find(Planning.class, etat);
+
+	}
+
 }

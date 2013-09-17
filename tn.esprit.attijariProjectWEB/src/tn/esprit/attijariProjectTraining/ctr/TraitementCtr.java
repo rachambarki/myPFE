@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import tn.esprit.attijariProject.entities.Traitement;
@@ -24,6 +25,10 @@ public class TraitementCtr implements Serializable {
 	TraitementDaoLocal traitementDaoLocal;
 	private List<Traitement> filtredTrait;
 	private List<Traitement> selectedTrait;
+	@ManagedProperty (value="#{ficheCtr}")
+	private FicheCtr ficheCtr;
+	
+	
 	public int getTraitementMa() {
 		return traitementMa;
 	}
@@ -119,8 +124,12 @@ public class TraitementCtr implements Serializable {
 		traitement.setTraitementMatricule(traitementMa);
 		traitement.setNbreIn(nbreI);
 		traitement.setTraitementDate(traitementD);
-		System.out.println("traitement wsell");
-		traitementDaoLocal.creer(traitement);
+		System.out.println("traitement ajoute avec succes");
+		
+		traitement.linkFichtoTraitement(ficheCtr.getSelectedFichesFromTable());
+		
+		
+		traitementDaoLocal.modifier(traitement);
 		return "";
 
 	}
@@ -147,6 +156,14 @@ public class TraitementCtr implements Serializable {
 
 	public void setSelected(List<Traitement> selected) {
 		this.selected = selected;
+	}
+
+	public FicheCtr getFicheCtr() {
+		return ficheCtr;
+	}
+
+	public void setFicheCtr(FicheCtr ficheCtr) {
+		this.ficheCtr = ficheCtr;
 	}
 
 }
