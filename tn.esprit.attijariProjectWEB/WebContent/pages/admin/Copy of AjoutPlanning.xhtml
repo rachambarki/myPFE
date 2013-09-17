@@ -5,19 +5,19 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">ajoutFiche</ui:define>
+	<ui:define name="title">ajoutPlanning</ui:define>
 	<ui:define name="page">
 		<h:form id="form99">
 
 
-			<p:layout style="min-width:500px;height:700px;" id="layouty">
+			<p:layout style="min-width:300px;height:570px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
 						<MARQUEE direction="left" bgcolor="#000000"> <font
 							color="white"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Ajouter
-							une fiche: </font> <p:clock /> </MARQUEE>
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
+							Ajouter planning: </font> <p:clock /> </MARQUEE>
 					</center>
 				</p:layoutUnit>
 
@@ -131,151 +131,127 @@
 				</p:layoutUnit>
 
 
-
-
-
-
-
-
-
-
-
 				<p:layoutUnit position="center">
-					<h:form id="form">
-						<center>
-							<h:graphicImage library="images" name="fiche.png"
-								style="width : 95px; height : 95px;" />
-						</center>
-
-						<br />
-						<p:growl id="messages" showDetail="true" />
-
-						
-
-
-
+					<form action="">
 
 						<center>
-							<h:panelGrid columns="1" bgcolor="FFFFFF">
-								<p:growl id="growl1" sticky="true" />
+							<h:graphicImage library="images" name="repp.png"
+								style="width : 200px; height : 160px;" />
+							<br />
+
+							<p:growl id="growl" sticky="true" />
+
+
+							<h:panelGrid columns="2" bgcolor="#FFFFFF">
 
 
 
 
-								<h:outputLabel for="fiche" value="Nom Fiche : *" />
-								<p:inputText id="fichen" value="#{ficheCtr.ficheN}"
-									required="true" label="Fiche">
+								<h:outputLabel for="user2" value="Etat  : *" />
+								<p:inputText id="user2" value="#{planning.etatpla}">
 									<f:validateLength minimum="2" />
 								</p:inputText>
-								<p:message for="fichen" />
-								<h:outputText value="" />
-
-
-								<h:outputLabel for="fichej" value="Desctription : *" />
-								<p:inputText id="fichej" value="#{ficheCtr.descript}"
-									required="true" label="Fiche">
+								<h:outputLabel for="user3" value="Montant  : *" />
+								<p:inputText id="user3" value="#{planning.montantpla}">
 									<f:validateLength minimum="2" />
 								</p:inputText>
-								<p:message for="fichej" />
-								<h:outputText value="" />
-
-								<h:outputLabel for="ficheji" value="Periodicite : *" />
-								<p:inputText id="ficheji" value="#{ficheCtr.fichePerio}"
-									required="true" label="Fiche">
-									<f:validateLength minimum="2" />
-								</p:inputText>
-								<p:message for="ficheji" />
-								<h:outputText value="" />
-
-								<h:outputLabel for="fichejii" value="Ordre de lancement : " />
-								<p:inputText id="fichejii" value="#{ficheCtr.ordereDeL}"
-									required="true" label="Fiche">
-									<f:validateLength minimum="2" />
-								</p:inputText>
-								<p:message for="fichejii" />
-								<h:outputText value="" />
-
-								<h:outputLabel for="fichejiiv" value="journee : " />
-								<p:calendar id="fichejiiv" value="#{ficheCtr.jour}"
-									required="true" label="Fiche">
-
-								</p:calendar>
-
-								<h:outputLabel for="fichejiivb" value="Duree de traitement : " />
-								<p:calendar id="fichejiivb" value="#{ficheCtr.dureeTrait}"
-									required="true" label="Fiche">
-
-								</p:calendar>
 
 
-								<p:message for="fichejiiv" />
-								<h:outputText value="" />
+
+
 
 							</h:panelGrid>
+							<br />
+<p:dataTable var="act" value="#{traitementCtr.traitements}" id="ListUser" editable="true" >
+			<p:growl id="msg" />
+	<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+<p:column>
+<h:outputText value="#{act.traitementId}" />
 
 
 
-						</center>
-						<MARQUEE direction="left" bgcolor="#FFFFFF">
-						
-<font
-							color="red"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';"> Veuillez inserer les actions correspendentes a la fiche </font>
-
-			
-			</MARQUEE>
-				<center>
-						<p:panelGrid columns="2" rendered="#{ficheCtr.actionIsVisible}">
-
-							<h:outputLabel for="action" value="Action : *" />
-							<p:inputText id="action" value="#{ficheCtr.nameAction}">
-								<f:validateLength minimum="2" />
-							</p:inputText>
+</p:column> 
 
 
-							<h:outputLabel for="action1" value="Mode Operatoire : " />
-							<p:inputText id="action1" value="#{ficheCtr.modeOperatoire}">
-								<f:validateLength minimum="8" />
-							</p:inputText>
+
+<p:column headerText="Nom Traitement"  >
+
+<h:outputText value="#{act.etat}" />
 
 
-							
-								<h:outputLabel for="action3" value="Verification : " />
-					<p:inputText id="action3" value="#{ficheCtr.verifi}">
-					 <f:validateLength minimum="8" />  
-				</p:inputText>
+
+</p:column> 
+
+<p:column headerText="H_exec" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.hExec}" />
+
+
+
+</p:column> 
+<p:column headerText="Montant" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.montant}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre In" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreIn}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre Out" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreOut}" />
+
+
+
+</p:column> 
+
 				
-				<h:outputLabel for="action4" value="Heure_Deb : " />
-					<p:calendar  id="action4" value="#{ficheCtr.heureDebut}">
-					  
-				</p:calendar>
-				
-			
-					<h:outputLabel for="action5" value="Heure_Fin : " />
-					<p:calendar  id="action5" value="#{ficheCtr.heuref}">
-					  
-				</p:calendar>
+</p:dataTable>
+ <p:dialog id="dialog" header="Car Detail" widgetVar="singleCarDialog" resizable="false"  
+              showEffect="fade" hideEffect="explode">  
+  
+        <h:panelGrid id="displaySingle" columns="2" cellpadding="4">  
+  
+         
+            <h:outputText value="Model:" />  
+            <h:outputText value="#{planning.traitementD}" style="font-weight:bold"/>  
+  
+            <h:outputText value="Year:" />  
+            <h:outputText value="#{planning.traitementMa}" style="font-weight:bold"/>  
+  
+      
+  
+           
+        </h:panelGrid>  
+    </p:dialog>  
+  
+ <f:facet name="footer"> 
+ 
+      <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search"  
+                             update=":form:displayMulti" />  
+        </f:facet> 
+        
+							<p></p>
 
+							<p:commandButton value="save"
+								actionListener="#{planning.docreatePlanning()}" update="growl"></p:commandButton>
+							<p:commandButton value="Reset" type="reset" />
 
-							<p:commandButton value="Enregistrer"
-								action="#{ficheCtr.addActionToListActions()}" update="growl1"></p:commandButton>
-								<p:commandButton value="Ajouter" type="reset" />
-
-
-						</p:panelGrid>
 						</center>
-						<br />
-						<br />
-						<center>
-						
-							<p:commandButton value="Enregistrer la fiche"
-								actionListener="#{ficheCtr.doAddFiche()}" update="growl1"></p:commandButton>
 
-							<p:commandButton value="Vider" type="reset" />
-						</center>
+					</form>
 
-
-					</h:form>
 				</p:layoutUnit>
 
 

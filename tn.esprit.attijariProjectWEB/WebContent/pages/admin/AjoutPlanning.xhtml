@@ -162,6 +162,70 @@
 
 							</h:panelGrid>
 							<br />
+<p:dataTable var="act" value="#{traitementCtr.traitements}" id="ListUser" editable="true" >
+			<p:growl id="msg" />
+	<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+<p:column>
+<h:outputText value="#{act.traitementId}" />
+
+
+
+</p:column> 
+
+
+
+<p:column headerText="Nom Traitement"  >
+
+<h:outputText value="#{act.etat}" />
+
+
+
+</p:column> 
+
+<p:column headerText="H_exec" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.hExec}" />
+
+
+
+</p:column> 
+<p:column headerText="Montant" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.montant}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre In" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreIn}" />
+
+
+
+</p:column> 
+<p:column headerText="Nbre Out" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.nbreOut}" />
+
+
+
+</p:column> 
+
+
+
+				
+</p:dataTable>
+ <f:facet name="footer"> 
+ 
+      <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search"  
+                             update=":form:displayMulti" oncomplete="PF('multiCarDialog').show()"/>  
+        </f:facet> 
+        
 							<p></p>
 
 							<p:commandButton value="save"

@@ -9,7 +9,9 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import tn.esprit.attijariProject.entities.Action;
 import tn.esprit.attijariProject.entities.Fiche;
+import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
 
 @ManagedBean
@@ -23,13 +25,64 @@ public class FicheCtr implements Serializable {
 
 	@EJB
 	public FicheDaoLocal ficheDaoLocal;
-private boolean actionIsVisible=true;
+	public ActionDaoLocal actionDaoLocal;
+	private String nameAction;
+	private List<Action> listAAjouter =new ArrayList<Action>();
+
+	public String getNameAction() {
+		return nameAction;
+	}
+
+	public void setNameAction(String nameAction) {
+		this.nameAction = nameAction;
+	}
+
+	public String getModeOperatoire() {
+		return modeOperatoire;
+	}
+
+	public void setModeOperatoire(String modeOperatoire) {
+		this.modeOperatoire = modeOperatoire;
+	}
+
+	public Date getHeureDebut() {
+		return heureDebut;
+	}
+
+	public void setHeureDebut(Date heureDebut) {
+		this.heureDebut = heureDebut;
+	}
+
+	public Date getHeuref() {
+		return heuref;
+	}
+
+	public void setHeuref(Date heuref) {
+		this.heuref = heuref;
+	}
+
+	public String getVerifi() {
+		return verifi;
+	}
+
+	public void setVerifi(String verifi) {
+		this.verifi = verifi;
+	}
+
+	private String modeOperatoire;
+	private Date heureDebut;
+	private Date heuref;
+	private String verifi;
+	private boolean actionIsVisible = true;
 	private Fiche fiche = new Fiche();
 	private List<Fiche> filtredFich;
 	private List<Fiche> fiches = new ArrayList<Fiche>();
-	private Fiche fiche1 = new Fiche();
 	
+	
+	private Fiche fiche1 = new Fiche();
+
 	private String ficheN;
+
 	public String getFicheN() {
 		return ficheN;
 	}
@@ -93,6 +146,8 @@ private boolean actionIsVisible=true;
 	private Date jour;
 	private String observ;
 	private String ordereDeL;
+	private Action action = new Action();
+	
 
 	public Fiche getFiche() {
 		return fiche;
@@ -112,26 +167,58 @@ private boolean actionIsVisible=true;
 		this.fiches = fiches;
 	}
 
-	public String doVisibleAction(){
-		
-		actionIsVisible=true;
+	public String doVisibleAction() {
+
+		actionIsVisible = true;
 		System.out.println(actionIsVisible);
-		return" ";
+		return " ";
 	}
+
 	public String doAddFiche() {
 		fiche.setDateDeTraitement(dateDeTrait);
 		fiche.setDescriptionFiche(descript);
 		fiche.setDureeTraitement(dureeTrait);
 		fiche.setFicheName(ficheN);
-		fiche.setFichePeriodicity(fichePerio)
-;
+		fiche.setFichePeriodicity(fichePerio);
 		fiche.setJournee(jour);
-		System.out.println("fiiiiiche");
+//		List<Action> actions =new ArrayList<Action>();
+//		actions.add(action);
+		
+		fiche.linkActionsToFiche(listAAjouter);
+	
+		System.out.println(listAAjouter.size());
+		
 		ficheDaoLocal.modifier(fiche);
 		return "";
 
 	}
 
+	public String docreateAction() {
+		action.setNameAction(nameAction);
+		action.setHeureDebut(heureDebut);
+		action.setModeOperatoire(modeOperatoire);
+		action.setHeureFin(heuref);
+		action.setVerification(verifi);
+		System.out.println("action associé lel fiche");
+		actionDaoLocal.creer(action);
+		return "";
+	}
+
+	public String addActionToListActions(){
+		action.setNameAction(nameAction);
+		action.setHeureDebut(heureDebut);
+		action.setModeOperatoire(modeOperatoire);
+		action.setHeureFin(heuref);
+		action.setVerification(verifi);
+		
+		listAAjouter.add(action);
+		
+		return"";
+		
+		
+		
+	}
+	
 	public Fiche getFiche1() {
 		return fiche1;
 	}

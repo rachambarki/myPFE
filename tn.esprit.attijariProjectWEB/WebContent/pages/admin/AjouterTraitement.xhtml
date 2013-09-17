@@ -144,10 +144,62 @@
 					<br />
 					<p></p>
 					
-					<p:commandButton value="save" actionListener="#{traitementCtr.doAddTraitement}" update="growl"></p:commandButton>
-					 <p:commandButton value="Reset" type="reset" /> 
+					
 			
 					</center>
+					<p:dataTable var="act" value="#{ficheCtr.fiches}" id="ListUser" editable="true"> 
+					<p:growl id="msg" />
+	<p:column icon="ui-icon-check">
+								<p:selectBooleanCheckbox value="">
+									<p:ajax update="msg" listener="#{formBean.addMessage}" />
+								</p:selectBooleanCheckbox>
+								<h:outputText value="" />
+							</p:column>
+						
+<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.ficheId}" />
+
+
+
+</p:column> 
+
+<p:column headerText="Nom fiche" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.ficheName}" />
+
+
+
+</p:column> 
+<p:column headerText="Periodicite" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.fichePeriodicity}" />
+
+
+</p:column>
+<p:column headerText="Descroption" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.descriptionFiche}" />
+
+
+
+</p:column> 
+<p:column headerText="Ordre de lancement" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
+
+<h:outputText value="#{act.ordereDeLancement}" />
+
+
+
+</p:column> 
+
+
+
+</p:dataTable>
+<p:commandButton value="save" actionListener="#{traitementCtr.doAddTraitement}" update="growl"></p:commandButton>
+					 <p:commandButton value="Reset" type="reset" /> 
+
+
+					
 					
 					</form>
 

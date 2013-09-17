@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_FICHE")
+@Table(name = "T_FICHE")
 public class Fiche implements Serializable {
 
 	/**
@@ -107,8 +108,8 @@ public class Fiche implements Serializable {
 		this.ordereDeLancement = ordereDeLancement;
 	}
 
-	@OneToMany(mappedBy = "fiche")
-	//oneToMany or @ManyToone
+	@OneToMany(mappedBy = "fiche",cascade=CascadeType.ALL)
+	// oneToMany or @ManyToone
 	public List<Action> getListActions() {
 		return listActions;
 	}
@@ -125,6 +126,7 @@ public class Fiche implements Serializable {
 	public void setTraitement(Traitement traitement) {
 		this.traitement = traitement;
 	}
+
 	@ManyToOne
 	public Planning getPlanning() {
 		return planning;
@@ -132,6 +134,15 @@ public class Fiche implements Serializable {
 
 	public void setPlanning(Planning planning) {
 		this.planning = planning;
+	}
+
+	public void linkActionsToFiche(List<Action> actions) {
+		this.listActions = actions;
+		for (Action c : actions) {
+			c.setFiche(this);
+
+		}
+
 	}
 
 }

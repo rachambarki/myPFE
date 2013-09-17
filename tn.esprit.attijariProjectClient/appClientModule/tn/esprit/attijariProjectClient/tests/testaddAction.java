@@ -15,11 +15,11 @@ public class testaddAction {
 				.lookup("tn.esprit.attijariProjectWEB/ActionDao!tn.esprit.attijariProject.services.dao.interfaces.ActionDaoRemote");
 
 		Action action = new Action();
-		action.setNameAction("action test");
+		action.setNameAction("action toutou");
 		action.setVerification("OK");
 		
-		
 		actionDaoRemote.creer(action);
+		System.out.println("action weslett");
 		
 	}
 

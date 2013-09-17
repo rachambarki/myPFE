@@ -1,5 +1,8 @@
 package tn.esprit.attijariProjectClient.tests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,12 +24,17 @@ public class testAddFiche {
 		
 		
 		Fiche fiche = new Fiche();
-		fiche.setFicheName("barra ib3edni ...");
+		fiche.setFicheId(21);
+		fiche.setFicheName("ficha bhima...");
+		
+	
 		
 		Action action =new Action();
-		action.setNameAction("faddedtni ");
+		action.setNameAction("bhima");
 		
-		action.setFiche(fiche);
+	List<Action> actions= new ArrayList<Action>();
+	actions.add(action);
+	fiche.linkActionsToFiche(actions);
 		
 		
 		ficheDaoRemote.creer(fiche);

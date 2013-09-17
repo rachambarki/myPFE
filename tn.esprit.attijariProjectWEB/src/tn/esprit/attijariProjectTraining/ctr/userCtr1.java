@@ -109,13 +109,15 @@ public class userCtr1 {
 	}
 
 	public String docreateUser() {
-		user1.setFirstName(fName);
-		user1.setLastName(lName);
-		user1.setMailAdress(mail);
-		user1.setMatricule(matr);
-		user1.setPassword(pass);
-		user1.setRole(rol);
-		userDaoLocal.modifier(user1);
+		User user= new User();
+		user.setFirstName(fName);
+		user.setLastName(lName);
+		user.setMailAdress(mail);
+		user.setMatricule(matr);
+		user.setPassword(pass);
+		user.setRole(rol);
+		userDaoLocal.creer(user);
+		System.out.println("ok");
 		return "";
 	}
 

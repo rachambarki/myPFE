@@ -23,7 +23,7 @@ public class TraitementCtr implements Serializable {
 	@EJB
 	TraitementDaoLocal traitementDaoLocal;
 	private List<Traitement> filtredTrait;
-
+	private List<Traitement> selectedTrait;
 	public int getTraitementMa() {
 		return traitementMa;
 	}
@@ -92,6 +92,7 @@ public class TraitementCtr implements Serializable {
 	private Traitement traitement = new Traitement();
 
 	private List<Traitement> traitements = new ArrayList<Traitement>();
+	private List<Traitement> selected = new ArrayList<Traitement>();
 
 	public Traitement getTraitement() {
 		return traitement;
@@ -130,6 +131,22 @@ public class TraitementCtr implements Serializable {
 
 	public void setFiltredTrait(List<Traitement> filtredTrait) {
 		this.filtredTrait = filtredTrait;
+	}
+
+	public List<Traitement> getSelectedTrait() {
+		return selectedTrait;
+	}
+
+	public void setSelectedTrait(List<Traitement> selectedTrait) {
+		this.selectedTrait = selectedTrait;
+	}
+
+	public List<Traitement> getSelected() {
+		return selected;
+	}
+
+	public void setSelected(List<Traitement> selected) {
+		this.selected = selected;
 	}
 
 }

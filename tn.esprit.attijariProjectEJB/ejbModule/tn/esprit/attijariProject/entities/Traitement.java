@@ -109,4 +109,18 @@ public class Traitement {
 		this.planning = planning;
 	}
 
+	// public void linkActionsToFiche(List<Action> actions) {
+	// this.listActions = actions;
+	// for (Action c : actions) {
+	// c.setFiche(this);
+	//
+	// }
+	public void linkFichtoTraitement(List<Fiche> fiches) {
+		this.listfiche = fiches;
+		for (Fiche f : fiches) {
+
+			f.setTraitement(this);
+		}
+
+	}
 }
