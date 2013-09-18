@@ -24,8 +24,7 @@ public class PlanningDao implements PlanningDaoLocal, PlanningDaoRemote {
 	@Override
 	public List<Planning> findAllPl() {
 
-		return entityManager.createQuery("select a from Planning a")
-				.getResultList();
+		return entityManager.createQuery("select p from Planning p").getResultList();
 	}
 
 	@Override

@@ -123,6 +123,7 @@ public class planning {
 		traitement.setNbreIn(nbreI);
 		traitement.setTraitementDate(traitementD);
 		System.out.println("traitement wsell");
+	
 		traitementDaoLocal.creer(traitement);
 		return "";
 

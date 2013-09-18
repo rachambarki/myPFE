@@ -89,6 +89,71 @@ public class userCtr1 {
 	private String rol;
 	private Integer matr;
 
+	public String getlNameO() {
+		return lNameO;
+	}
+
+	public void setlNameO(String lNameO) {
+		this.lNameO = lNameO;
+	}
+
+	public String getPassO() {
+		return passO;
+	}
+
+	public void setPassO(String passO) {
+		this.passO = passO;
+	}
+
+	public String getMailO() {
+		return mailO;
+	}
+
+	public void setMailO(String mailO) {
+		this.mailO = mailO;
+	}
+
+	public String getRolO() {
+		return rolO;
+	}
+
+	public void setRolO(String rolO) {
+		this.rolO = rolO;
+	}
+
+	public Integer getMatrO() {
+		return matrO;
+	}
+
+	public void setMatrO(Integer matrO) {
+		this.matrO = matrO;
+	}
+
+	private String fNameO;
+
+	public String getfNameO() {
+		return fNameO;
+	}
+
+	public void setfNameO(String fNameO) {
+		this.fNameO = fNameO;
+	}
+
+	private String lNameO;
+	private String passO;
+	private String mailO;
+	private String rolO;
+	private Integer matrO;
+	private String telO;
+
+	public String getTelO() {
+		return telO;
+	}
+
+	public void setTelO(String telO) {
+		this.telO = telO;
+	}
+
 	@EJB
 	UserDaoLocal userDaoLocal;
 
@@ -108,16 +173,29 @@ public class userCtr1 {
 		this.user1 = user1;
 	}
 
-	public String docreateUser() {
-		User user= new User();
-		user.setFirstName(fName);
-		user.setLastName(lName);
-		user.setMailAdress(mail);
-		user.setMatricule(matr);
-		user.setPassword(pass);
-		user.setRole(rol);
-		userDaoLocal.creer(user);
-		System.out.println("ok");
+	// public String docreateUser() {
+	// User user= new User();
+	// user.setFirstName(fName);
+	// user.setLastName(lName);
+	// user.setMailAdress(mail);
+	// user.setMatricule(matr);
+	// user.setPassword(pass);
+	// user.setRole(rol);
+	// userDaoLocal.creer(user);
+	// System.out.println("utilisateur ajoute avec succes");
+	// return "";
+	// }
+	public String docreateOperateur() {
+		Operateur operateur = new Operateur();
+		operateur.setFirstName(fName);
+		operateur.setLastName(lNameO);
+		operateur.setMailAdress(mailO);
+		operateur.setMatricule(matrO);
+		operateur.setPassword(passO);
+		operateur.setPhone(telO);
+
+		userDaoLocal.modifier(operateur);
+		System.out.println("operateur ajoute avec succes");
 		return "";
 	}
 
@@ -214,5 +292,6 @@ public class userCtr1 {
 	public void setAdministrateurs(List<Administrateur> administrateurs) {
 		this.administrateurs = administrateurs;
 	}
+
 
 }

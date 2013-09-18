@@ -59,6 +59,7 @@ public class PlanningCtr implements Serializable {
 		this.planning = planning;
 	}
 
+
 	public List<Planning> getPlannings() {
 		plannings = planningDaoLocal.findAllPl();
 		System.out.println(plannings.size());

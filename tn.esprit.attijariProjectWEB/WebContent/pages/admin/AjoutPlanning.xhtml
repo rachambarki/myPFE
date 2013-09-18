@@ -162,14 +162,19 @@
 
 							</h:panelGrid>
 							<br />
-<p:dataTable var="act" value="#{traitementCtr.traitements}" id="ListUser" editable="true" >
+<p:dataTable var="act" value="#{traitementCtr.datamodelTraitements}" id="ListUser" editable="true" >
 			<p:growl id="msg" />
-	<p:column icon="ui-icon-check">
-								<p:selectBooleanCheckbox value="">
-									<p:ajax update="msg" listener="#{formBean.addMessage}" />
-								</p:selectBooleanCheckbox>
-								<h:outputText value="" />
-							</p:column>
+			
+				<p:column>
+							
+				
+									  <p:commandLink action="#{traitementCtr.doSomthing}">  
+            <p:graphicImage library="images" name="ticc.jpg" style=" width : 25px;" />  
+         
+        </p:commandLink> 
+        </p:column>
+							
+	
 <p:column>
 <h:outputText value="#{act.traitementId}" />
 
@@ -220,11 +225,7 @@
 
 				
 </p:dataTable>
- <f:facet name="footer"> 
- 
-      <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search"  
-                             update=":form:displayMulti" oncomplete="PF('multiCarDialog').show()"/>  
-        </f:facet> 
+
         
 							<p></p>
 

@@ -10,10 +10,12 @@
 		<h:form id="form99">
 	<p:growl id="growl"  sticky="true" /> 
 <center>
+<h:graphicImage library="images" name="ado.png"
+								style="width : 150px; height : 100px;" />
 			 
 				<h:panelGrid columns="2"  bgcolor="#FFFFFF">
 					<h:outputLabel for="firstname" value="Nom  : *" />
-					<p:inputText id="firstname" value="#{userCtr1.user1.firstName}">
+					<p:inputText id="firstname" value="#{userCtr1.fNameO}">
 				
 				    <f:validateLength minimum="2" />  
             </p:inputText>  
@@ -22,7 +24,7 @@
             
             
 				<h:outputLabel for="user2" value="Prenom  : *" />
-					<p:inputText id="user2" value="#{userCtr1.user1.lastName}">
+					<p:inputText id="user2" value="#{userCtr1.lNameO}">
 					  <f:validateLength minimum="2" /> 
 				</p:inputText>
 				 <h:outputText value="Tel Num: " />  
@@ -33,36 +35,32 @@
 					
 					
 					<h:outputLabel for="user3" value="Mail  : *" />
-					<p:inputText id="user3" value="#{userCtr1.user1.mailAdress}">
-					
-				</p:inputText>
-				<h:outputLabel for="user4" value="Role  : *" />
-					<p:inputText id="user4" value="#{userCtr1.user1.role}">
-					
-				</p:inputText>
+					<p:inputText id="user3" value="#{userCtr1.mailO}">
+					</p:inputText>
+			
 				<h:outputLabel for="user6" value="Matricule : *" />
-					<p:inputText id="user6" value="#{userCtr1.user1.matricule}">
+					<p:inputText id="user6" value="#{userCtr1.matrO}">
 					  <f:validateLength minimum="4" /> 
 				</p:inputText>
 				
 				
                              
             <h:outputLabel for="pwd1" value="Password 1: *" />  
-            <p:password id="pwd1" value="#{userCtr1.user1.password}" match="pwd2" feedback="true" inline="true"/>  
+            <p:password id="pwd1" value="#{userCtr1.passO}" match="pwd2" feedback="true" inline="true"/>  
   
             <h:outputLabel for="pwd2" value="Password 2: *" />  
-            <p:password id="pwd2" value="#{userCtr1.user1.password}" feedback="true" inline="true" />
+            <p:password id="pwd2" value="#{userCtr1.passO}" feedback="true" inline="true" />
 			
-				<h:outputLabel for="city" value="Equipe :" />  
-				 <p:selectOneMenu id="city" value="#{userCtr1.user1.equipe}"> 
-					        <f:selectItem itemLabel="Equipe rattache" itemValue="" />  
-                <f:selectItems value="#{userCtr1.user1.equipe}" />  
-              
-            </p:selectOneMenu>  
+			  
+              <h:outputText value="Editable: " />  
+        <p:selectOneMenu value="#{equipeController.nomEqu}" effect="fold" editable="true">  
+            <f:selectItem itemLabel="Select One" itemValue="" />  
+            <f:selectItems value="#{equipeController.equipes}" />  
+        </p:selectOneMenu> 
 					
 					</h:panelGrid>
 					
-					<p:commandButton value="save" actionListener="#{userCtr1.docreateUser}" update="growl"></p:commandButton>
+					<p:commandButton value="save" actionListener="#{userCtr1.docreateOperateur()}" update="growl"></p:commandButton>
 					 <p:commandButton value="Reset" type="reset" /> 
 			
 					</center>

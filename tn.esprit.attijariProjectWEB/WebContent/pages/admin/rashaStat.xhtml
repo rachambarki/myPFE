@@ -1,23 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/templaty/template.xhtml">
-	<ui:define name="title">manageEquipe</ui:define>
+	<ui:define name="title">statistique</ui:define>
 	<ui:define name="page">
-	
+		<h:form id="form99">
+		
 
-
-			<p:layout style="min-width:300px;height:500px;" id="layouty">
+	<p:layout style="min-width:300px;height:700px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
 						<MARQUEE direction="left" bgcolor="#000000">
 							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
-								Gerer les Equipe </font> <p:clock></p:clock>
-							
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Analyse statistique: </font>
+							<p:clock />
 
 						</MARQUEE>
 					</center>
@@ -93,100 +93,45 @@
 				
 				
 				
-<p:layoutUnit position="center">
 
-		
-		<center>
-<h:graphicImage library="images" name="immm.jpg" style="width : 100px; height : 108px;"/>
+
+
+
+			
+
+				<p:layoutUnit position="center">
+				<p></p>
+				
+				<center>
+				
+				
+				<h:panelGrid columns="4"  bgcolor="#FFFFFF">
+				
+			<h:form>
+
+
+<p:pieChart id="sample" value="#{chartBean.pieChartModel}" legendPosition="w"  
+                title="Analyse statistique des donn&eacute;es du suivi" style="width:500px;height:350px" />  
+
+
+
+</h:form>
+<h:form>
+<h:commandButton action="#{chartBean.getPieChartModel}" value="cc" />
+</h:form>
+ <p> <p:clock></p:clock></p>
+				
+</h:panelGrid>
 </center>
 
-<br />
-<h:form id="form">
-<center>
-<h:panelGrid columns="1" >
-				
-					
-				
-           
-            
-            
-            
-					
-					
-					<h:outputLabel for="user3" value="Equipe  : *" />
-					<p:inputText id="user3" value="#{equipeController.nomEqu}">
-								
-		</p:inputText>
-		<br />
-			<h:outputLabel for="userP" value="Descristion  : *" />
-					<p:inputText id="userP" value="#{equipeController.descEqu}">
-					
+				</p:layoutUnit>
+
+
 			
-			
-		</p:inputText>
-		
-					
-				
-					</h:panelGrid>
-	
-				<br />
-<br />					
-					<p:commandButton value="save" action="#{equipeController.doAddEquipe()}" />
-					 <p:commandButton value="Reset" type="reset" /> 
-		
-
-</center>
-<br />
-
-			<p:dataTable var="ListUser" value="#{equipeController.equipes}" id="ListUser"
-				editable="true">
-				<p:column headerText=" "
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.idEquipe}" />
+			</p:layout>
 
 
-
-				</p:column>
-				<p:column headerText="Equipe"
-					style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.nomEquipe}" />
-
-
-				</p:column>
-				<p:column headerText="DMission "
-					style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-					<h:outputText value="#{ListUser.descEquipe}" />
-
-
-
-				</p:column>
-		
-			
-				
-			</p:dataTable>
 		</h:form>
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-</p:layoutUnit>
-</p:layout>
-
 
 
 	</ui:define>

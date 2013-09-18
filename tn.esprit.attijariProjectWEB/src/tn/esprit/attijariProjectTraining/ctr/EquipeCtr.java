@@ -14,12 +14,11 @@ import tn.esprit.attijariProject.services.dao.interfaces.EquipeDaoLocal;
 @SessionScoped
 public class EquipeCtr {
 
-
 	@EJB
-	
 	EquipeDaoLocal equipeDaoLocal;
 	private Equipe equipe = new Equipe();
 	private List<Equipe> equipes = new ArrayList<Equipe>();
+
 	public Equipe getEquipe() {
 		return equipe;
 	}
@@ -29,6 +28,8 @@ public class EquipeCtr {
 	}
 
 	public List<Equipe> getEquipes() {
+		equipes = equipeDaoLocal.listAllEquipe();
+		System.out.println("equipe wesl");
 		return equipes;
 	}
 

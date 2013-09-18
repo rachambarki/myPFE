@@ -9,11 +9,13 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import tn.esprit.attijariProject.entities.Traitement;
 import tn.esprit.attijariProject.services.dao.interfaces.TraitementDaoLocal;
 
-@ManagedBean
+@ManagedBean(name="traitementCtr")
 @SessionScoped
 public class TraitementCtr implements Serializable {
 	/**
@@ -25,10 +27,21 @@ public class TraitementCtr implements Serializable {
 	TraitementDaoLocal traitementDaoLocal;
 	private List<Traitement> filtredTrait;
 	private List<Traitement> selectedTrait;
-	@ManagedProperty (value="#{ficheCtr}")
+	// private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
+	private DataModel<Traitement> datamodelTraitements = new ListDataModel<Traitement>();
+	private List<Traitement> selectedTraitFromTable = new ArrayList<Traitement>();
+
+	public String doSomthing() {
+		Traitement traitementTMP = datamodelTraitements.getRowData();
+		selectedTraitFromTable.add(traitementTMP);
+
+		System.out.println("ahla :" + selectedTraitFromTable.size());
+		return "";
+	}
+
+	@ManagedProperty(value = "#{ficheCtr}")
 	private FicheCtr ficheCtr;
-	
-	
+
 	public int getTraitementMa() {
 		return traitementMa;
 	}
@@ -125,10 +138,9 @@ public class TraitementCtr implements Serializable {
 		traitement.setNbreIn(nbreI);
 		traitement.setTraitementDate(traitementD);
 		System.out.println("traitement ajoute avec succes");
-		
+
 		traitement.linkFichtoTraitement(ficheCtr.getSelectedFichesFromTable());
-		
-		
+
 		traitementDaoLocal.modifier(traitement);
 		return "";
 
@@ -164,6 +176,26 @@ public class TraitementCtr implements Serializable {
 
 	public void setFicheCtr(FicheCtr ficheCtr) {
 		this.ficheCtr = ficheCtr;
+	}
+
+	public DataModel<Traitement> getDatamodelTraitements() {
+		datamodelTraitements.setWrappedData(traitementDaoLocal
+				.findAllTraitement());
+		return datamodelTraitements;
+	}
+
+	public void setDatamodelTraitements(
+			DataModel<Traitement> datamodelTraitements) {
+		this.datamodelTraitements = datamodelTraitements;
+	}
+
+	public List<Traitement> getSelectedTraitFromTable() {
+		return selectedTraitFromTable;
+	}
+
+	public void setSelectedTraitFromTable(
+			List<Traitement> selectedTraitFromTable) {
+		this.selectedTraitFromTable = selectedTraitFromTable;
 	}
 
 }

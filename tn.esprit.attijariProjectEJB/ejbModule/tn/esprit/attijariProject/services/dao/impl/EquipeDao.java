@@ -16,10 +16,9 @@ public class EquipeDao implements EquipeDaoLocal, EquipeDaoRemote {
 	private EntityManager entityManager;
 
 		public List<Equipe> listAllEquipe() {
-			return null;
+		
 
-		//return entityManager.createQuery("select e from Equipe e")
-			//	.getResultList();
+		return entityManager.createQuery("select e from Equipe e").getResultList();
 	}
 
 	@Override

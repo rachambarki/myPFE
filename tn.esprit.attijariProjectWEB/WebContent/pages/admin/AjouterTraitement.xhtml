@@ -150,10 +150,14 @@
 					<p:dataTable var="act" value="#{ficheCtr.dataModelFichs}" id="ListUser" editable="true"> 
 					<p:growl id="msg" />
 	
+					
 							<p:column>
 							
-				<p:commandButton action="#{ficheCtr.doSomthing}" value="select" />
-							</p:column>
+							  <p:commandLink action="#{ficheCtr.doSomthing}">  
+            <p:graphicImage library="images" name="ticc.jpg" style=" width : 25px;" />  
+         
+        </p:commandLink> 
+        </p:column>
 						
 <p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 

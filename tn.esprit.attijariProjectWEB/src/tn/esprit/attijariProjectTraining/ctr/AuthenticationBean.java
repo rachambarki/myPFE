@@ -40,7 +40,7 @@ public class AuthenticationBean {
 			}
 
 		} else {
-			FacesMessage message = new FacesMessage("Bad credentials!");
+			FacesMessage message = new FacesMessage("Veuillez vérifier vos paramètres d'authetification!");
 			FacesContext.getCurrentInstance().addMessage(
 					"login_form:login_submit", message);
 			setLoggedIn(false);

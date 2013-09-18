@@ -57,6 +57,8 @@ public class equipeController {
 	}
 
 	public List<Equipe> getEquipes() {
+		equipes = equipeDaoLocal.listAllEquipe();
+		System.out.println("equipe wesl");
 		return equipes;
 	}
 
@@ -64,22 +66,22 @@ public class equipeController {
 		this.equipes = equipes;
 	}
 
-//	public String doAddEquipe() {
-//
-//		String retour = "";
-//		try {
-//			equipeDaoLocal.creer(equipe);
-//		} catch (Exception e) {
-//			retour = "ma zedech equipe";
-//		}
-//		return retour;
-//
-//	}
-	
+	// public String doAddEquipe() {
+	//
+	// String retour = "";
+	// try {
+	// equipeDaoLocal.creer(equipe);
+	// } catch (Exception e) {
+	// retour = "ma zedech equipe";
+	// }
+	// return retour;
+	//
+	// }
+
 	public String doAddEquipe() {
-	equipe.setNomEquipe(nomEqu);
+		equipe.setNomEquipe(nomEqu);
 		System.out.println("equipe wsell");
-		
+
 		equipeDaoLocal.modifier(equipe);
 		return "";
 
