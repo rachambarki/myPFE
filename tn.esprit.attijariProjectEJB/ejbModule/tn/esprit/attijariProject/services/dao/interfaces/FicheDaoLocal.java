@@ -12,5 +12,7 @@ public interface FicheDaoLocal extends IDaoGenerique<Fiche> {
 	Fiche findFiche(int idFiche);
 
 	List<Fiche> findAllFiche();
+	
+	Fiche updateFiche(Fiche fiche);
 
 }

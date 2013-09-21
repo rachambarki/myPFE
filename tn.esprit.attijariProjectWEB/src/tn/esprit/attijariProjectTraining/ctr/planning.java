@@ -1,11 +1,14 @@
 package tn.esprit.attijariProjectTraining.ctr;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import tn.esprit.attijariProject.entities.Planning;
 import tn.esprit.attijariProject.entities.Traitement;
@@ -13,14 +16,60 @@ import tn.esprit.attijariProject.services.dao.interfaces.PlanningDaoLocal;
 import tn.esprit.attijariProject.services.dao.interfaces.TraitementDaoLocal;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class planning {
+
 	@EJB
 	PlanningDaoLocal planningDaoLocal;
 	private Planning planning = new Planning();
+	private boolean etat;
+
+	public boolean isEtat() {
+		return etat;
+	}
+
+	public void setEtat(boolean etat) {
+		this.etat = etat;
+	}
+
+	public int getMontant() {
+		return montant;
+	}
+
+	public void setMontant(int montant) {
+		this.montant = montant;
+	}
+
+	private int montant;
+	@EJB
 	TraitementDaoLocal traitementDaoLocal;
 	private Traitement traitement;
-	private List<Traitement> selectedTr;
+	private List<Traitement> selectedTr = new ArrayList<Traitement>();
+
+	private DataModel<Planning> dataModelPlannings = new ListDataModel<Planning>();
+	private DataModel<Traitement> dataModelTraitements = new ListDataModel<Traitement>();
+
+	public DataModel<Traitement> getDataModelTraitements() {
+		dataModelTraitements.setWrappedData(traitementDaoLocal
+				.findAllTraitement());
+
+		return dataModelTraitements;
+	}
+
+	public void setDataModelTraitements(
+			DataModel<Traitement> dataModelTraitements) {
+		this.dataModelTraitements = dataModelTraitements;
+	}
+
+	public DataModel<Planning> getDataModelPlannings() {
+		dataModelPlannings.setWrappedData(planningDaoLocal.findAllPl());
+		return dataModelPlannings;
+	}
+
+	public void setDataModelPlannings(DataModel<Planning> dataModelPlannings) {
+		this.dataModelPlannings = dataModelPlannings;
+	}
+
 	private int traitementMa;
 
 	private Date traitementD;
@@ -115,16 +164,13 @@ public class planning {
 		return "";
 	}
 
-	public String doAddTraitement() {
-		traitement.setEtat(eta);
-		traitement.sethExec(hEc);
-		traitement.setMontant(mont);
-		traitement.setTraitementMatricule(traitementMa);
-		traitement.setNbreIn(nbreI);
-		traitement.setTraitementDate(traitementD);
-		System.out.println("traitement wsell");
-	
-		traitementDaoLocal.creer(traitement);
+	public String doAddPlanning() {
+
+		planning.setEtat(etat);
+		planning.setMontant(montant);
+		planning.linkTraitementToPlanning(selectedTr);
+		planningDaoLocal.creer(planning);
+		System.out.println("planning Ajouté avc succes");
 		return "";
 
 	}
@@ -143,6 +189,23 @@ public class planning {
 
 	public void setSelectedTr(List<Traitement> selectedTr) {
 		this.selectedTr = selectedTr;
+	}
+
+	public String doSomthing() {
+		Traitement traitementTMP = dataModelTraitements.getRowData();
+		System.out.println(traitementTMP.getTraitementId());
+		selectedTr.add(traitementTMP);
+		System.out.println(selectedTr.size());
+		return "";
+
+	}
+
+	public Traitement getTraitement() {
+		return traitement;
+	}
+
+	public void setTraitement(Traitement traitement) {
+		this.traitement = traitement;
 	}
 
 }

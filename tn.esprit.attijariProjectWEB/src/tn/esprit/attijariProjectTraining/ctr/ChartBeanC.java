@@ -52,7 +52,7 @@ public class ChartBeanC implements Serializable {
 		List<Planning> plannings;
 		plannings = planningDaoLocal.findAllPl();
 		int x = 0;
-		int y = 1;
+		int y = 0;
 
 		for (Planning p : plannings) {
 			if (p.isEtat()) {

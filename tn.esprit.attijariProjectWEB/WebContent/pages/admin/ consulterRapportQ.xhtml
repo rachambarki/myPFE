@@ -29,27 +29,38 @@
 <p:menu>
 
 <p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/home.xhtml" />
 <p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 </p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+
+<p:submenu label="Statistique" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Statistique" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/statistique.xhtml" />
+
 </p:submenu>
+
 <p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
 <p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
 </p:submenu>
 
+<p:submenu label="Recherche Rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+<p:menuitem value="Actions" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/rechercheActions.xhtml" />
+
+<p:menuitem value="Fiche de lancements" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchFiche.xhtml" />
+<p:menuitem value="Traitements" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchTraitment.xhtml" />
+
+</p:submenu>
+
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterFiche.jsf" />
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/consulterFiche.xhtml" />
 <p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/%20consulterRapportQ.jsf" />
-<p:menuitem value="Table de Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterRapportFM.jsf"/>
+<p:menuitem value="Table de Production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/ajoutEquipe.xhtml"/>
 
 
 </p:submenu>
 
 
 <p:submenu label="G&eacute;rer les utilisateurs" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+<p:menuitem value="Ajouter un utilisateur" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
 <p:menuitem value="G&eacute;rer les utilisateurs" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 
 </p:submenu>
@@ -110,100 +121,29 @@
     
     <p:panel >  
       <font color="#FF0000"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez selectionner un format: </font>
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez Lancer le téléchergement ci dessous: </font>
     
     
      <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5"> 
      <center>
-    
-        <h:commandLink>  
-            <p:graphicImage library="images" name="csv.png" style=" width : 100px;" />  
-            <p:dataExporter type="csv" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
-          
-        <h:commandLink>  
-            <p:graphicImage library="images" name="txt.png" style=" width : 100px;" />  
-            <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
-          
-        <h:commandLink>  
+   
             <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
-            <p:dataExporter type="pdf" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
+            
+									<h:outputText
+										value="Veuillez saisir la date d&eacute;sir&eacute;: " />
+									<p:inputText  />
+        
         </center>
         </h:panelGrid>
     </p:panel>  
    
  	
 </center>	
+<center>
 
-<p:growl id="messages" showDetail="true"/>
-
-<p:dataTable var="act" value="#{traitementCtr.traitements}" id="ListUser" editable="true"> 
-<p:growl id="msg" />
-	<p:column icon="ui-icon-check">
-								<p:selectBooleanCheckbox value="">
-									<p:ajax update="msg" listener="#{formBean.addMessage}" />
-								</p:selectBooleanCheckbox>
-								<h:outputText value="" />
-							</p:column>
-
-
-<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.traitementId}" />
-
-
-
-</p:column> 
-
-
-
-<p:column headerText="Nom Traitement" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.etat}" />
-
-
-
-</p:column> 
-
-<p:column headerText="H_exec" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.hExec}" />
-
-
-
-</p:column> 
-<p:column headerText="Montant" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.montant}" />
-
-
-
-</p:column> 
-<p:column headerText="Nbre In" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.nbreIn}" />
-
-
-
-</p:column> 
-<p:column headerText="Nbre Out" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.nbreOut}" />
-
-
-
-</p:column> 
-
-
-
-
-</p:dataTable>
-<p></p>
-	<center>
- <p:commandButton action="#{test.pdfCompta()}" value="testez ici" />
+ <p:commandButton action="#{test.pdfComptaa()}" value="D&eacute;buter t&eacute;l&eacute;chargement" />
  </center>
+
 			    </p:layoutUnit>  
 
  

@@ -29,17 +29,20 @@
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 							<p:menuitem value="Acceuil"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/home.xhtml" />
 							<p:menuitem value="D&eacute;connecter"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 								url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 						</p:submenu>
-						<p:submenu label="Calendrier"
+
+						<p:submenu label="Statistique"
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-							<p:menuitem value="Mon journal"
+							<p:menuitem value="Statistique"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/statistique.xhtml" />
+
 						</p:submenu>
+
 						<p:submenu label="Discussion Instantann&eacute;e"
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 							<p:menuitem value="Ma discussion"
@@ -47,17 +50,32 @@
 								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
 						</p:submenu>
 
+						<p:submenu label="Recherche Rapide"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Actions"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/rechercheActions.xhtml" />
+
+							<p:menuitem value="Fiche de lancements"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchFiche.xhtml" />
+							<p:menuitem value="Traitements"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchTraitment.xhtml" />
+
+						</p:submenu>
+
 						<p:submenu label="Exporter les Rapports"
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 							<p:menuitem value="Fiche de lancement"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterFiche.jsf" />
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/consulterFiche.xhtml" />
 							<p:menuitem value="Rapport Quotidien"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/%20consulterRapportQ.jsf" />
 							<p:menuitem value="Table de Production"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterRapportFM.jsf" />
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/ajoutEquipe.xhtml" />
 
 
 						</p:submenu>
@@ -67,7 +85,7 @@
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 							<p:menuitem value="Ajouter un utilisateur"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
 							<p:menuitem value="G&eacute;rer les utilisateurs"
 								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 								url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
@@ -150,7 +168,7 @@
 						<br />
 						<p:growl id="messages" showDetail="true" />
 
-						
+
 
 
 
@@ -162,7 +180,7 @@
 
 
 
-								<h:outputLabel for="fiche" value="Nom Fiche : *" />
+								<h:outputLabel for="fichen" value="Nom Fiche : *" />
 								<p:inputText id="fichen" value="#{ficheCtr.ficheN}"
 									required="true" label="Fiche">
 									<f:validateLength minimum="2" />
@@ -216,58 +234,61 @@
 
 
 						</center>
-						<MARQUEE direction="left" bgcolor="#FFFFFF">
-						
-<font
+						<MARQUEE direction="left" bgcolor="#FFFFFF"> <font
 							color="red"
-							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';"> Veuillez inserer les actions correspendentes a la fiche </font>
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">
+							Veuillez inserer les actions correspendentes a la fiche </font> </MARQUEE>
+						<center>
 
-			
-			</MARQUEE>
-				<center>
-						<p:panelGrid columns="2" rendered="#{ficheCtr.actionIsVisible}">
+							<p:panelGrid columns="2" rendered="#{ficheCtr.actionIsVisible}">
 
-							<h:outputLabel for="action" value="Action : *" />
-							<p:inputText id="action" value="#{ficheCtr.nameAction}">
-								<f:validateLength minimum="2" />
-							</p:inputText>
-
-
-							<h:outputLabel for="action1" value="Mode Operatoire : " />
-							<p:inputText id="action1" value="#{ficheCtr.modeOperatoire}">
-								<f:validateLength minimum="8" />
-							</p:inputText>
+								<h:outputLabel for="action" value="Action : *" />
+								<p:inputText id="action" value="#{ficheCtr.nameAction}">
+									<f:validateLength minimum="2" />
+								</p:inputText>
 
 
-							
+								<h:outputLabel for="action1" value="Mode Operatoire : " />
+								<p:inputText id="action1" value="#{ficheCtr.modeOperatoire}">
+									<f:validateLength minimum="8" />
+								</p:inputText>
+
+
+
 								<h:outputLabel for="action3" value="Verification : " />
-					<p:inputText id="action3" value="#{ficheCtr.verifi}">
-					 <f:validateLength minimum="8" />  
-				</p:inputText>
-				
-				<h:outputLabel for="action4" value="Heure_Deb : " />
-					<p:calendar  id="action4" value="#{ficheCtr.heureDebut}">
-					  
-				</p:calendar>
-				
-			
-					<h:outputLabel for="action5" value="Heure_Fin : " />
-					<p:calendar  id="action5" value="#{ficheCtr.heuref}">
-					  
-				</p:calendar>
+								<p:inputText id="action3" value="#{ficheCtr.verifi}">
+									<f:validateLength minimum="8" />
+								</p:inputText>
+
+								<h:outputLabel for="action4" value="Heure_Deb : " />
+								<p:calendar id="action4" value="#{ficheCtr.heureDebut}">
+
+								</p:calendar>
 
 
-							<p:commandButton value="Enregistrer"
-								action="#{ficheCtr.addActionToListActions()}" update="growl1"></p:commandButton>
+								<h:outputLabel for="action5" value="Heure_Fin : " />
+								<p:calendar id="action5" value="#{ficheCtr.heuref}">
+
+								</p:calendar>
+
+   <h:outputText value="Operateur" />  
+        <p:selectOneListbox id="basic" value="#{ficheCtr.matricule}">  
+            <f:selectItem itemLabel="Agent 1" itemValue="3" />  
+            <f:selectItem itemLabel="Agent 2" itemValue="4" />  
+           
+        </p:selectOneListbox>  
+
+								<p:commandButton value="Enregistrer"
+									action="#{ficheCtr.addActionToListActions()}" update="growl1"></p:commandButton>
 								<p:commandButton value="Ajouter" type="reset" />
 
 
-						</p:panelGrid>
+							</p:panelGrid>
 						</center>
 						<br />
 						<br />
 						<center>
-						
+
 							<p:commandButton value="Enregistrer la fiche"
 								actionListener="#{ficheCtr.doAddFiche()}" update="growl1"></p:commandButton>
 

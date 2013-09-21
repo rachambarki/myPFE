@@ -51,22 +51,25 @@
             <h:outputLabel for="pwd2" value="Password 2: *" />  
             <p:password id="pwd2" value="#{userCtr1.passO}" feedback="true" inline="true" />
 			
-			  
-              <h:outputText value="Editable: " />  
-        <p:selectOneMenu value="#{equipeController.nomEqu}" effect="fold" editable="true">  
-            <f:selectItem itemLabel="Select One" itemValue="" />  
-            <f:selectItems value="#{equipeController.equipes}" />  
-        </p:selectOneMenu> 
-					
+		
 					</h:panelGrid>
 					
 					<p:commandButton value="save" actionListener="#{userCtr1.docreateOperateur()}" update="growl"></p:commandButton>
 					 <p:commandButton value="Reset" type="reset" /> 
 			
 					</center>
+					  <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">  
+  
+        <h:outputText value="Options: " />  
+        <p:selectOneRadio id="options" value="#{equipeController.equipes}">  
+            <f:selectItem itemLabel="Option 1" itemValue="#{equipeController.nomEqu}" />  
+           
+        </p:selectOneRadio>  
+  
+
 					
 		
-
+</h:panelGrid>
 		</h:form>
 
 

@@ -1,11 +1,12 @@
 package tn.esprit.attijariProjectTraining.ctr;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import tn.esprit.attijariProject.entities.User;
 import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
@@ -15,6 +16,8 @@ import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
 public class UserCtr {
 	private String password;
 	private Integer matricule;
+	private int id;
+
 	public Integer getMatricule() {
 		return matricule;
 	}
@@ -33,9 +36,14 @@ public class UserCtr {
 	public UserCtr() {
 	}
 
-	private User user = new User();
+	private User user;
 
-	private List<User> users = new ArrayList<User>();
+	@PostConstruct
+	public void init() {
+		user = new User();
+	}
+
+	private List<User> users;
 	private boolean displayForm;
 
 	public String getPassword() {
@@ -45,7 +53,6 @@ public class UserCtr {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public String getFirstName() {
 		return firstName;
@@ -116,7 +123,8 @@ public class UserCtr {
 		users = userDaoLocal.findAllUsers();
 		try {
 			for (User m : users) {
-				if ((m.getMatricule()== matricule )&&( m.getPassword().equals(password))) {
+				if ((m.getMatricule() == matricule)
+						&& (m.getPassword().equals(password))) {
 					user = m;
 					msg2 = "user_getted_Ok";
 				}
@@ -136,20 +144,21 @@ public class UserCtr {
 		users = userDaoLocal.findAllUsers();
 		for (User m : users) {
 
-//			if (m.getMatricule().equals(matricule)
-//					&& m.getPassword().equals(password)) {
-//				user = m;
-//				return msg3;
-//			} else
-//
-//			if (m.getMatricule().equals(matricule)) {
-//				user = m;
-			if (m.getMatricule()==(matricule) && (m.getPassword()==(password))) {
+			// if (m.getMatricule().equals(matricule)
+			// && m.getPassword().equals(password)) {
+			// user = m;
+			// return msg3;
+			// } else
+			//
+			// if (m.getMatricule().equals(matricule)) {
+			// user = m;
+			if (m.getMatricule() == (matricule)
+					&& (m.getPassword() == (password))) {
 				user = m;
 				return msg3;
 			} else
 
-			if (m.getMatricule()==(matricule)) {
+			if (m.getMatricule() == (matricule)) {
 				user = m;
 
 				return msg3;
@@ -181,4 +190,31 @@ public class UserCtr {
 		this.displayForm = displayForm;
 	}
 
+	public void selectionner(ActionEvent actionEvent,User ListUser) {
+		// int id = (Integer) FacesContext.getCurrentInstance()
+		// .getExternalContext().getInitParameterMap().get("id");
+
+		user = ListUser;
+	}
+	
+	public void supprimer(ActionEvent actionEvent,User ListUser) {
+		// int id = (Integer) FacesContext.getCurrentInstance()
+		// .getExternalContext().getInitParameterMap().get("id");
+
+		userDaoLocal.supprimer(ListUser);
+	}
+
+	public void doUpdateUser(ActionEvent actionEvent) {
+
+		userDaoLocal.modifier(user);
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

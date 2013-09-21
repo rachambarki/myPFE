@@ -3,6 +3,7 @@ package tn.esprit.attijariProject.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -88,12 +89,13 @@ public class Action implements Serializable {
 		NameAction = nameAction;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
+		
 		this.user = user;
 	}
 

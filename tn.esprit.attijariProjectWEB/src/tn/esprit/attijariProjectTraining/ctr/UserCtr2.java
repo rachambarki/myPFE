@@ -3,6 +3,7 @@ package tn.esprit.attijariProjectTraining.ctr;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -17,8 +18,7 @@ import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
 
 @ManagedBean
 @SessionScoped
-// @RequestScoped
-public class userCtr1 {
+public class UserCtr2 {
 	@EJB
 	UserDaoLocal userDaoLocal;
 
@@ -29,8 +29,20 @@ public class userCtr1 {
 	private List<User> users = new ArrayList<User>();
 	private List<Operateur> operateurs = new ArrayList<Operateur>();
 	private List<Administrateur> administrateurs = new ArrayList<Administrateur>();
-
 	private static final String Prenom = null;
+	private String lName;
+	private String pass;
+	private String mail;
+	private String rol;
+	private Integer matr;
+
+	@PostConstruct
+	public void init() {
+
+		setUser1(new User());
+		user1 = new User();
+	}
+
 	private String fName;
 
 	public String getfName() {
@@ -93,11 +105,7 @@ public class userCtr1 {
 		return Prenom;
 	}
 
-	private String lName;
-	private String pass;
-	private String mail;
-	private String rol;
-	private Integer matr;
+
 
 	public String getlNameO() {
 		return lNameO;
@@ -198,6 +206,37 @@ public class userCtr1 {
 		return "";
 	}
 
+	// public void onEdit(RowEditEvent event) {
+	//
+	// System.out
+	// .println(((User) ((DataTable) event.getSource()).getRowData())
+	// .getMailAdress());
+	// User user = (User) event.getObject();
+	//
+	// FacesMessage msg = new FacesMessage("User modifie", user.getMatricule()
+	// + "");
+	// FacesContext.getCurrentInstance().addMessage(null, msg);
+	// System.out.println(user.getMailAdress());
+	//
+	// userDaoLocal.modifier((User) event.getObject());
+	// }
+
+	public void selectionnerr(ActionEvent event) {
+	
+	Integer matricule = (Integer) FacesContext.getCurrentInstance()
+				.getExternalContext().getInitParameterMap().get("matricule");
+		System.out.println("---" + matricule);
+		user1 = userDaoLocal.finfUserByMatricule(matricule);
+
+		// userSelected = (User) tableUser.getRowData();
+		// return null;
+		System.out.println("houni");
+	}
+
+	public void update(ActionEvent event) {
+		userDaoLocal.modifier(user1);
+	}
+
 	public String docreateOp() {
 
 		userDaoLocal.creer(operateur1);
@@ -210,7 +249,7 @@ public class userCtr1 {
 		return "";
 	}
 
-	public userCtr1() {
+	public UserCtr2() {
 	}
 
 	public void savePerson(ActionEvent actionEvent) {
@@ -253,6 +292,7 @@ public class userCtr1 {
 	}
 
 	public List<User> getUsers() {
+		users = userDaoLocal.findAllUsers();
 		return users;
 	}
 

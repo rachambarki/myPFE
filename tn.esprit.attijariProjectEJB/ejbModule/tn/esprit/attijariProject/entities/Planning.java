@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,6 +20,7 @@ public class Planning implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getIdPlanning() {
 		return idPlanning;
 	}
@@ -55,7 +58,7 @@ public class Planning implements Serializable {
 		this.traitements = traitements;
 	}
 
-	@OneToMany(mappedBy = "planning")
+	@OneToMany(mappedBy = "planning", cascade = CascadeType.ALL)
 	public List<Fiche> getListfiche() {
 		return listfiche;
 	}
@@ -68,14 +71,6 @@ public class Planning implements Serializable {
 	private int montant;
 	private boolean Etat;
 
-	// public void linkFichtoTraitement(List<Fiche> fiches) {
-	// this.listfiche = fiches;
-	// for (Fiche f : fiches) {
-	//
-	// f.setTraitement(this);
-	// }
-	//
-	// }
 	public void linkTraitementToPlanning(List<Traitement> traitementss) {
 		this.traitements = traitementss;
 		for (Traitement t : traitementss) {

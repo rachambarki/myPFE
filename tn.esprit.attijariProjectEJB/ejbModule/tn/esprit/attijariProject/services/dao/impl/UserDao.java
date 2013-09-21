@@ -20,13 +20,13 @@ public class UserDao implements UserDaoRemote, UserDaoLocal {
 
 	@Override
 	public void creer(User t) {
-		entityManager.persist(t);
+		entityManager.merge(t);
 
 	}
 
 	@Override
 	public void modifier(User t) {
-		System.out.println("wsel");
+		System.out.println("utilisateur modifié");
 		System.out.println(t.getFirstName());
 		entityManager.merge(t);
 
@@ -54,9 +54,16 @@ public class UserDao implements UserDaoRemote, UserDaoLocal {
 
 		return entityManager.find(User.class, matricule);
 	}
+
 	public User finfUserById(Integer id) {
 
 		return entityManager.find(User.class, id);
+	}
+
+	@Override
+	public User finfUserByName(String name) {
+
+		return entityManager.find(User.class, name);
 	}
 
 }

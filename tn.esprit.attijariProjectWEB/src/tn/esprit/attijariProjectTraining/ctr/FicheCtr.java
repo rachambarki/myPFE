@@ -13,10 +13,12 @@ import javax.faces.model.ListDataModel;
 
 import tn.esprit.attijariProject.entities.Action;
 import tn.esprit.attijariProject.entities.Fiche;
+import tn.esprit.attijariProject.entities.User;
 import tn.esprit.attijariProject.services.dao.interfaces.ActionDaoLocal;
 import tn.esprit.attijariProject.services.dao.interfaces.FicheDaoLocal;
+import tn.esprit.attijariProject.services.dao.interfaces.UserDaoLocal;
 
-@ManagedBean(name="ficheCtr")
+@ManagedBean(name = "ficheCtr")
 @SessionScoped
 public class FicheCtr implements Serializable {
 
@@ -28,19 +30,21 @@ public class FicheCtr implements Serializable {
 	@EJB
 	public FicheDaoLocal ficheDaoLocal;
 	public ActionDaoLocal actionDaoLocal;
+	private int matricule;
 	private String nameAction;
-	private List<Action> listAAjouter =new ArrayList<Action>();
-private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
-	
-	public String doSomthing(){
-		Fiche ficheTMP=dataModelFichs.getRowData();
+	private List<Action> listAAjouter = new ArrayList<Action>();
+	private List<Fiche> selectedFichesFromTable = new ArrayList<Fiche>();
+	@EJB
+	UserDaoLocal userDaoLocal;
+
+	public String doSomthing() {
+		Fiche ficheTMP = dataModelFichs.getRowData();
 		selectedFichesFromTable.add(ficheTMP);
-		
-		System.out.println("ahla :"+selectedFichesFromTable.size());
+
+		System.out.println("ahla :" + selectedFichesFromTable.size());
 		return "";
 	}
-	
-	
+
 	public String getNameAction() {
 		return nameAction;
 	}
@@ -89,9 +93,9 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 	private Fiche fiche = new Fiche();
 	private List<Fiche> filtredFich;
 	private List<Fiche> fiches = new ArrayList<Fiche>();
-	
-	private DataModel<Fiche> dataModelFichs=new ListDataModel<Fiche>();
-	
+
+	private DataModel<Fiche> dataModelFichs = new ListDataModel<Fiche>();
+
 	private Fiche fiche1 = new Fiche();
 
 	private String ficheN;
@@ -160,7 +164,6 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 	private String observ;
 	private String ordereDeL;
 	private Action action = new Action();
-	
 
 	public Fiche getFiche() {
 		return fiche;
@@ -188,20 +191,28 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 	}
 
 	public String doAddFiche() {
+
 		fiche.setDateDeTraitement(dateDeTrait);
 		fiche.setDescriptionFiche(descript);
 		fiche.setDureeTraitement(dureeTrait);
 		fiche.setFicheName(ficheN);
 		fiche.setFichePeriodicity(fichePerio);
 		fiche.setJournee(jour);
-//		List<Action> actions =new ArrayList<Action>();
-//		actions.add(action);
-		
+		// List<Action> actions =new ArrayList<Action>();
+		// actions.add(action);
+
 		fiche.linkActionsToFiche(listAAjouter);
+
+		// System.out.println(listAAjouter.size());
+		// ficheDaoLocal.findFiche(fiche.getFicheId());
+		// System.out.println(fiche.getFicheId());
 	
-		System.out.println(listAAjouter.size());
 		
-		ficheDaoLocal.modifier(fiche);
+
+		
+		
+		fiche = ficheDaoLocal.updateFiche(fiche);
+		// System.out.println(fiche.getFicheId());
 		return "";
 
 	}
@@ -213,25 +224,29 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 		action.setHeureFin(heuref);
 		action.setVerification(verifi);
 		System.out.println("action associé lel fiche");
+		User userFounded = userDaoLocal.findUser(matricule);
+		action.setUser(userFounded);
+		System.out.println(userFounded.getPassword());
 		actionDaoLocal.creer(action);
+		
+		System.out.println(matricule);
 		return "";
 	}
 
-	public String addActionToListActions(){
+	public String addActionToListActions() {
 		action.setNameAction(nameAction);
 		action.setHeureDebut(heureDebut);
 		action.setModeOperatoire(modeOperatoire);
 		action.setHeureFin(heuref);
 		action.setVerification(verifi);
 		
+
 		listAAjouter.add(action);
-		
-		return"";
-		
-		
-		
+
+		return "";
+
 	}
-	
+
 	public Fiche getFiche1() {
 		return fiche1;
 	}
@@ -265,7 +280,7 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 	}
 
 	public DataModel<Fiche> getDataModelFichs() {
-	dataModelFichs.setWrappedData(ficheDaoLocal.findAllFiche());
+		dataModelFichs.setWrappedData(ficheDaoLocal.findAllFiche());
 		return dataModelFichs;
 	}
 
@@ -273,14 +288,20 @@ private List<Fiche> selectedFichesFromTable=new ArrayList<Fiche>();
 		this.dataModelFichs = dataModelFichs;
 	}
 
-
 	public List<Fiche> getSelectedFichesFromTable() {
 		return selectedFichesFromTable;
 	}
 
-
 	public void setSelectedFichesFromTable(List<Fiche> selectedFichesFromTable) {
 		this.selectedFichesFromTable = selectedFichesFromTable;
+	}
+
+	public int getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(int matricule) {
+		this.matricule = matricule;
 	}
 
 }

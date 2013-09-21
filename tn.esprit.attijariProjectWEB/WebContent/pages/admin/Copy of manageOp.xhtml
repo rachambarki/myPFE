@@ -28,20 +28,17 @@
 						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 						<p:menuitem value="Acceuil"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/home.xhtml" />
+							url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 						<p:menuitem value="D&eacute;connecter"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 							url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 					</p:submenu>
-
-					<p:submenu label="Statistique"
+					<p:submenu label="Calendrier"
 						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-						<p:menuitem value="Statistique"
+						<p:menuitem value="Mon journal"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/statistique.xhtml" />
-
+							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/calendrier.jsf" />
 					</p:submenu>
-
 					<p:submenu label="Discussion Instantann&eacute;e"
 						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 						<p:menuitem value="Ma discussion"
@@ -49,32 +46,17 @@
 							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/chat.jsf" />
 					</p:submenu>
 
-					<p:submenu label="Recherche Rapide"
-						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-						<p:menuitem value="Actions"
-							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/rechercheActions.xhtml" />
-
-						<p:menuitem value="Fiche de lancements"
-							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchFiche.xhtml" />
-						<p:menuitem value="Traitements"
-							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/recherchTraitment.xhtml" />
-
-					</p:submenu>
-
 					<p:submenu label="Exporter les Rapports"
 						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 						<p:menuitem value="Fiche de lancement"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/consulterFiche.xhtml" />
+							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterFiche.jsf" />
 						<p:menuitem value="Rapport Quotidien"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/%20consulterRapportQ.jsf" />
 						<p:menuitem value="Table de Production"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/admin/ajoutEquipe.xhtml" />
+							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/consulterRapportFM.jsf" />
 
 
 					</p:submenu>
@@ -84,7 +66,7 @@
 						style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 						<p:menuitem value="Ajouter un utilisateur"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
-							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/ajoutOperateur.jsf" />
+							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
 						<p:menuitem value="G&eacute;rer les utilisateurs"
 							style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
 							url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/admin/manageOp.jsf" />
@@ -164,7 +146,7 @@
 
 
 
-					<p:dataTable var="ListUser" value="#{userCtr.users}" id="ListUser"
+					<p:dataTable var="ListUser" value="#{userCtr2.users}" id="ListUser"
 						editable="true">
 						<p:column headerText="Nom"
 							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
@@ -210,16 +192,20 @@
 						</p:column>
 
 						<p:column>
-							<p:commandButton icon="ui-icon-pencil"
-								actionListener="#{userCtr.selectionner(event,ListUser)}" update=":f2:p"
-								oncomplete="dlg.show()">
+							<p:commandButton update=":f2:p" oncomplete="dlg.show()"
+								icon="ui-icon-pencil" title="Modifier"
+								actionListener="#{userCtr2.selectionnerr}">
 
-								
+								<f:param name="matricule" value="#{ListUser.matricule}" />
+
 							</p:commandButton>
 
 							<p:commandButton icon="ui-icon-close"
-								actionListener="#{userCtr.supprimer(event,ListUser)}"
-								 update=":form:ListUser">
+								actionListener="#{userCtr1.selectionner}" update=":f2:p"
+								oncomplete="dlg.show()">
+
+								<f:param name="id" value="#{ListUser.matricule
+						}" />
 
 							</p:commandButton>
 						</p:column>
@@ -240,31 +226,14 @@
 
 
 							<h:outputLabel for="Nom" value="Nom:" />
-							<p:inputText value="#{userCtr.user.firstName}" id="Nom"
+							<p:inputText value="#{userCtr2.user1.firstName}" id="Nom"
 								required="true" label="Nom" />
-
-							<h:outputLabel for="Prenom" value="Prenom:" />
-							<p:inputText value="#{userCtr.user.lastName}" id="Prenom"
-								required="true" label="Prenom" />
-
-							<h:outputLabel for="pwd" value="Mot de passe:" />
-							<h:inputText value="#{userCtr.user.password}" id="pwd"
-								required="true" label="pwd" />
-							<h:outputLabel for="pwd1" value="Telephone:" />
-							<h:inputText value="#{userCtr.user.phone}" id="pwd1"
-								required="true" label="pwd1" />
-
-
-							<h:outputLabel for="Mail" value="E-mail:" />
-							<p:inputText value="#{userCtr.user.mailAdress}" id="Mail"
-								required="true" label="Mail" />
 
 
 
 							<f:facet name="footer">
-								<p:commandButton id="modifier" value="Valider Modification" update="growl :form:ListUser"
-									actionListener="#{userCtr.doUpdateUser}" oncomplete="dlg.hide();" />
-								
+								<p:commandButton id="modifier" value="Valider" update="growl"
+									actionListener="#{userCtr2.update}" />
 
 
 							</f:facet>

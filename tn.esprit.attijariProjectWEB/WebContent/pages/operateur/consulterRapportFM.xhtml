@@ -28,8 +28,8 @@
 <p:layoutUnit position="west" size="260" >
 <p:menu>
 
-<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/home1.jsf" />
+<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';"  >
+<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/home1.xhtml" />
 <p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
 </p:submenu>
 <p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
@@ -42,8 +42,11 @@
 <p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
 </p:submenu>
 <p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/consulterFiche.jsf" />
-<p:menuitem value="Rapport Quotidien" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/%20consulterRapportQ.jsf" />
+
+<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterFiche.xhtml" />
+<p:menuitem value="Toute les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterRapportFM.xhtml" />
+
+<p:menuitem value="Table de production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/%20consulterRapportQ.xhtml" />
 
 </p:submenu>
 
@@ -77,28 +80,18 @@
 
     
     <p:panel >  
-       <h:outputText value="Id" /><br/>
-    <h:inputText value="#{Test.ficheId}" />
       <font color="#FF0000"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez selectionner un format: </font>
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez remplir les champs: </font>
     
     
      <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5"> 
      <center>
     
-        <h:commandLink>  
-            <p:graphicImage library="images" name="csv.png" style=" width : 100px;" />  
-            <p:dataExporter type="csv" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
+      
           
         <h:commandLink>  
-            <p:graphicImage library="images" name="txt.png" style=" width : 100px;" />  
-            <p:dataExporter type="txt" target="tbl" fileName="actions" pageOnly="true"/>  
-        </h:commandLink>  
-          
-        <h:commandLink action="#{test.pdfparam()}">  
             <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
-           
+            <p:dataExporter type="pdf" target="tbl" fileName="actions" pageOnly="true"/>  
         </h:commandLink>  
         </center>
         </h:panelGrid>
@@ -109,40 +102,10 @@
 
 <p:growl id="messages" showDetail="true"/>
 
-<p:dataTable var="act" value="#{planningCtr.plannings}" id="ListUser" editable="true"> 
-<p:growl id="msg" />
-	<p:column icon="ui-icon-check">
-								<p:selectBooleanCheckbox value="">
-									<p:ajax update="msg" listener="#{formBean.addMessage}" />
-								</p:selectBooleanCheckbox>
-								<h:outputText value="" />
-							</p:column>
 
-
-
-<p:column headerText="" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.idPlanning}" />
-
-
-
-</p:column> 
-<p:column headerText="Montant" style="FONT-SIZE:medium; FONT-FAMILY: 'Times New Roman';">
-
-<h:outputText value="#{act.montant}" />
-
-
-
-</p:column> 
-
-
-
-
-
-</p:dataTable>
 <p></p>
 	<center>
- <p:commandButton action="#{test.pdfCompta()}" value="testez ici" />
+ <p:commandButton action="#{test.pdfCompta}" value="Lancer le t&eacute;l&eacute;chargement" />
  </center>
 			    </p:layoutUnit>  
 

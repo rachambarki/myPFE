@@ -26,6 +26,7 @@ public class FicheDao implements FicheDaoLocal, FicheDaoRemote {
 		entityManager.merge(t);
 
 	}
+	
 
 	@Override
 	public void supprimer(Fiche t) {
@@ -46,4 +47,9 @@ public class FicheDao implements FicheDaoLocal, FicheDaoRemote {
 		return entityManager.createQuery("select f from Fiche f").getResultList();
 
 }
+
+	
+	public Fiche updateFiche(Fiche fiche) {
+		return entityManager.merge(fiche);
+	}
 }

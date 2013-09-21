@@ -14,5 +14,7 @@ public interface UserDaoLocal extends IDaoGenerique<User> {
 	List<User> findAllUsers();
 	User finfUserByMatricule(Integer matricule);
 	User finfUserById(Integer id);
+	User finfUserByName(String name);
+	
 
 }
