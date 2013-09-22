@@ -8,107 +8,134 @@
 	<ui:define name="title">consulterFicheBy</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
-		
-		
-	
+
+
+
 			<p:layout style="min-width:300px;height:500px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
-						<MARQUEE direction="left" bgcolor="#000000">
-							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Exporter fiche </font>
-							<p:clock />
-
-						</MARQUEE>
+						<MARQUEE direction="left" bgcolor="#000000"> <font
+							color="white"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Exporter
+							fiche </font> <p:clock /> </MARQUEE>
 					</center>
 				</p:layoutUnit>
 
 
-<p:layoutUnit position="west" size="260" >
-<p:menu>
+				<p:layoutUnit position="west" size="260">
+					<p:menu>
 
-<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';"  >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/home1.xhtml" />
-<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-</p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/calendrier.jsf" />
-</p:submenu>
-<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/chatOp.jsf" />
-</p:submenu>
-<p:submenu label="Consultation rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
-</p:submenu>
-<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+						<p:submenu label="Acceuil"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Acceuil"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/home1.xhtml" />
+							<p:menuitem value="D&eacute;connecter"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/login.xhtml" />
+						</p:submenu>
+						<p:submenu label="Calendrier"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Mon journal"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/calendrier.xhtml" />
+						</p:submenu>
+						<p:submenu label="Discussion Instantann&eacute;e"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ma discussion"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/chatOp.xhtml" />
+						</p:submenu>
+						<p:submenu label="Consultation rapide"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Mes Fiches"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
+						</p:submenu>
+						<p:submenu label="Exporter les Rapports"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterFiche.xhtml" />
-<p:menuitem value="Toute les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterRapportFM.xhtml" />
-
-<p:menuitem value="Table de production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/%20consulterRapportQ.xhtml" />
-
-</p:submenu>
-
-
-
-
-
-
-
-
-
-</p:menu>
-</p:layoutUnit>
-
-				
-				
-				
-				
-
+							<p:menuitem value="Fiche de lancement"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterFiche.xhtml" />
+							<p:menuitem value="Toute les fiches"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterRapportFM.xhtml" />
 
 
+						</p:submenu>
 
-			
-							
 
-  
-    <p:layoutUnit position="center">  
-	
 
-				<center>
-		
 
-    
-    <p:panel >  
-      <font color="#FF0000"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez Lancer le téléchergement ci dessous: </font>
-    
-    
-     <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5"> 
-     <center>
-   
-            <p:graphicImage library="images" name="pdf.png" style=" width : 100px;"  />  
-            
+
+
+
+
+
+					</p:menu>
+				</p:layoutUnit>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<p:layoutUnit position="center">
+
+
+					<center>
+
+
+
+						<p:panel>
+							<font color="#FF0000"
+								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Veillez
+								Lancer le téléchergement ci dessous: </font>
+
+
+							<h:panelGrid columns="4" style="margin-bottom:10px"
+								cellpadding="5">
+								<center>
+
+									<p:graphicImage library="images" name="pdf.png"
+										style=" width : 100px;" />
+
 									<h:outputText
 										value="Veuillez saisir la matricule de la fiche d&eacute;sir&eacute;: " />
-									<p:inputText  />
-        
-        </center>
-        </h:panelGrid>
-    </p:panel>  
-   
- 	
-</center>	
-<center>
+									<h:outputText value=" " />
+									<center>
+									<h:inputText value="#{test.ficheId}" />
+									</center>
+									<br />
 
- <p:commandButton action="#{test.pdfComptaa()}" value="T&eacute;l&eacute;chargement" />
- </center>
 
-			    </p:layoutUnit>  
 
- 
-</p:layout> 
+
+								</center>
+							</h:panelGrid>
+						</p:panel>
+
+
+					</center>
+					<center>
+
+						<p:commandButton action="#{test.pdfparam()}"
+							value="T&eacute;l&eacute;chargement" />
+					</center>
+
+				</p:layoutUnit>
+
+
+			</p:layout>
 
 
 		</h:form>

@@ -8,53 +8,70 @@
 	<ui:define name="title">home1</ui:define>
 	<ui:define name="page">
 		<h:form id="form9">
-		
-		
-				<p:layout style="min-width:300px;height:500px;" id="layouty">
+
+
+			<p:layout style="min-width:300px;height:500px;" id="layouty">
 
 				<p:layoutUnit id="topy" position="north" size="35">
 					<center>
-						<MARQUEE direction="left" bgcolor="#000000">
-							<font color="white"
-								style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu Operateur le: </font>
-							<p:clock />
-
-						</MARQUEE>
+						<MARQUEE direction="left" bgcolor="#000000"> <font
+							color="white"
+							style="FONT-WEIGHT: bold; FONT-FAMILY: 'Times New Roman';">Menu
+							Operateur le: </font> <p:clock /> </MARQUEE>
 					</center>
 				</p:layoutUnit>
 
 
-<p:layoutUnit position="west" size="245" >
-  <h:form rendered="#{authenticationBean.loggedIn}">
-                	<h:panelGrid columns="2">
-                		<h:outputText value="Bienvenue Mr:  #{authenticationBean.user.firstName}" />
-                	
-                	</h:panelGrid>
-                </h:form>
-             
-<p:menu>
+				<p:layoutUnit position="west" size="245">
+					<h:form rendered="#{authenticationBean.loggedIn}">
+						<h:panelGrid columns="2">
+							<h:outputText
+								value="Bienvenue Mr:  #{authenticationBean.user.firstName}" />
 
-<p:submenu label="Acceuil" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';"  >
-<p:menuitem value="Acceuil" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/home1.xhtml" />
-<p:menuitem value="D&eacute;connecter" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/login.jsf" />
-</p:submenu>
-<p:submenu label="Calendrier" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mon journal" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/calendrier.jsf" />
-</p:submenu>
-<p:submenu label="Discussion Instantann&eacute;e" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Ma discussion" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/pages/operateur/chatOp.jsf" />
-</p:submenu>
-<p:submenu label="Consultation rapide" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
-<p:menuitem value="Mes Fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
-</p:submenu>
-<p:submenu label="Exporter les Rapports" style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';" >
+						</h:panelGrid>
+					</h:form>
 
-<p:menuitem value="Fiche de lancement" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterFiche.xhtml" />
-<p:menuitem value="Toute les fiches" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterRapportFM.xhtml" />
+					<p:menu>
 
-<p:menuitem value="Table de production" style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';" url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/%20consulterRapportQ.xhtml" />
+						<p:submenu label="Acceuil"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Acceuil"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/home1.xhtml" />
+							<p:menuitem value="D&eacute;connecter"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/login.xhtml" />
+						</p:submenu>
+						<p:submenu label="Calendrier"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Mon journal"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/calendrier.xhtml" />
+						</p:submenu>
+						<p:submenu label="Discussion Instantann&eacute;e"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Ma discussion"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/chatOp.xhtml" />
+						</p:submenu>
+						<p:submenu label="Consultation rapide"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
+							<p:menuitem value="Mes Fiches"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/recherche.xhtml" />
+						</p:submenu>
+						<p:submenu label="Exporter les Rapports"
+							style="FONT-SIZE: medium; FONT-FAMILY: 'Times New Roman';">
 
-</p:submenu>
+							<p:menuitem value="Fiche de lancement"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterFiche.xhtml" />
+							<p:menuitem value="Toute les fiches"
+								style="FONT-SIZE: small; FONT-FAMILY: 'Times New Roman';"
+								url="http://localhost:8182/tn.esprit.attijariProjectWEB/faces/pages/operateur/consulterRapportFM.xhtml" />
+
+
+						</p:submenu>
 
 
 
@@ -64,23 +81,23 @@
 
 
 
-</p:menu>
-</p:layoutUnit>
-                 <p:layoutUnit position="center">  
+					</p:menu>
+				</p:layoutUnit>
+				<p:layoutUnit position="center">
 
- 	<center>
-					
+					<center>
+
 
 						<h:graphicImage library="images" name="homy.jpg"
-							style="width :1100px; height : 429px;"  />
-						
-					</center>
-   
-			
-			    </p:layoutUnit>  
+							style="width :1100px; height : 429px;" />
 
- 
-</p:layout> 
+					</center>
+
+
+				</p:layoutUnit>
+
+
+			</p:layout>
 
 
 		</h:form>
