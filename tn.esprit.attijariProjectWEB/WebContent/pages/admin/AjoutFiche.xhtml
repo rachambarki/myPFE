@@ -135,7 +135,7 @@
 								<h:outputLabel for="fichej" value="Desctription : *" />
 								<p:inputText id="fichej" value="#{ficheCtr.descript}"
 									required="true" label="Fiche">
-									<f:validateLength minimum="2" />
+									
 								</p:inputText>
 								<p:message for="fichej" />
 								<h:outputText value="" />
@@ -143,7 +143,7 @@
 								<h:outputLabel for="ficheji" value="Periodicite : *" />
 								<p:inputText id="ficheji" value="#{ficheCtr.fichePerio}"
 									required="true" label="Fiche">
-									<f:validateLength minimum="2" />
+									
 								</p:inputText>
 								<p:message for="ficheji" />
 								<h:outputText value="" />
@@ -151,7 +151,7 @@
 								<h:outputLabel for="fichejii" value="Ordre de lancement : " />
 								<p:inputText id="fichejii" value="#{ficheCtr.ordereDeL}"
 									required="true" label="Fiche">
-									<f:validateLength minimum="2" />
+								
 								</p:inputText>
 								<p:message for="fichejii" />
 								<h:outputText value="" />
@@ -163,7 +163,7 @@
 								</p:calendar>
 
 								<h:outputLabel for="fichejiivb" value="Duree de traitement : " />
-								<p:calendar id="fichejiivb" value="#{ficheCtr.dureeTrait}"
+								<p:calendar id="fichejiivb" value="#{ficheCtr.dureeTrait}" pattern="MM/dd/yyyy HH:mm"
 									required="true" label="Fiche">
 
 								</p:calendar>
@@ -193,24 +193,22 @@
 
 								<h:outputLabel for="action1" value="Mode Operatoire : " />
 								<p:inputText id="action1" value="#{ficheCtr.modeOperatoire}">
-									<f:validateLength minimum="8" />
+								
 								</p:inputText>
 
 
 
 								<h:outputLabel for="action3" value="Verification : " />
 								<p:inputText id="action3" value="#{ficheCtr.verifi}">
-									<f:validateLength minimum="8" />
+								
 								</p:inputText>
 
 								<h:outputLabel for="action4" value="Heure_Deb : " />
-								<p:calendar id="action4" value="#{ficheCtr.heureDebut}">
-
-								</p:calendar>
-
+								<p:calendar id="action4" value="#{ficheCtr.heureDebut}" pattern="MM/dd/yyyy HH:mm">
+</p:calendar>
 
 								<h:outputLabel for="action5" value="Heure_Fin : " />
-								<p:calendar id="action5" value="#{ficheCtr.heuref}">
+								<p:calendar id="action5" value="#{ficheCtr.heuref}" pattern="MM/dd/yyyy HH:mm">
 
 								</p:calendar>
 

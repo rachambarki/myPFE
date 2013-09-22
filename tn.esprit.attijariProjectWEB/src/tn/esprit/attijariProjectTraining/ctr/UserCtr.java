@@ -17,6 +17,7 @@ public class UserCtr {
 	private String password;
 	private Integer matricule;
 	private int id;
+	private String rol;
 
 	public Integer getMatricule() {
 		return matricule;
@@ -190,18 +191,24 @@ public class UserCtr {
 		this.displayForm = displayForm;
 	}
 
-	public void selectionner(ActionEvent actionEvent,User ListUser) {
+	public void selectionner(ActionEvent actionEvent, User ListUser) {
 		// int id = (Integer) FacesContext.getCurrentInstance()
 		// .getExternalContext().getInitParameterMap().get("id");
 
 		user = ListUser;
 	}
-	
-	public void supprimer(ActionEvent actionEvent,User ListUser) {
-		// int id = (Integer) FacesContext.getCurrentInstance()
-		// .getExternalContext().getInitParameterMap().get("id");
 
+	public void supprimer(ActionEvent actionEvent, User ListUser) {
+		// try {
 		userDaoLocal.supprimer(ListUser);
+
+		// } catch (Exception e) {
+		// FacesMessage message = new FacesMessage(
+		// "violation de contrainte d'intégrité - enregistrement fils existant");
+		// FacesContext.getCurrentInstance().addMessage(firstName, message);
+
+		// }
+
 	}
 
 	public void doUpdateUser(ActionEvent actionEvent) {
@@ -216,5 +223,13 @@ public class UserCtr {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 }

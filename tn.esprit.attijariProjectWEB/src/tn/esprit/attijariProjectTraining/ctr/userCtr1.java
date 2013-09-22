@@ -192,6 +192,7 @@ public class userCtr1 {
 		operateur.setMatricule(matrO);
 		operateur.setPassword(passO);
 		operateur.setPhone(telO);
+		
 
 		userDaoLocal.modifier(operateur);
 		System.out.println("operateur ajoute avec succes");
